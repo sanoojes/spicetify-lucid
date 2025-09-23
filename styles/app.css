@@ -298,6 +298,7 @@
       transform: scale(0.98);
     }
   }
+  .znOINyqAy7ivIGbQyrbt:hover,
   .GimJ6fo6WOYPyWNVpSr1:hover,
   .main-topBar-searchBar:hover {
     transform: scale(1) !important;
@@ -316,11 +317,13 @@
     background: none;
   }
 
+  .znOINyqAy7ivIGbQyrbt,
   .GimJ6fo6WOYPyWNVpSr1 /* Search Hover / Recent Search Card */ {
     transition-duration: -1s;
     backdrop-filter: blur(32px);
     background-color: var(--background-base);
     border-radius: var(--m-br);
+    border: var(--default-border);
   }
 
   .main-userWidget-box {
