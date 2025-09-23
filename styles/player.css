@@ -326,16 +326,19 @@ div.cover-art-icon {
   }
 }
 
+.main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
 .main-entityHeader-container.main-entityHeader-withBackgroundImage {
   height: var(--main-view-height);
   background-image: linear-gradient(to bottom, transparent 75%, rgba(var(--clr-surface-rgb), 0.25));
 }
 .player-floating {
+  .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: calc(var(--main-view-height, 800px) - (var(--player-height, 5rem)));
   }
 }
 .global-nav-floating {
+  .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: calc(var(--main-view-height) + var(--global-nav-height) - var(--panel-gap));
   }
@@ -343,18 +346,21 @@ div.cover-art-icon {
 
 .global-nav-floating.global-nav-not-auto-hide,
 .global-nav-floating.global-nav-auto-hide {
+  .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: var(--main-view-height);
   }
 }
 
 .player-floating.global-nav-floating {
+  .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: calc(var(--main-view-height) - var(--player-height));
   }
 }
 
 .player-floating.player-auto-hide {
+  .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: var(--main-view-height);
   }
