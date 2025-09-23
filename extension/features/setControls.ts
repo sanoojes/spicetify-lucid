@@ -1,7 +1,6 @@
 import appStore from '@store/appStore.ts';
 import getOrCreateStyle from '@utils/dom/getOrCreateStyle.ts';
-import { isLinux, isVersionAtLeast, isWindows } from '@utils/platform.ts';
-import { isWidthOnlyProps } from 'react-virtualized-auto-sizer';
+import { isVersionAtLeast, isWindows } from '@utils/platform.ts';
 
 function getZoom() {
   const zoom = window.outerHeight / window.innerHeight;
@@ -11,9 +10,9 @@ function getZoom() {
 function mountTransparentWindowControls(height: number) {
   const { zoom, inverseZoom } = getZoom();
   const style = getOrCreateStyle('transparent-controls');
-  const isV46Above = isVersionAtLeast('1.2.46');
+  const hasCenteredNav = isVersionAtLeast('1.2.46') && !isVersionAtLeast('1.2.70');
 
-  const normalHeight = height || (isV46Above ? 32 : 64);
+  const normalHeight = height || (hasCenteredNav ? 32 : 64);
   if (normalHeight === 0) {
     style.textContent = `
 :root {--zoom: ${zoom};--inverse-zoom: ${inverseZoom};}
@@ -25,7 +24,7 @@ body::after {content: ""; height: 0; width: 0; position: fixed; top: 0; right: 0
   if (controlWidth > 500) return intervalCall();
 
   const scaledHeight = normalHeight / zoom;
-  const topOffset = isV46Above ? (scaledHeight - Math.min(32 / zoom, scaledHeight)) / 2 : 0;
+  const topOffset = hasCenteredNav ? (scaledHeight - Math.min(32 / zoom, scaledHeight)) / 2 : 0;
   const controlHeight = scaledHeight - topOffset * 2;
   if (controlHeight > 500) return intervalCall();
 
