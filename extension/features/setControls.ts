@@ -1,22 +1,29 @@
 import appStore from '@store/appStore.ts';
 import getOrCreateStyle from '@utils/dom/getOrCreateStyle.ts';
 import { isVersionAtLeast, isWindows } from '@utils/platform.ts';
+import getOrCreateElement from '@utils/dom/getOrCreateElement.ts';
 
 function getZoom() {
   const zoom = window.outerHeight / window.innerHeight;
   return { zoom, inverseZoom: 1 / zoom };
 }
 
+let controlElem: HTMLDivElement | null = null;
 function mountTransparentWindowControls(height: number) {
   const { zoom, inverseZoom } = getZoom();
-  const style = getOrCreateStyle('transparent-controls');
+  const style = getOrCreateStyle('transparent-control-style');
   const hasCenteredNav = isVersionAtLeast('1.2.46') && !isVersionAtLeast('1.2.70');
+
+  if (!controlElem) {
+    controlElem = getOrCreateElement('div', 'transparent-controls', document.body);
+    controlElem.className = 'transparent-controls';
+  }
 
   const normalHeight = height || (hasCenteredNav ? 32 : 64);
   if (normalHeight === 0) {
     style.textContent = `
 :root {--zoom: ${zoom};--inverse-zoom: ${inverseZoom};}
-body::after {content: ""; height: 0; width: 0; position: fixed; top: 0; right: 0;}`;
+.transparent-controls {content: ""; height: 0; width: 0; position: fixed; top: 0; right: 0;}`;
     return;
   }
 
@@ -30,7 +37,7 @@ body::after {content: ""; height: 0; width: 0; position: fixed; top: 0; right: 0
 
   style.textContent = `
 :root {--zoom: ${zoom};--inverse-zoom: ${inverseZoom};}
-body:after {
+.transparent-controls {
   content: "";
   height: ${controlHeight}px;
   width: ${controlWidth}px;
@@ -40,8 +47,8 @@ body:after {
   backdrop-filter: brightness(2.1);
   pointer-events: none;
 }
-html[dir="rtl"] body:after { left: 0; right: inherit; }
-body.hide-transparent-controls:after { display: none; content: none; }`;
+html[dir="rtl"] .transparent-controls { left: 0; right: inherit; }
+.transparent-controls.hide-transparent-controls { display: none; content: none; }`;
 }
 
 async function updateTitlebarHeight(height: number) {
@@ -60,6 +67,7 @@ export default function setControls(
   if (!isWindows()) return;
   updateTitlebarHeight(height).then(() => mountTransparentWindowControls(height));
 }
+setControls();
 
 function intervalCall() {
   const intervalId = setInterval(setControls, 300);
@@ -68,6 +76,6 @@ function intervalCall() {
 
 window.addEventListener('resize', intervalCall);
 document.addEventListener('fullscreenchange', () =>
-  document.body.classList.toggle('hide-transparent-controls', !!document.fullscreenElement)
+  controlElem?.classList.toggle('hide-transparent-controls', !!document.fullscreenElement)
 );
 appStore.subscribe((state) => state.uiPreferences.windowControlHeight, setControls);
