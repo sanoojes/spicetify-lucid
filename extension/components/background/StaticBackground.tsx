@@ -1,17 +1,15 @@
-import type { BackgroundState } from '@app/types/appStore.ts';
 import appStore from '@store/appStore.ts';
 import serializeFilters from '@utils/dom/serializeFilters.ts';
 import { useStore } from 'zustand';
 
-const StaticBackground: React.FC<{ imageSrc?: string }> = ({ imageSrc }) => {
+const StaticBackground: React.FC<{ imageSrc: string | null }> = ({ imageSrc }) => {
   const filter = useStore(appStore, (state) => state.bg.options.filter);
-  const imageMode = useStore(appStore, (state) => state.bg.options.imageMode);
 
   return (
     <div
       className={`bg static`}
       style={{
-        backgroundImage: getStaticImageUrl({ imageSrc, imageMode }),
+        backgroundImage: imageSrc ? `url("${imageSrc}")` : 'none',
         filter: serializeFilters(filter),
       }}
     />
@@ -19,10 +17,3 @@ const StaticBackground: React.FC<{ imageSrc?: string }> = ({ imageSrc }) => {
 };
 
 export default StaticBackground;
-
-function getStaticImageUrl(options: Partial<BackgroundState['options']>): string {
-  const { imageMode, imageSrc } = options;
-  if (imageMode === 'custom') return imageSrc ? `url(${imageSrc})` : 'var(--np-img-url)';
-  if (imageMode === 'page') return 'var(--page-desktop-img-url, var(--page-img-url))';
-  return 'var(--np-img-url)';
-}

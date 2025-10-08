@@ -708,6 +708,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    transition: background 0.3s;
   }
 }
 

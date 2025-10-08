@@ -11,12 +11,20 @@ const Background: React.FC = () => {
   const customUrl = useStore(appStore, (state) => state.bg.options.imageSrc);
   const npUrl = useStore(tempStore, (state) => state.player?.current?.url);
   const pageImgUrl = useStore(tempStore, (state) => state.pageImg);
-  const imageSrc =
-    (imageMode === 'custom'
-      ? customUrl
-      : imageMode === 'page'
-        ? (pageImgUrl.desktop ?? pageImgUrl.cover)
-        : npUrl) ?? npUrl;
+
+  const imageSrc = (() => {
+    if (imageMode === 'custom' && customUrl) return customUrl;
+
+    if (imageMode === 'page') {
+      const { desktop, cover } = pageImgUrl || {};
+      if (desktop) return desktop;
+      if (cover) return cover;
+    }
+
+    if (npUrl) return npUrl;
+
+    return null;
+  })();
 
   return (
     <div className="bg-wrapper">

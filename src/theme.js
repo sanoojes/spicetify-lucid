@@ -34387,25 +34387,18 @@ void main() {
   var import_jsx_runtime2 = __toESM(require_jsx_runtime());
   var StaticBackground = ({ imageSrc }) => {
     const filter = useStore(appStore_default, (state) => state.bg.options.filter);
-    const imageMode = useStore(appStore_default, (state) => state.bg.options.imageMode);
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       "div",
       {
         className: `bg static`,
         style: {
-          backgroundImage: getStaticImageUrl({ imageSrc, imageMode }),
+          backgroundImage: imageSrc ? `url("${imageSrc}")` : "none",
           filter: serializeFilters_default(filter)
         }
       }
     );
   };
   var StaticBackground_default = StaticBackground;
-  function getStaticImageUrl(options) {
-    const { imageMode, imageSrc } = options;
-    if (imageMode === "custom") return imageSrc ? `url(${imageSrc})` : "var(--np-img-url)";
-    if (imageMode === "page") return "var(--page-desktop-img-url, var(--page-img-url))";
-    return "var(--np-img-url)";
-  }
 
   // extension/store/tempStore.ts
   var tempStore = createStore()(
@@ -34427,7 +34420,16 @@ void main() {
     const customUrl = useStore(appStore_default, (state) => state.bg.options.imageSrc);
     const npUrl = useStore(tempStore_default, (state) => state.player?.current?.url);
     const pageImgUrl = useStore(tempStore_default, (state) => state.pageImg);
-    const imageSrc = (imageMode === "custom" ? customUrl : imageMode === "page" ? pageImgUrl.desktop ?? pageImgUrl.cover : npUrl) ?? npUrl;
+    const imageSrc = (() => {
+      if (imageMode === "custom" && customUrl) return customUrl;
+      if (imageMode === "page") {
+        const { desktop, cover } = pageImgUrl || {};
+        if (desktop) return desktop;
+        if (cover) return cover;
+      }
+      if (npUrl) return npUrl;
+      return null;
+    })();
     return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "bg-wrapper", children: mode === "animated" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "bg animated", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(AnimatedBackgroundCanvas_default, { imageSrc }) }) : mode === "solid" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "bg solid", style: { backgroundColor: color } }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(StaticBackground_default, { imageSrc }) });
   };
   var Background_default = Background;
