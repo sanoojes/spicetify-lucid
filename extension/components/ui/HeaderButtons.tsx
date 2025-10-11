@@ -11,7 +11,7 @@ const HeaderButtons: React.FC<{ closeModal: () => void }> = ({ closeModal }) => 
       <UI.Button
         variant="icon"
         className="discord"
-        onClick={() => openLink('https://discord.gg/PWEyKduwJh')}
+        onClick={() => openLink('https://social.sanooj.uk/spicetify-discord')}
         aria-label="Join Discord"
       >
         <DiscordIcon />
