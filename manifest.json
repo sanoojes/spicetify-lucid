@@ -16,22 +16,6 @@
     "tags": ["customizable", "dynamic", "fluent", "bloom"]
   },
   {
-    "name": "Lucid (Beta)",
-    "description": "Experimental build of Lucid. Intended for development and testing purposes only. Use at your own risk.",
-    "preview": "assets/images/base.png",
-    "readme": "README.md",
-    "usercss": "https://raw.githubusercontent.com/sanoojes/Spicetify-Lucid/beta/src/user.css",
-    "schemes": "https://raw.githubusercontent.com/sanoojes/Spicetify-Lucid/beta/src/color.ini",
-    "include": ["https://raw.githubusercontent.com/sanoojes/Spicetify-Lucid/beta/src/theme.js"],
-    "authors": [
-      {
-        "name": "Sachu",
-        "url": "https://github.com/sanoojes"
-      }
-    ],
-    "tags": ["beta", "unstable", "experimental"]
-  },
-  {
     "name": "Lucid V2 (Legacy)",
     "description": "Legacy version of Lucid V2, compatible with Spotify versions v1.2.45 to v1.2.60. No longer maintained.",
     "preview": "assets/images/base.png",
