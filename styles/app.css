@@ -617,6 +617,14 @@ div.main-trackList-trackListRow {
   padding-inline: 8px;
 }
 
+.zAvxP9ntNk6SsomFXWUv { /* Fixes top margin for album cover in right sidebar */
+  margin-top: 16px;
+}
+
+.mzBZbIt7NDzzTffimVhn.TjX06ItOHm0J21btzLaj { /* Fixes right sidebar transparency */
+  background: transparent !important;
+}
+
 .W3E0IT3_STcazjTeyOJa /* Header */ {
   position: absolute;
   height: 4rem;
