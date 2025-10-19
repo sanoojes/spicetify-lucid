@@ -387,6 +387,7 @@ div.cover-art-icon {
   }
 
   .main-view-container__scroll-node-child {
+    height: fit-content !important;
     padding-bottom: calc(var(--player-height, 5rem) - var(--panel-gap)) !important;
   }
 }

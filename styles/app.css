@@ -613,7 +613,8 @@ div.main-trackList-trackListRow {
     border: var(--hover-border);
   }
 }
-.tB3JVNYttFlVC_oYVfjI { /* Fixes related music videos card background in right sidebar */
+.tB3JVNYttFlVC_oYVfjI {
+  /* Fixes related music videos card background in right sidebar */
   background-color: var(--section-background-base) !important;
   border-radius: var(--section-border-radius) !important;
   z-index: 1 !important;
@@ -622,11 +623,13 @@ div.main-trackList-trackListRow {
   padding-inline: 8px;
 }
 
-.zAvxP9ntNk6SsomFXWUv { /* Fixes top margin for album cover in right sidebar */
+.zAvxP9ntNk6SsomFXWUv {
+  /* Fixes top margin for album cover in right sidebar */
   margin-top: 16px;
 }
 
-.mzBZbIt7NDzzTffimVhn.TjX06ItOHm0J21btzLaj { /* Fixes right sidebar transparency */
+.mzBZbIt7NDzzTffimVhn.TjX06ItOHm0J21btzLaj {
+  /* Fixes right sidebar transparency */
   background: transparent !important;
 }
 
