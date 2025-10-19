@@ -207,7 +207,8 @@
 .wlb3dYO07PZuYfmNfmkS,
 .DquSH3YjnaIIXMZiOvwA,
 .main-contextMenu-menu,
-#context-menu { /* Fix backdrop blur on Add to Playlist Modal */
+#context-menu > form,
+.jHt3xA6ovwVKkMJKqOhO {
   scrollbar-width: thin;
   background: var(--background-base);
   border-radius: 0.75rem;
