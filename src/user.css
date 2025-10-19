@@ -2315,7 +2315,7 @@ div.main-trackList-trackListRow {
       rgba(var(--clr-surface-rgb), 0.6) 100%) !important;
   border: var(--default-border);
   .e-9640-progress-bar__indicator {
-    --progress-bar-color: var(--icon-color, var(--clr-on-surface, #fafafa)) !important;
+    --progress-bar-color: var( --icon-color, var(--clr-on-surface, #fafafa) ) !important;
   }
   .V795GKOEZNiChr8dJcD4 {
     background-color: var(--icon-color);
@@ -2379,6 +2379,7 @@ div.main-trackList-trackListRow {
 .mXNT9H2GU7lDW4cGx0q1,
 .JYoTSXH6KEr_MIwisdZi,
 .e9iXRrRXf6MAlkmd8J0s,
+.gmNQCzeK5b2wiebA87rg,
 .main-card-cardContainer {
   border: var(--default-border);
   border-radius: var(--m-br);
