@@ -611,9 +611,12 @@ div.main-trackList-trackListRow {
     border: var(--hover-border);
   }
 }
-.tB3JVNYttFlVC_oYVfjI {
+.tB3JVNYttFlVC_oYVfjI { /* Fixes related music videos card background in right sidebar */
+  background-color: var(--section-background-base) !important;
+  border-radius: var(--section-border-radius) !important;
+  z-index: 1 !important;
   margin-inline: 0;
-  padding-block: 8px;
+  padding-block: 18px;
   padding-inline: 8px;
 }
 
