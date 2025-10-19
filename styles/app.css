@@ -206,7 +206,9 @@
 /* ========== Context Menu ========== */
 .wlb3dYO07PZuYfmNfmkS,
 .DquSH3YjnaIIXMZiOvwA,
-.main-contextMenu-menu {
+.main-contextMenu-menu,
+#context-menu > form,
+.jHt3xA6ovwVKkMJKqOhO {
   scrollbar-width: thin;
   background: var(--background-base);
   border-radius: 0.75rem;
