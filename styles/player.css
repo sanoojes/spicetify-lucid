@@ -30,7 +30,7 @@
   left: 50%;
   height: var(--player-height, 80px);
   transform: translate3d(-50%, 0, 0);
-  padding: 0 var(--panel-gap);
+  padding: 0; /* Fix docked player gap on sides */
 }
 
 .next-playing-card,
