@@ -30,7 +30,10 @@
   left: 50%;
   height: var(--player-height, 80px);
   transform: translate3d(-50%, 0, 0);
-  padding: 0; /* Fix docked player gap on sides */
+  padding: 0;
+}
+.floating .main-nowPlayingBar-container {
+  padding: 0 var(--panel-gap);
 }
 
 .next-playing-card,
