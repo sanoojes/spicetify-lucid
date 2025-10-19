@@ -660,6 +660,17 @@ div.main-trackList-trackListRow {
   padding-top: 4rem;
 }
 
+/* Change Spotify's fade out of Now Playing Canvas from going to black to going to transparent */
+.Of__Db4QgB9osz_mFxhw:before {
+  background: linear-gradient(180deg, hsla(0, 0%, 7%, .63), hsla(0, 0%, 7%, 0) 24.09%, hsla(0, 0%, 7%, 0) 80%, hsla(0, 0%, 7%, 0) 93.25%, hsla(0, 0%, 0%, 0));
+}
+.Of__Db4QgB9osz_mFxhw:after {
+  background: linear-gradient(180deg, hsla(0, 0%, 7%, .63), hsla(0, 0%, 7%, .53) 30%, hsla(0, 0%, 7%, .53) 70%, hsla(0, 0%, 0%, 0) 95%);
+}
+.Of__Db4QgB9osz_mFxhw video {
+  mask-image: linear-gradient(180deg, hsla(0, 0%, 0%, 1), hsla(0, 0%, 0%, 1) 30%, hsla(0, 0%, 0%, 1) 70%, hsla(0, 0%, 0%, 0));
+}
+
 .OemaZktMXaRcYQ5bcfLZ /* Friend Activity - Card Wrapper */ {
   gap: 16px;
 }
