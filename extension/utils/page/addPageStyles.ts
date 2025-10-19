@@ -13,7 +13,10 @@ export const addPageStyles = async (url = Spicetify?.Platform?.History?.location
   const style = document.body.style;
 
   if (url.pathname === '/search') {
-    const intervalId = setInterval(() => updateCardBgAlpha('.Vn9yz8P5MjIvDT8c0U6w'), 300);
+    const intervalId = setInterval(
+      () => updateCardBgAlpha('.Vn9yz8P5MjIvDT8c0U6w, .HR4FaJd7xDymgB64NpRG'),
+      300
+    );
     setTimeout(() => clearInterval(intervalId), 6000);
   }
   document.body.classList.toggle('at-disco', url.pathname?.includes('/discography'));

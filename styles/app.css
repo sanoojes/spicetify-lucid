@@ -542,6 +542,7 @@ div.main-trackList-trackListRow {
     padding: 4px;
   }
 
+  .HR4FaJd7xDymgB64NpRG,
   .Vn9yz8P5MjIvDT8c0U6w {
     border: var(--default-border);
     border-color: transparent;
@@ -560,12 +561,14 @@ div.main-trackList-trackListRow {
       background: linear-gradient(120deg, transparent, var(--clr-surface));
     }
 
+    .oIkT3YEjIYuZFH4gmAeZ,
     .WDC2Yzs811n7JCYtYQzc {
       box-shadow: 0px 0px 3rem 8px rgba(var(--accent-color), 0.5);
       transform: scale(1) rotate(25deg) translate(18%, -2%);
       transition: transform 225ms ease-in-out;
     }
 
+    &:hover .oIkT3YEjIYuZFH4gmAeZ,
     &:hover .WDC2Yzs811n7JCYtYQzc {
       transform: scale(1.1) rotate(15deg) translate(15%, 0%);
     }
