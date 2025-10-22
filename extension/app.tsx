@@ -68,7 +68,7 @@ function main() {
   // document.body.classList.add(versionClass);
   document.body.classList.toggle('spotify-version-at-least-1-2-65', isVersionAtLeast('1.2.65'));
 
-  setupAnalytics();
+  // setupAnalytics();
 }
 
 main();
