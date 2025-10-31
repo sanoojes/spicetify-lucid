@@ -638,6 +638,16 @@ div.main-trackList-trackListRow {
   padding-inline: 8px;
 }
 
+@container below-fold-cards (width >= 784px) {
+  .bMe8DpNWGTTWcxgLJODd {
+    margin: 0 48px 32px 48px;
+  }
+  .tB3JVNYttFlVC_oYVfjI { /* Fixes related music videos card size when in cinema view */
+    max-width: 1148px;
+    margin: auto;
+  }
+}
+
 .zAvxP9ntNk6SsomFXWUv {
   /* Fixes top margin for album cover in right sidebar */
   margin-top: 16px;
