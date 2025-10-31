@@ -490,6 +490,10 @@ div.main-trackList-trackListRow {
   );
 }
 
+.search-searchCategory-carousel { /* Make carousel left and right arrows centred within carousel flexbox */
+  align-items: center;
+}
+
 .Box-group-naked-card-md-isInteractive-draggable {
   height: calc(100% - 1px);
 }
