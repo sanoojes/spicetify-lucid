@@ -347,6 +347,10 @@
   }
 }
 
+.custom-navlinks-scrollable_container { /* Make title bar app list take up all the space it needs */
+  max-width: calc((var(--global-nav-width) - var(--main-view-height)) / 2) !important;
+}
+
 /* ========== Main Home ========== */
 .cZrkCxXnCc7KLZqAqWoz .main-home-content
   .xOmT3apmEbwVlFt4HkBe /* IDK: But this fixes the second section cutoff */ {
@@ -449,6 +453,9 @@ div.main-trackList-trackListRow {
   -webkit-mask-image: var(--mask-gradient);
   mask-image: var(--mask-gradient);
   transition: mask-image 0.3s ease;
+
+  --scrollAnimationRangeStart: 1px !important; /* Make sure that apps fade to transparent properly */
+  --scrollAnimationRangeEnd: 1px !important; /* Even a single pixel = fade */
 
   &:before,
   &:after {
