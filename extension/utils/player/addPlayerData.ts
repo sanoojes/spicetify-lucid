@@ -2,7 +2,7 @@ import { cacheColorInBackground } from '@features/setColors.ts';
 import appStore from '@store/appStore.ts';
 import tempStore, { type PlayerData } from '@store/tempStore.ts';
 import waitForGlobal from '@utils/dom/waitForGlobal.ts';
-import { getExtractedColors } from '@utils/graphql/getters.ts';
+import { getCoverColor } from '@utils/colors/getCoverColor.ts';
 
 const scheduleIdle =
   typeof requestIdleCallback === 'function'
@@ -19,12 +19,12 @@ async function addPlayerData(playerData?: typeof Spicetify.Player.data) {
 
   const currentUrl = getImageUrl(data.item);
   if (!currentUrl) return;
-  const currentColors = await getExtractedColors([currentUrl]);
+  const currentColors = await getCoverColor(currentUrl);
   document.body.style.setProperty('--np-img-url', `url("${currentUrl}")`);
   tempStore.getState().setPlayer({
     current: {
       url: currentUrl,
-      colors: currentColors?.data?.extractedColors?.[0] ?? undefined,
+      colors: currentColors,
       data: data.item,
     },
   });
@@ -38,10 +38,10 @@ async function addPlayerData(playerData?: typeof Spicetify.Player.data) {
         items?.map(async (item) => {
           const url = getImageUrl(item);
           if (!url) return null;
-          const colors = await getExtractedColors([url]);
+          const colors = await getCoverColor(url);
           return {
             url,
-            colors: colors?.data?.extractedColors?.[0] ?? undefined,
+            colors,
             data: item,
           };
         }) ?? []
