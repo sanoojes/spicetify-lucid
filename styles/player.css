@@ -22,6 +22,10 @@
   --progress-bar-height: var(--slider-height, 4px) !important;
 }
 
+.JZ3wV4Y5GgAD0UFsQpE7 { /* Make song progress bar always active color */
+  background-color: var(--is-active-fg-color) !important;
+}
+
 .main-nowPlayingBar-container {
   display: flex;
   position: relative;
