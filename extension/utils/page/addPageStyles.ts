@@ -1,9 +1,9 @@
 import tempStore from '@store/tempStore.ts';
 import { hexToRGB } from '@utils/colors/convert.ts';
 import waitForGlobal from '@utils/dom/waitForGlobal.ts';
-import { getExtractedColors } from '@utils/graphql/getters.ts';
 import getArtworkByPageUrl from '@utils/page/getArtworkByPageUrl.ts';
 import { updateCardBgAlpha } from '@utils/updateCardBgAlpha.ts';
+import { getCoverColor } from "@utils/colors/getCoverColor.ts";
 
 export const addPageStyles = async (url = Spicetify?.Platform?.History?.location) => {
   if (!url?.pathname) return;
@@ -33,8 +33,8 @@ export const addPageStyles = async (url = Spicetify?.Platform?.History?.location
   const finalPageImgUrl = desktopImageUrl ?? imageUrl;
 
   if (finalPageImgUrl) {
-    const extractedColors = await getExtractedColors([finalPageImgUrl]);
-    const colorHex = extractedColors?.data?.extractedColors?.[0]?.colorDark?.hex;
+    const extractedColors = await getCoverColor(finalPageImgUrl);
+    const colorHex = extractedColors?.colorDark?.hex;
 
     if (colorHex) {
       style.setProperty('--page-accent-color', colorHex);
