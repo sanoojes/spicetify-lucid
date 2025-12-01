@@ -1,9 +1,9 @@
 import tempStore from '@store/tempStore.ts';
 import { hexToRGB } from '@utils/colors/convert.ts';
+import { getCoverColor } from '@utils/colors/getCoverColor.ts';
 import waitForGlobal from '@utils/dom/waitForGlobal.ts';
 import getArtworkByPageUrl from '@utils/page/getArtworkByPageUrl.ts';
 import { updateCardBgAlpha } from '@utils/updateCardBgAlpha.ts';
-import { getCoverColor } from "@utils/colors/getCoverColor.ts";
 
 export const addPageStyles = async (url = Spicetify?.Platform?.History?.location) => {
   if (!url?.pathname) return;

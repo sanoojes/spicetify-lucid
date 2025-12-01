@@ -1,8 +1,8 @@
 import { cacheColorInBackground } from '@features/setColors.ts';
 import appStore from '@store/appStore.ts';
 import tempStore, { type PlayerData } from '@store/tempStore.ts';
-import waitForGlobal from '@utils/dom/waitForGlobal.ts';
 import { getCoverColor } from '@utils/colors/getCoverColor.ts';
+import waitForGlobal from '@utils/dom/waitForGlobal.ts';
 
 const scheduleIdle =
   typeof requestIdleCallback === 'function'

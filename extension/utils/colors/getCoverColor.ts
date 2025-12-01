@@ -18,7 +18,10 @@ export async function getCoverColor(imageUrl: string): Promise<ExtractedColor | 
     return {
       colorRaw: { hex: colorData.colorRaw.toCSS(Spicetify.Color.CSSFormat.HEX), fallback: false },
       colorDark: { hex: colorData.colorDark.toCSS(Spicetify.Color.CSSFormat.HEX), fallback: false },
-      colorLight: { hex: colorData.colorLight.toCSS(Spicetify.Color.CSSFormat.HEX), fallback: false }
+      colorLight: {
+        hex: colorData.colorLight.toCSS(Spicetify.Color.CSSFormat.HEX),
+        fallback: false,
+      },
     };
   }
 
