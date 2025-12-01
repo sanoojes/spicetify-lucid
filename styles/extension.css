@@ -131,6 +131,8 @@ body {
     background: none;
   }
 
+  #Desktop_LeftSidebar_Id,
+  .WBFaUw_oOfN2m4aTxggt,
   .Root__nav-bar {
     position: fixed;
     left: -100%;
@@ -142,10 +144,10 @@ body {
     .LayoutResizer__resize-bar:after {
       width: 4px;
     }
-  }
 
-  .Root__nav-bar.show {
-    left: var(--panel-gap);
+    &.show {
+      left: var(--panel-gap);
+    }
   }
 
   .main-yourLibraryX-button:has(

@@ -9,7 +9,7 @@ export default function setLibrary(library = appStore.getState().library) {
 
   setupHoverToggle({
     containerSelector: '.Root__top-container',
-    onTopContainerSelectors: ['.Root__nav-bar'],
+    onTopContainerSelectors: ['.Root__nav-bar, #Desktop_LeftSidebar_Id'],
     hoverTargetId: 'lib-hover-target',
     className: 'show',
     condition: library.autoHide,
