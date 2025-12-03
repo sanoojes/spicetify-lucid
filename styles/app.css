@@ -347,6 +347,10 @@
   }
 }
 
+.custom-navlinks-scrollable_container { /* Make title bar app list take up all the space it needs */
+  max-width: calc((var(--global-nav-width) - var(--main-view-height)) / 2) !important;
+}
+
 /* ========== Main Home ========== */
 .cZrkCxXnCc7KLZqAqWoz .main-home-content
   .xOmT3apmEbwVlFt4HkBe /* IDK: But this fixes the second section cutoff */ {
@@ -450,6 +454,9 @@ div.main-trackList-trackListRow {
   mask-image: var(--mask-gradient);
   transition: mask-image 0.3s ease;
 
+  --scrollAnimationRangeStart: 1px !important; /* Make sure that apps fade to transparent properly */
+  --scrollAnimationRangeEnd: 1px !important; /* Even a single pixel = fade */
+
   &:before,
   &:after {
     background: none;
@@ -481,6 +488,10 @@ div.main-trackList-trackListRow {
     rgba(0, 0, 0, 0.8) 75%,
     rgba(0, 0, 0, 0) 100%
   );
+}
+
+.search-searchCategory-carousel { /* Make carousel left and right arrows centred within carousel flexbox */
+  align-items: center;
 }
 
 .Box-group-naked-card-md-isInteractive-draggable {
@@ -625,6 +636,16 @@ div.main-trackList-trackListRow {
   margin-inline: 0;
   padding-block: 18px;
   padding-inline: 8px;
+}
+
+@container below-fold-cards (width >= 784px) {
+  .bMe8DpNWGTTWcxgLJODd {
+    margin: 0 48px 32px 48px;
+  }
+  .tB3JVNYttFlVC_oYVfjI { /* Fixes related music videos card size when in cinema view */
+    max-width: 1148px;
+    margin: auto;
+  }
 }
 
 .zAvxP9ntNk6SsomFXWUv {
