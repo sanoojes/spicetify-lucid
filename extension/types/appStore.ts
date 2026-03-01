@@ -126,6 +126,7 @@ export type PageCoverImageMode = Stringify<'hidden' | 'as-bg' | 'default'>;
 export type PageState = {
   mode: PageMode;
   coverMode: PageCoverImageMode;
+  coverPreScroll: number;
   homeCardGap: number;
   panelGap: number;
 };

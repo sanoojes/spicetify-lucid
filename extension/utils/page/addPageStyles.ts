@@ -1,9 +1,13 @@
+import appStore from '@store/appStore.ts';
 import tempStore from '@store/tempStore.ts';
 import { hexToRGB } from '@utils/colors/convert.ts';
 import { getCoverColor } from '@utils/colors/getCoverColor.ts';
 import waitForGlobal from '@utils/dom/waitForGlobal.ts';
 import getArtworkByPageUrl from '@utils/page/getArtworkByPageUrl.ts';
 import { updateCardBgAlpha } from '@utils/updateCardBgAlpha.ts';
+
+const SCROLL_SELECTOR =
+  '.Root__main-view [data-overlayscrollbars-viewport], .Root__main-view .os-viewport, .Root__main-view .main-view-container > .main-view-container__scroll-node:not([data-overlayscrollbars-initialize]), .Root__main-view .main-view-container__scroll-node > [data-overlayscrollbars-viewport], .main-view-container__scroll-node div:nth-child(2)';
 
 export const addPageStyles = async (url = Spicetify?.Platform?.History?.location) => {
   if (!url?.pathname) return;
@@ -43,6 +47,33 @@ export const addPageStyles = async (url = Spicetify?.Platform?.History?.location
       style.removeProperty('--page-accent-color');
       style.removeProperty('--page-accent-color-rgb');
     }
+  }
+
+  const preScroll = appStore.getState().page.coverPreScroll;
+  const isEntityPage = /^\/(playlist|artist|album)\//.test(url.pathname);
+  if (preScroll > 0 && isEntityPage && desktopImageUrl) {
+    const applyPreScroll = () => {
+      const scrollEl = document.querySelector(SCROLL_SELECTOR) as HTMLElement | null;
+      if (!scrollEl) return;
+
+      const tryScroll = () => {
+        const header = scrollEl.querySelector('.main-entityHeader-container') as HTMLElement | null;
+        if (!header || header.offsetHeight < preScroll) return false;
+        scrollEl.scrollTop = preScroll;
+        return true;
+      };
+
+      if (tryScroll()) return;
+
+      const observer = new MutationObserver(() => {
+        if (tryScroll()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(scrollEl, { childList: true, subtree: true });
+      setTimeout(() => observer.disconnect(), 5000);
+    };
+    setTimeout(applyPreScroll, 100);
   }
 };
 

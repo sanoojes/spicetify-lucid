@@ -135,6 +135,7 @@ export const PlayerStateSchema = AutoHideBaseStateSchema.extend({
 export const PageStateSchema = z.object({
   mode: z.enum(['card', 'compact-card', 'compact', 'default']),
   coverMode: z.enum(['hidden', 'as-bg', 'default']),
+  coverPreScroll: boundedNumber({ name: 'Cover Pre-Scroll', min: 0, max: 1000 }),
   homeCardGap: z.number(),
   panelGap: z.number(),
 });

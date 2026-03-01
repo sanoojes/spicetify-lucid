@@ -30563,6 +30563,7 @@ void main() {
     page: {
       mode: "card",
       coverMode: "default",
+      coverPreScroll: 600,
       homeCardGap: 8,
       panelGap: 8
     },
@@ -38310,6 +38311,7 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
       appStore_default,
       (s) => s.umv
     );
+    const coverPreScroll = useStore(appStore_default, (s) => s.page.coverPreScroll);
     const { desktop, cover } = useStore(tempStore_default, (s) => s.pageImg);
     const imgUrl = useStore(tempStore_default, (s) => s.player?.current?.url);
     const scrollContainerRef = (0, import_react29.useRef)(null);
@@ -38334,7 +38336,8 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
         if (!scrollContainerRef.current || ticking) return;
         ticking = true;
         requestAnimationFrame(() => {
-          const scrollTop = scrollContainerRef.current?.scrollTop ?? 0;
+          const rawScrollTop = scrollContainerRef.current?.scrollTop ?? 0;
+          const scrollTop = Math.max(0, rawScrollTop - coverPreScroll * 0.9);
           const maxScroll = window.innerHeight;
           const progress = Math.min(scrollTop, maxScroll) / maxScroll;
           const scale = isScaling ? 1.1 + 0.75 * progress : 1;
@@ -38348,7 +38351,7 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
       handleScroll();
       el.addEventListener("scroll", handleScroll);
       return () => el.removeEventListener("scroll", handleScroll);
-    }, [type, currentImage, desktop, filter.blur, isScaling, isScrolling]);
+    }, [type, currentImage, desktop, filter.blur, isScaling, isScrolling, coverPreScroll]);
     const isDesktop = currentImage === desktop;
     const isColor = type === "custom-color";
     return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
@@ -38561,6 +38564,7 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
   var getArtworkByPageUrl_default = getArtworkByPageUrl;
 
   // extension/utils/page/addPageStyles.ts
+  var SCROLL_SELECTOR2 = ".Root__main-view [data-overlayscrollbars-viewport], .Root__main-view .os-viewport, .Root__main-view .main-view-container > .main-view-container__scroll-node:not([data-overlayscrollbars-initialize]), .Root__main-view .main-view-container__scroll-node > [data-overlayscrollbars-viewport], .main-view-container__scroll-node div:nth-child(2)";
   var addPageStyles = async (url2 = Spicetify?.Platform?.History?.location) => {
     if (!url2?.pathname) return;
     document.body.toggleAttribute("is-at-root", url2.pathname === "/");
@@ -38590,6 +38594,29 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
         style.removeProperty("--page-accent-color");
         style.removeProperty("--page-accent-color-rgb");
       }
+    }
+    const preScroll = appStore_default.getState().page.coverPreScroll;
+    const isEntityPage = /^\/(playlist|artist|album)\//.test(url2.pathname);
+    if (preScroll > 0 && isEntityPage && desktopImageUrl) {
+      const applyPreScroll = () => {
+        const scrollEl = document.querySelector(SCROLL_SELECTOR2);
+        if (!scrollEl) return;
+        const tryScroll = () => {
+          const header = scrollEl.querySelector(".main-entityHeader-container");
+          if (!header || header.offsetHeight < preScroll) return false;
+          scrollEl.scrollTop = preScroll;
+          return true;
+        };
+        if (tryScroll()) return;
+        const observer = new MutationObserver(() => {
+          if (tryScroll()) {
+            observer.disconnect();
+          }
+        });
+        observer.observe(scrollEl, { childList: true, subtree: true });
+        setTimeout(() => observer.disconnect(), 5e3);
+      };
+      setTimeout(applyPreScroll, 100);
     }
   };
   waitForGlobal_default(() => Spicetify?.Platform?.History).then((history) => {
@@ -50671,6 +50698,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
   var PageStateSchema = zod_default.object({
     mode: zod_default.enum(["card", "compact-card", "compact", "default"]),
     coverMode: zod_default.enum(["hidden", "as-bg", "default"]),
+    coverPreScroll: boundedNumber({ name: "Cover Pre-Scroll", min: 0, max: 1e3 }),
     homeCardGap: zod_default.number(),
     panelGap: zod_default.number()
   });
@@ -51595,6 +51623,16 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
               ],
               value: page.coverMode,
               onChange: (coverMode) => state.setPage({ coverMode })
+            },
+            {
+              id: "cover-pre-scroll",
+              type: "Input",
+              label: "Cover Pre-Scroll Offset",
+              inputType: "number",
+              tippy: "Offset the page cover art vertically by this many pixels.",
+              value: page.coverPreScroll,
+              validation: (val) => PageStateSchema.shape.coverPreScroll.safeParse(val),
+              onChange: (coverPreScroll) => state.setPage({ coverPreScroll })
             }
           ]
         },

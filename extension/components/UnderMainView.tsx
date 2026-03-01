@@ -12,6 +12,7 @@ const UnderMainView: React.FC = () => {
     appStore,
     (s) => s.umv
   );
+  const coverPreScroll = useStore(appStore, (s) => s.page.coverPreScroll);
   const { desktop, cover } = useStore(tempStore, (s) => s.pageImg);
   const imgUrl = useStore(tempStore, (s) => s.player?.current?.url);
 
@@ -43,7 +44,8 @@ const UnderMainView: React.FC = () => {
       ticking = true;
 
       requestAnimationFrame(() => {
-        const scrollTop = scrollContainerRef.current?.scrollTop ?? 0;
+        const rawScrollTop = scrollContainerRef.current?.scrollTop ?? 0;
+        const scrollTop = Math.max(0, rawScrollTop - coverPreScroll * 0.9);
         const maxScroll = window.innerHeight;
         const progress = Math.min(scrollTop, maxScroll) / maxScroll;
 
@@ -61,7 +63,7 @@ const UnderMainView: React.FC = () => {
     handleScroll();
     el.addEventListener('scroll', handleScroll);
     return () => el.removeEventListener('scroll', handleScroll);
-  }, [type, currentImage, desktop, filter.blur, isScaling, isScrolling]);
+  }, [type, currentImage, desktop, filter.blur, isScaling, isScrolling, coverPreScroll]);
 
   const isDesktop = currentImage === desktop;
   const isColor = type === 'custom-color';
