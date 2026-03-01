@@ -3,6 +3,7 @@ import {
   BorderStateSchema,
   GlobalNavStateSchema,
   LibraryStateSchema,
+  PageStateSchema,
 } from '@schemas/appStoreSchema.ts';
 import type appStore from '@store/appStore.ts';
 import { DEFAULT_STATE } from '@store/appStore.ts';
@@ -58,6 +59,16 @@ export const getUISettings = (state: ReturnType<typeof appStore.getState>): Sect
             ],
             value: page.coverMode,
             onChange: (coverMode) => state.setPage({ coverMode }),
+          },
+          {
+            id: 'cover-pre-scroll',
+            type: 'Input',
+            label: 'Cover Pre-Scroll Offset',
+            inputType: 'number',
+            tippy: 'Offset the page cover art vertically by this many pixels.',
+            value: page.coverPreScroll,
+            validation: (val) => PageStateSchema.shape.coverPreScroll.safeParse(val),
+            onChange: (coverPreScroll) => state.setPage({ coverPreScroll }),
           },
         ],
       },

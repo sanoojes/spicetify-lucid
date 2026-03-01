@@ -82,6 +82,7 @@ export const DEFAULT_STATE: AppState = {
   page: {
     mode: 'card',
     coverMode: 'default',
+    coverPreScroll: 600,
     homeCardGap: 8,
     panelGap: 8,
   },
