@@ -1,0 +1,43 @@
+{
+  "name": "spicetify-lucid",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sc": "spicetify-creator",
+    "dev": "spicetify-creator dev",
+    "build:theme": "spicetify-creator build",
+    "build": "bun run docs:build && bun run build:theme",
+    "update-types": "spicetify-creator update-types",
+    "clean-spice": "spicetify-creator clean-spicetify --all",
+    "fmt": "oxfmt",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@fluentui/react-icons": "^2.0.307",
+    "@material/material-color-utilities": "^0.3.0",
+    "lodash": "^4.17.21",
+    "react": "^19.1.1",
+    "react-color-palette": "^7.3.0",
+    "react-dom": "^19.1.1",
+    "react-virtualized-auto-sizer": "^1.0.26",
+    "react-window": "^1.8.11",
+    "socket.io-client": "^4.8.1",
+    "three": "^0.178.0",
+    "zod": "^4.0.14",
+    "zustand": "^5.0.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "latest",
+    "@spicemod/creator": "^0.0.36",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@types/react-window": "^1.8.8",
+    "@types/three": "^0.178.1",
+    "esbuild-plugin-svgr": "^3.1.1",
+    "vitepress": "^1.6.4"
+  }
+}

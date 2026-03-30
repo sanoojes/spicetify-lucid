@@ -1,0 +1,23 @@
+image: oven/bun:latest
+
+pages:
+  stage: deploy
+  cache:
+    key:
+      files:
+        - bun.lock
+      prefix: bun
+    paths:
+      - node_modules/
+  script:
+    - bun install --frozen-lockfile
+    - bun run build
+    - mkdir -p public/spice
+    - cp -a docs/.vitepress/dist/. public/
+    - cp -a dist/. public/spice/
+    - cp color.ini public/spice/color.ini
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
