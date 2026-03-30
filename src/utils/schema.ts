@@ -1,4 +1,4 @@
-import z from 'zod';
+import z from "zod";
 
 export function boundedNumber({ name, min, max }: { name: string; min: number; max: number }) {
   return z

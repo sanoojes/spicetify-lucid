@@ -1,6 +1,6 @@
-import type { ExtractedColor } from '@/utils/graphql/getters.ts';
-import { subscribeWithSelector } from 'zustand/middleware';
-import { createStore } from 'zustand/vanilla';
+import type { ExtractedColor } from "@/utils/graphql/getters.ts";
+import { subscribeWithSelector } from "zustand/middleware";
+import { createStore } from "zustand/vanilla";
 
 export type PlayerData = {
   url?: string;
@@ -24,8 +24,8 @@ export type TempState = {
 };
 
 export type TempSetter = {
-  setPlayer: (player: TempState['player']) => void;
-  setPageImg: (pageImg: TempState['pageImg']) => void;
+  setPlayer: (player: TempState["player"]) => void;
+  setPageImg: (pageImg: TempState["pageImg"]) => void;
   //   setCurrentColorScheme: (currentColorScheme: TempState['currentColorScheme']) => void;
 };
 
@@ -35,7 +35,7 @@ const tempStore = createStore<TempState & TempSetter>()(
     pageImg: {},
     setPlayer: (player) => set({ player: { ...get().player, ...player } }),
     setPageImg: (pageImg) => set({ pageImg: { ...get().pageImg, ...pageImg } }),
-  }))
+  })),
 );
 
 export default tempStore;

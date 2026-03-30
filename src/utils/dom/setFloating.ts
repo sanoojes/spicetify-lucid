@@ -15,11 +15,11 @@ export default function setFloating({
   isFloating = true,
   addClassTarget,
 }: SetFloatingProps) {
-  const floatingClass = 'floating';
+  const floatingClass = "floating";
   const parent = document.body;
 
   if (!target || !dragTarget) {
-    console.error('[setFloating] Invalid target or dragTarget element.');
+    console.error("[setFloating] Invalid target or dragTarget element.");
     return () => {};
   }
 
@@ -28,10 +28,10 @@ export default function setFloating({
     addClassTarget?.forEach((elem) => elem.classList.add(floatingClass));
   }
 
-  target.style.position = 'fixed';
+  target.style.position = "fixed";
   target.style.left = `${defaultPosition?.x ?? 8}px`;
   target.style.top = `${defaultPosition?.y ?? 8}px`;
-  dragTarget.style.cursor = 'move';
+  dragTarget.style.cursor = "move";
 
   let isDragging = false;
   let offsetX = 0;
@@ -55,8 +55,8 @@ export default function setFloating({
     offsetX = e.clientX - rect.left;
     offsetY = e.clientY - rect.top;
 
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
   };
 
   const onMouseMove = (e: MouseEvent) => {
@@ -66,11 +66,11 @@ export default function setFloating({
 
     const newX = Math.max(
       0,
-      Math.min(e.clientX - parentRect.left - offsetX, parent.clientWidth - target.offsetWidth)
+      Math.min(e.clientX - parentRect.left - offsetX, parent.clientWidth - target.offsetWidth),
     );
     const newY = Math.max(
       0,
-      Math.min(e.clientY - parentRect.top - offsetY, parent.clientHeight - target.offsetHeight)
+      Math.min(e.clientY - parentRect.top - offsetY, parent.clientHeight - target.offsetHeight),
     );
 
     target.style.left = `${newX}px`;
@@ -88,31 +88,31 @@ export default function setFloating({
 
     onDragEnd?.(finalX, finalY);
 
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
   };
 
   const onResize = () => {
     clampPosition();
   };
 
-  dragTarget.addEventListener('mousedown', onMouseDown);
-  window.addEventListener('resize', onResize);
-  window.addEventListener('blur', onResize);
+  dragTarget.addEventListener("mousedown", onMouseDown);
+  window.addEventListener("resize", onResize);
+  window.addEventListener("blur", onResize);
 
   clampPosition();
 
   return () => {
-    target.style.position = '';
-    target.style.top = '';
-    target.style.left = '';
-    dragTarget.style.cursor = '';
+    target.style.position = "";
+    target.style.top = "";
+    target.style.left = "";
+    dragTarget.style.cursor = "";
 
-    dragTarget.removeEventListener('mousedown', onMouseDown);
-    window.removeEventListener('resize', onResize);
-    window.removeEventListener('blur', onResize);
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
+    dragTarget.removeEventListener("mousedown", onMouseDown);
+    window.removeEventListener("resize", onResize);
+    window.removeEventListener("blur", onResize);
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
 
     if (isFloating) {
       target.classList.remove(floatingClass);

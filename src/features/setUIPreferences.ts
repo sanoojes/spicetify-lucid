@@ -1,6 +1,6 @@
-import appStore from '@/store/appStore.ts';
-import getOrCreateStyle from '@/utils/dom/getOrCreateStyle.ts';
-import { getFontUrl, injectFontLink } from '@/utils/font.ts';
+import appStore from "@/store/appStore.ts";
+import getOrCreateStyle from "@/utils/dom/getOrCreateStyle.ts";
+import { getFontUrl, injectFontLink } from "@/utils/font.ts";
 
 export default function setUIPreferences(uiPreferences = appStore.getState().uiPreferences) {
   setFonts(uiPreferences);
@@ -18,7 +18,7 @@ function setBorders(border = appStore.getState().uiPreferences.border) {
   --border-thickness: ${thickness}px;
 }`;
 
-  const styleElem = getOrCreateStyle('lucid-border');
+  const styleElem = getOrCreateStyle("lucid-border");
   styleElem.textContent = css;
 }
 
@@ -28,9 +28,9 @@ function setFonts(uiPreferences = appStore.getState().uiPreferences) {
   const { titleFont, bodyFont } = uiPreferences;
 
   const fontSources = [
-    { key: 'titleFont', value: titleFont },
-    { key: 'bodyFont', value: bodyFont },
-    { key: 'variableFont', value: bodyFont },
+    { key: "titleFont", value: titleFont },
+    { key: "bodyFont", value: bodyFont },
+    { key: "variableFont", value: bodyFont },
   ];
 
   for (const { key, value } of fontSources) {
@@ -42,16 +42,16 @@ function setFonts(uiPreferences = appStore.getState().uiPreferences) {
   }
 
   const fallbackFonts =
-    'CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,var(--fallback-fonts))';
-  const titleFontStack = `${titleFont?.family || 'SpotifyMixUITitle'},${fallbackFonts}`;
-  const variableFontStack = `${bodyFont?.family || 'SpotifyMixUITitleVariable'},${fallbackFonts}`;
-  const bodyFontStack = `${bodyFont?.family || 'SpotifyMixUI'},${fallbackFonts}`;
+    "CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,var(--fallback-fonts))";
+  const titleFontStack = `${titleFont?.family || "SpotifyMixUITitle"},${fallbackFonts}`;
+  const variableFontStack = `${bodyFont?.family || "SpotifyMixUITitleVariable"},${fallbackFonts}`;
+  const bodyFontStack = `${bodyFont?.family || "SpotifyMixUI"},${fallbackFonts}`;
 
   const style =
-    (document.getElementById('dynamic-font-style') as HTMLStyleElement) ??
+    (document.getElementById("dynamic-font-style") as HTMLStyleElement) ??
     (() => {
-      const el = document.createElement('style');
-      el.id = 'dynamic-font-style';
+      const el = document.createElement("style");
+      el.id = "dynamic-font-style";
       document.head.appendChild(el);
       return el;
     })();

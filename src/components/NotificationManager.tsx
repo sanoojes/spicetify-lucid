@@ -1,6 +1,6 @@
-import UI from '@/components/ui';
-import generateId from '@/utils/generateId.ts';
-import { useEffect, useRef, useState } from 'react';
+import UI from "@/components/ui";
+import generateId from "@/utils/generateId.ts";
+import { useEffect, useRef, useState } from "react";
 
 export type Notification = {
   id?: string;

@@ -1,24 +1,24 @@
-import setBackground from '@/features/setBackground.tsx';
-import setBodyClasses from '@/features/setBodyClasses.ts';
-import setColors from '@/features/setColors.ts';
-import setControls from '@/features/setControls.ts';
-import setGlobalNav from '@/features/setGlobalNav.ts';
-import setLibrary from '@/features/setLibrary.ts';
-import setPageStyles from '@/features/setPageStyles.ts';
-import setPlayer from '@/features/setPlaybar.tsx';
-import setRightSidebar from '@/features/setRightSidebar.ts';
-import setUIPreferences from '@/features/setUIPreferences.ts';
-import setUnderMainView from '@/features/setUnderMainView.tsx';
-import appStore from '@/store/appStore.ts';
-import tempStore from '@/store/tempStore.ts';
-import addRootCardSizeToDom from '@/utils/addRootCardSizeToDom.ts';
-import initNotificationSystem from '@/utils/initNotificationSystem.tsx';
-import addPageStyles from '@/utils/page/addPageStyles.ts';
-import patchIcons from '@/utils/patchIcons.ts';
-import { isLinux, isVersionAtLeast } from '@/utils/platform.ts';
-import addPlayerData from '@/utils/player/addPlayerData.ts';
-import resetTheme from '@/utils/resetTheme.ts';
-import addSettings from '@/utils/settings/addSettings.tsx';
+import setBackground from "@/features/setBackground.tsx";
+import setBodyClasses from "@/features/setBodyClasses.ts";
+import setColors from "@/features/setColors.ts";
+import setControls from "@/features/setControls.ts";
+import setGlobalNav from "@/features/setGlobalNav.ts";
+import setLibrary from "@/features/setLibrary.ts";
+import setPageStyles from "@/features/setPageStyles.ts";
+import setPlayer from "@/features/setPlaybar.tsx";
+import setRightSidebar from "@/features/setRightSidebar.ts";
+import setUIPreferences from "@/features/setUIPreferences.ts";
+import setUnderMainView from "@/features/setUnderMainView.tsx";
+import appStore from "@/store/appStore.ts";
+import tempStore from "@/store/tempStore.ts";
+import addRootCardSizeToDom from "@/utils/addRootCardSizeToDom.ts";
+import initNotificationSystem from "@/utils/initNotificationSystem.tsx";
+import addPageStyles from "@/utils/page/addPageStyles.ts";
+import patchIcons from "@/utils/patchIcons.ts";
+import { isLinux, isVersionAtLeast } from "@/utils/platform.ts";
+import addPlayerData from "@/utils/player/addPlayerData.ts";
+import resetTheme from "@/utils/resetTheme.ts";
+import addSettings from "@/utils/settings/addSettings.tsx";
 
 // import showStartupMessage from '@/utils/showStartupMessage.ts';
 
@@ -65,7 +65,7 @@ function main() {
   // const formattedVersion = version.split('.').slice(0, 3).join('-');
   // const versionClass = `spotify-version-${formattedVersion}`;
   // document.body.classList.add(versionClass);
-  document.body.classList.toggle('spotify-version-at-least-1-2-65', isVersionAtLeast('1.2.65'));
+  document.body.classList.toggle("spotify-version-at-least-1-2-65", isVersionAtLeast("1.2.65"));
 
   // setupAnalytics();
 }

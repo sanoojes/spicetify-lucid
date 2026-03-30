@@ -6,9 +6,9 @@ animations, and **highly customizable** features so you can tailor the interface
 to match your style and preferences.
 
 🔗 Explore the full documentation:
-[Lucid Docs](https://projects.sanooj.uk/spicetify/lucid/)
+[Lucid Docs](https://spicetify-lucid.sanooj.uk/)
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE) — feel free to modify
+This project is licensed under the [AGPLv3 License](LICENSE) — feel free to modify
 and distribute it according to the terms.

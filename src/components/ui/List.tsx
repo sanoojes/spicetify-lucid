@@ -1,8 +1,8 @@
-import UI from '@/components/ui';
-import { Search16Filled } from '@fluentui/react-icons';
-import { useMemo, useState } from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { FixedSizeList } from 'react-window';
+import UI from "@/components/ui";
+import { Search16Filled } from "@fluentui/react-icons";
+import { useMemo, useState } from "react";
+import AutoSizer from "react-virtualized-auto-sizer";
+import { FixedSizeList } from "react-window";
 
 type ListProps<T> = {
   items: T[];
@@ -20,14 +20,14 @@ const List = <T,>({
   items,
   itemSize,
   inputPlaceholder,
-  className = 'List',
+  className = "List",
   filterFn,
   renderItem,
   headerContent,
   selectedItem,
   onItemSelect,
 }: ListProps<T>) => {
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState("");
   const filteredItems = useMemo(() => {
     if (!filter) return items;
     return filterFn ? items.filter((item) => filterFn(item, filter)) : items;
@@ -46,7 +46,7 @@ const List = <T,>({
       <div className="list-header">
         <UI.Input
           inputType="text"
-          placeholder={inputPlaceholder ?? 'Filter items...'}
+          placeholder={inputPlaceholder ?? "Filter items..."}
           value={filter}
           onChange={setFilter}
           icon={<Search16Filled />}

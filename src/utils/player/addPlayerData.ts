@@ -1,11 +1,11 @@
-import { cacheColorInBackground } from '@/features/setColors.ts';
-import appStore from '@/store/appStore.ts';
-import tempStore, { type PlayerData } from '@/store/tempStore.ts';
-import { getCoverColor } from '@/utils/colors/getCoverColor.ts';
-import waitForGlobal from '@/utils/dom/waitForGlobal.ts';
+import { cacheColorInBackground } from "@/features/setColors.ts";
+import appStore from "@/store/appStore.ts";
+import tempStore, { type PlayerData } from "@/store/tempStore.ts";
+import { getCoverColor } from "@/utils/colors/getCoverColor.ts";
+import waitForGlobal from "@/utils/dom/waitForGlobal.ts";
 
 const scheduleIdle =
-  typeof requestIdleCallback === 'function'
+  typeof requestIdleCallback === "function"
     ? requestIdleCallback
     : (cb: () => void) => setTimeout(cb, 50);
 
@@ -20,7 +20,7 @@ async function addPlayerData(playerData?: typeof Spicetify.Player.data) {
   const currentUrl = getImageUrl(data.item);
   if (!currentUrl) return;
   const currentColors = await getCoverColor(currentUrl);
-  document.body.style.setProperty('--np-img-url', `url("${currentUrl}")`);
+  document.body.style.setProperty("--np-img-url", `url("${currentUrl}")`);
   tempStore.getState().setPlayer({
     current: {
       url: currentUrl,
@@ -44,7 +44,7 @@ async function addPlayerData(playerData?: typeof Spicetify.Player.data) {
             colors,
             data: item,
           };
-        }) ?? []
+        }) ?? [],
       )
     ).filter(Boolean) as PlayerData[];
   };
@@ -57,7 +57,7 @@ async function addPlayerData(playerData?: typeof Spicetify.Player.data) {
     next,
   });
 
-  if (mode !== 'dynamic') return;
+  if (mode !== "dynamic") return;
 
   [...prev, ...next].forEach((track) => {
     const hex = track?.colors?.colorRaw?.hex;
@@ -73,11 +73,11 @@ async function addPlayerData(playerData?: typeof Spicetify.Player.data) {
 }
 
 waitForGlobal(() => Spicetify?.Player).then((player) =>
-  player.addEventListener('songchange', (e) => addPlayerData(e?.data))
+  player.addEventListener("songchange", (e) => addPlayerData(e?.data)),
 );
 
 waitForGlobal(() => Spicetify?.Platform?.PlayerAPI?._queue?._events).then((events) =>
-  events?.addListener('queue_update', () => addPlayerData())
+  events?.addListener("queue_update", () => addPlayerData()),
 );
 
 export default addPlayerData;

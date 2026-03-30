@@ -1,6 +1,6 @@
 function waitForGlobal<T = any>(
   getter: () => T | undefined,
-  { timeout = 5000, interval = 100 }: { timeout?: number; interval?: number } = {}
+  { timeout = 5000, interval = 100 }: { timeout?: number; interval?: number } = {},
 ): Promise<T> {
   return new Promise((resolve, reject) => {
     const start = Date.now();
@@ -11,7 +11,7 @@ function waitForGlobal<T = any>(
         return resolve(value);
       }
       if (Date.now() - start >= timeout) {
-        return reject(new Error('Timed out waiting for global dependency'));
+        return reject(new Error("Timed out waiting for global dependency"));
       }
       setTimeout(check, interval);
     };

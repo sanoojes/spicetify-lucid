@@ -1,10 +1,10 @@
-import { FragmentShader, GetShaderUniforms, VertexShader } from '@/shader/animatedBg.ts';
-import loadAndProcessImage from '@/components/background/helper/loadAndProcessImage.ts';
-import appStore from '@/store/appStore.ts';
-import waitForGlobal from '@/utils/dom/waitForGlobal.ts';
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import { useStore } from 'zustand';
+import { FragmentShader, GetShaderUniforms, VertexShader } from "@/shader/animatedBg.ts";
+import loadAndProcessImage from "@/components/background/helper/loadAndProcessImage.ts";
+import appStore from "@/store/appStore.ts";
+import waitForGlobal from "@/utils/dom/waitForGlobal.ts";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { useStore } from "zustand";
 
 const AnimatedBackgroundCanvas: React.FC<{ imageSrc: string | null }> = ({ imageSrc }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -40,20 +40,20 @@ const AnimatedBackgroundCanvas: React.FC<{ imageSrc: string | null }> = ({ image
 
       const scaledWidth = width * window.devicePixelRatio;
       const scaledHeight = height * window.devicePixelRatio;
-      const largestAxis = scaledWidth > scaledHeight ? 'X' : 'Y';
+      const largestAxis = scaledWidth > scaledHeight ? "X" : "Y";
       const largestAxisSize = Math.max(scaledWidth, scaledHeight);
 
       uniforms.BackgroundCircleOrigin.value.set(scaledWidth / 2, scaledHeight / 2);
       uniforms.BackgroundCircleRadius.value = largestAxisSize * 1.5;
 
       uniforms.CenterCircleOrigin.value.set(scaledWidth / 2, scaledHeight / 2);
-      uniforms.CenterCircleRadius.value = largestAxisSize * (largestAxis === 'X' ? 1 : 0.75);
+      uniforms.CenterCircleRadius.value = largestAxisSize * (largestAxis === "X" ? 1 : 0.75);
 
       uniforms.LeftCircleOrigin.value.set(0, scaledHeight);
       uniforms.LeftCircleRadius.value = largestAxisSize * 0.75;
 
       uniforms.RightCircleOrigin.value.set(scaledWidth, 0);
-      uniforms.RightCircleRadius.value = largestAxisSize * (largestAxis === 'X' ? 0.65 : 0.5);
+      uniforms.RightCircleRadius.value = largestAxisSize * (largestAxis === "X" ? 0.65 : 0.5);
 
       renderer.render(scene, camera); // render once when resizing else the background will be black
     };
@@ -85,14 +85,14 @@ const AnimatedBackgroundCanvas: React.FC<{ imageSrc: string | null }> = ({ image
     };
     animate(); // start animation loop
 
-    window.addEventListener('resize', UpdateDimensions);
+    window.addEventListener("resize", UpdateDimensions);
 
     return () => {
       if (frameId) cancelAnimationFrame(frameId);
       renderer.dispose();
       geometry.dispose();
       material.dispose();
-      window.removeEventListener('resize', UpdateDimensions);
+      window.removeEventListener("resize", UpdateDimensions);
     };
   }, []);
 
@@ -106,20 +106,20 @@ const AnimatedBackgroundCanvas: React.FC<{ imageSrc: string | null }> = ({ image
     };
 
     waitForGlobal<any>(() => window?._spicy_lyrics?.fullscreen).then((fullscreen) =>
-      fullscreen?.onopen(handleBlur)
+      fullscreen?.onopen(handleBlur),
     );
     waitForGlobal<any>(() => window?._spicy_lyrics?.fullscreen).then((fullscreen) =>
-      fullscreen?.onclose(handleFocus)
+      fullscreen?.onclose(handleFocus),
     );
 
     if (autoStopAnimation) {
-      window.addEventListener('focus', handleFocus);
-      window.addEventListener('blur', handleBlur);
+      window.addEventListener("focus", handleFocus);
+      window.addEventListener("blur", handleBlur);
     }
 
     return () => {
-      window.removeEventListener('focus', handleFocus);
-      window.removeEventListener('blur', handleBlur);
+      window.removeEventListener("focus", handleFocus);
+      window.removeEventListener("blur", handleBlur);
     };
   }, [autoStopAnimation]);
 
@@ -175,9 +175,9 @@ const AnimatedBackgroundCanvas: React.FC<{ imageSrc: string | null }> = ({ image
       ref={canvasRef}
       className="animated-bg-canvas"
       style={{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
+        width: "100%",
+        height: "100%",
+        position: "absolute",
         top: 0,
         left: 0,
         opacity: `${filter.opacity ?? 100}%`,

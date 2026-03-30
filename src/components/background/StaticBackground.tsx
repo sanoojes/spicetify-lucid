@@ -1,6 +1,6 @@
-import appStore from '@/store/appStore.ts';
-import serializeFilters from '@/utils/dom/serializeFilters.ts';
-import { useStore } from 'zustand';
+import appStore from "@/store/appStore.ts";
+import serializeFilters from "@/utils/dom/serializeFilters.ts";
+import { useStore } from "zustand";
 
 const StaticBackground: React.FC<{ imageSrc: string | null }> = ({ imageSrc }) => {
   const filter = useStore(appStore, (state) => state.bg.options.filter);
@@ -9,7 +9,7 @@ const StaticBackground: React.FC<{ imageSrc: string | null }> = ({ imageSrc }) =
     <div
       className={`bg static`}
       style={{
-        backgroundImage: imageSrc ? `url("${imageSrc}")` : 'none',
+        backgroundImage: imageSrc ? `url("${imageSrc}")` : "none",
         filter: serializeFilters(filter),
       }}
     />

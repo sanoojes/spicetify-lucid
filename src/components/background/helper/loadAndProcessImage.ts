@@ -1,20 +1,20 @@
-import type { CSSFilter } from '@/types/appStore.ts';
-import serializeFilters from '@/utils/dom/serializeFilters.ts';
-import * as THREE from 'three';
+import type { CSSFilter } from "@/types/appStore.ts";
+import serializeFilters from "@/utils/dom/serializeFilters.ts";
+import * as THREE from "three";
 
 async function loadAndProcessImage(
   url: string | null,
-  filter: CSSFilter
+  filter: CSSFilter,
 ): Promise<THREE.Texture | null> {
   try {
     if (!url) {
-      console.warn('No image URL provided');
+      console.warn("No image URL provided");
       return null;
     }
 
     const image = new Image();
     image.src = url;
-    image.crossOrigin = url.startsWith('spotify:') ? null : 'anonymous';
+    image.crossOrigin = url.startsWith("spotify:") ? null : "anonymous";
     await image.decode();
 
     const originalSize = Math.min(image.width, image.height);
@@ -23,9 +23,9 @@ async function loadAndProcessImage(
     const expandedSize = originalSize + padding;
 
     const circleCanvas = new OffscreenCanvas(originalSize, originalSize);
-    const ctx = circleCanvas.getContext('2d');
+    const ctx = circleCanvas.getContext("2d");
     if (!ctx) {
-      console.error('Failed to get 2D context for circleCanvas');
+      console.error("Failed to get 2D context for circleCanvas");
       return null;
     }
 
@@ -42,13 +42,13 @@ async function loadAndProcessImage(
       0,
       0,
       originalSize,
-      originalSize
+      originalSize,
     );
 
     const blurredCanvas = new OffscreenCanvas(expandedSize, expandedSize);
-    const blurredCtx = blurredCanvas.getContext('2d');
+    const blurredCtx = blurredCanvas.getContext("2d");
     if (!blurredCtx) {
-      console.error('Failed to get 2D context for blurredCanvas');
+      console.error("Failed to get 2D context for blurredCanvas");
       return null;
     }
 
@@ -59,7 +59,7 @@ async function loadAndProcessImage(
     texture.needsUpdate = true;
     return texture;
   } catch (err) {
-    console.error('Failed to load/process image:', err);
+    console.error("Failed to load/process image:", err);
     return null;
   }
 }

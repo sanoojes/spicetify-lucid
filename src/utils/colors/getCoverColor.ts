@@ -1,5 +1,5 @@
-import type { ExtractedColor } from '@/utils/graphql/getters.ts';
-import { getExtractedColors } from '@/utils/graphql/getters.ts';
+import type { ExtractedColor } from "@/utils/graphql/getters.ts";
+import { getExtractedColors } from "@/utils/graphql/getters.ts";
 
 export async function getCoverColor(imageUrl: string): Promise<ExtractedColor | undefined> {
   // Try getting colour from Spotify first

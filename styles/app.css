@@ -6,8 +6,10 @@
 
 :root {
   --header-filters: blur(32px) saturate(1.5) brightness(0.7);
-  --default-border: var(--border-thickness, 1px) var(--border-style, solid) var(--border-clr, rgba(var(--clr-on-surface-rgb), 0.1));
-  --hover-border: var(--border-thickness, 1px) var(--border-style, solid) var(--border-h-clr, rgba(var(--clr-on-surface-rgb), 0.3));
+  --default-border: var(--border-thickness, 1px) var(--border-style, solid)
+    var(--border-clr, rgba(var(--clr-on-surface-rgb), 0.1));
+  --hover-border: var(--border-thickness, 1px) var(--border-style, solid)
+    var(--border-h-clr, rgba(var(--clr-on-surface-rgb), 0.3));
 
   --default-transition: all 225ms ease-in-out;
 
@@ -66,7 +68,8 @@
   }
 }
 
-.LegacyChip__LegacyChipComponent-sc-tzfq94-0:hover>.ChipInnerComponent-sm-selected.ChipInnerComponent-sm-selected {
+.LegacyChip__LegacyChipComponent-sc-tzfq94-0:hover
+  > .ChipInnerComponent-sm-selected.ChipInnerComponent-sm-selected {
   color: var(--clr-on-primary-container);
   background: var(--clr-primary-container);
 }
@@ -102,8 +105,7 @@
 ,
 .qyKJPLjz8o4jnbk92JOn
 
-/* Artist Modal - Carrousel Button */
-  {
+/* Artist Modal - Carrousel Button */ {
   border-radius: var(--br);
   background-color: rgba(var(--clr-surface-1-rgb), 0.1);
   color: var(--clr-on-surface);
@@ -211,8 +213,7 @@
 
 .RHoNK4qVATbstzJZm5G8._iJX4yzDZzSHy_g9vp3G:after
 
-/* form context menu border */
-  {
+/* form context menu border */ {
   border-bottom: var(--default-border);
 }
 
@@ -220,7 +221,7 @@
 .wlb3dYO07PZuYfmNfmkS,
 .DquSH3YjnaIIXMZiOvwA,
 .main-contextMenu-menu,
-#context-menu>form,
+#context-menu > form,
 .jHt3xA6ovwVKkMJKqOhO {
   scrollbar-width: thin;
   background: var(--background-base);
@@ -265,12 +266,12 @@
   }
 
   .notistack-Snackbar {
-    &>div[role="alert"] {
+    & > div[role="alert"] {
       background-color: rgba(var(--clr-on-error-rgb), 0.5);
       color: var(--clr-error);
     }
 
-    &>div {
+    & > div {
       background-color: rgba(var(--clr-primary-rgb), 0.125);
       border-radius: 0.75rem;
       border: var(--default-border);
@@ -343,8 +344,7 @@
   .znOINyqAy7ivIGbQyrbt,
   .GimJ6fo6WOYPyWNVpSr1
 
-  /* Search Hover / Recent Search Card */
-    {
+  /* Search Hover / Recent Search Card */ {
     transition-duration: -1s;
     backdrop-filter: blur(32px);
     background-color: var(--background-base);
@@ -374,8 +374,7 @@
 /* ========== Main Home ========== */
 .cZrkCxXnCc7KLZqAqWoz .main-home-content .xOmT3apmEbwVlFt4HkBe
 
-/* IDK: But this fixes the second section cutoff */
-  {
+/* IDK: But this fixes the second section cutoff */ {
   --carousel-shelf-min-items: 6;
 }
 
@@ -399,7 +398,7 @@
 }
 
 .main-shelf-shelfGrid,
-.search-searchCategory-categoryGrid>.qI009QzTkvisAXqhbw74 {
+.search-searchCategory-categoryGrid > .qI009QzTkvisAXqhbw74 {
   gap: 4px;
   margin-inline: -6px !important;
 }
@@ -439,9 +438,11 @@ div.main-trackList-trackListRow {
   --icon-color: color-mix(in oklab, rgb(var(--accent-color)) 70%, white 100%);
   backdrop-filter: blur(1rem) saturate(2);
   background-color: transparent !important;
-  background-image: radial-gradient(circle at center right,
-      rgba(var(--accent-color), 0.35),
-      rgba(var(--clr-surface-rgb), 0.6) 100%) !important;
+  background-image: radial-gradient(
+    circle at center right,
+    rgba(var(--accent-color), 0.35),
+    rgba(var(--clr-surface-rgb), 0.6) 100%
+  ) !important;
   border: var(--default-border);
 
   .e-9640-progress-bar__indicator {
@@ -460,7 +461,6 @@ div.main-trackList-trackListRow {
 }
 
 @keyframes gradientShift {
-
   0%,
   100% {
     background-position: 0% 50%;
@@ -486,33 +486,36 @@ div.main-trackList-trackListRow {
 
 .U8wi3gXSb248Imbxy4gc
 
-/* Left to Right Fade */
-  {
-  --mask-gradient: linear-gradient(to right,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.8) 85%,
-      rgba(0, 0, 0, 0) 100%);
+/* Left to Right Fade */ {
+  --mask-gradient: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .Yjx8QrpjqgjqQPj4KWCh
 
-/* Right to Left Fade */
-  {
-  --mask-gradient: linear-gradient(to left,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.8) 85%,
-      rgba(0, 0, 0, 0) 100%);
+/* Right to Left Fade */ {
+  --mask-gradient: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .U8wi3gXSb248Imbxy4gc.Yjx8QrpjqgjqQPj4KWCh
 
-/* Center Black with Radial Fade */
-  {
-  --mask-gradient: radial-gradient(circle,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.8) 25%,
-      rgba(0, 0, 0, 0.8) 75%,
-      rgba(0, 0, 0, 0) 100%);
+/* Center Black with Radial Fade */ {
+  --mask-gradient: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 25%,
+    rgba(0, 0, 0, 0.8) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .Box-group-naked-card-md-isInteractive-draggable {
@@ -634,14 +637,12 @@ div.main-trackList-trackListRow {
 [data-right-sidebar-hidden="true"] .TkqXOzhmCCuE6YI3hlgA.Root__nav-bar,
 [data-right-sidebar-hidden="true"] .TkqXOzhmCCuE6YI3hlgA
 
-/* Fullscreen */
-  {
+/* Fullscreen */ {
   backdrop-filter: blur(32px) brightness(0.7);
 
   & .Zwr4MoUVImDin82vBn4y
 
-  /* Parent of .BoxComponent-group-listRow-naked-isInteractive-minBlockSize_56px-padding_8px */
-    {
+  /* Parent of .BoxComponent-group-listRow-naked-isInteractive-minBlockSize_56px-padding_8px */ {
     background-color: transparent !important;
   }
 }
@@ -692,8 +693,7 @@ div.main-trackList-trackListRow {
 
 .W3E0IT3_STcazjTeyOJa
 
-/* Header */
-  {
+/* Header */ {
   position: absolute;
   height: 4rem;
   width: 100%;
@@ -717,8 +717,7 @@ div.main-trackList-trackListRow {
 
 .mdMUqcSHFw1lZIcYEblu
 
-/* Header - box shadow */
-  {
+/* Header - box shadow */ {
   background-color: var(--background-base);
   border-bottom: var(--default-border);
 
@@ -729,43 +728,58 @@ div.main-trackList-trackListRow {
 
 .cZCuJDjrGA2QMXja_Sua
 
-/* Content Wrapper */
-  {
+/* Content Wrapper */ {
   padding-top: 4rem;
 }
 
 /* Change Spotify's fade out of Now Playing Canvas from going to black to going to transparent */
 .Of__Db4QgB9osz_mFxhw:before {
-  background: linear-gradient(180deg, hsla(0, 0%, 7%, .63), hsla(0, 0%, 7%, 0) 24.09%, hsla(0, 0%, 7%, 0) 80%, hsla(0, 0%, 7%, 0) 93.25%, hsla(0, 0%, 0%, 0));
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 7%, 0.63),
+    hsla(0, 0%, 7%, 0) 24.09%,
+    hsla(0, 0%, 7%, 0) 80%,
+    hsla(0, 0%, 7%, 0) 93.25%,
+    hsla(0, 0%, 0%, 0)
+  );
 }
 
 .Of__Db4QgB9osz_mFxhw:after {
-  background: linear-gradient(180deg, hsla(0, 0%, 7%, .63), hsla(0, 0%, 7%, .53) 30%, hsla(0, 0%, 7%, .53) 70%, hsla(0, 0%, 0%, 0) 95%);
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 7%, 0.63),
+    hsla(0, 0%, 7%, 0.53) 30%,
+    hsla(0, 0%, 7%, 0.53) 70%,
+    hsla(0, 0%, 0%, 0) 95%
+  );
 }
 
 .Of__Db4QgB9osz_mFxhw video {
-  mask-image: linear-gradient(180deg, hsla(0, 0%, 0%, 1), hsla(0, 0%, 0%, 1) 30%, hsla(0, 0%, 0%, 1) 70%, hsla(0, 0%, 0%, 0));
+  mask-image: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 1),
+    hsla(0, 0%, 0%, 1) 30%,
+    hsla(0, 0%, 0%, 1) 70%,
+    hsla(0, 0%, 0%, 0)
+  );
 }
 
 .OemaZktMXaRcYQ5bcfLZ
 
-/* Friend Activity - Card Wrapper */
-  {
+/* Friend Activity - Card Wrapper */ {
   gap: 16px;
 }
 
 .pIxPdfuNasUDLbEDmuK_
 
-/* Friend Activity - Jam Card */
-  {
+/* Friend Activity - Jam Card */ {
   background-color: var(--background-base);
   border: var(--default-border);
 }
 
 .jGcEaPyhr1c_janM2uRF
 
-/* Friend Activity - Card */
-  {
+/* Friend Activity - Card */ {
   background-color: var(--background-base);
   padding: 8px 12px;
   border: var(--default-border);
@@ -774,24 +788,21 @@ div.main-trackList-trackListRow {
 
 .vfrdRkOiUHFQZ8YxDEyK
 
-/* New fullscreen bg */
-  {
+/* New fullscreen bg */ {
   opacity: 0.2;
   backdrop-filter: blur(1rem);
 }
 
 .QgD5n5t4yCMPYSrZ9Ecl
 
-/* Home card to left transition */
-  {
+/* Home card to left transition */ {
   --x: calc(var(--container-width, 100vw) * -1);
   transform: translate3d(var(--x), 0, 0);
 }
 
 .OemaZktMXaRcYQ5bcfLZ
 
-/* Friend activity card wrapper */
-  {
+/* Friend activity card wrapper */ {
   gap: 8px;
 }
 
@@ -852,7 +863,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 
 .main-trackCreditsModal-creditsGroup,
 .main-trackCreditsModal-sectionTitle,
-.main-trackCreditsModal-originalCredits>p {
+.main-trackCreditsModal-originalCredits > p {
   padding: 6px 8px;
   margin: 4px 0;
   border: var(--default-border);
@@ -861,7 +872,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
   color: var(--clr-on-secondary-container) !important;
 }
 
-.main-trackCreditsModal-originalCredits>* {
+.main-trackCreditsModal-originalCredits > * {
   overflow-wrap: break-word;
 }
 
@@ -874,16 +885,14 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 /* ==========  Artist Modal ========== */
 .uJjmxe0T11dUVeW6Biz8
 
-/* Image container */
-  {
+/* Image container */ {
   background-color: rgba(var(--clr-surface-rgb), 0.75) !important;
   border-bottom: var(--default-border);
 }
 
 .T_AmQPlZ6wvE819I7A0D
 
-/* left cards */
-  {
+/* left cards */ {
   margin-bottom: -8px;
 }
 
@@ -899,8 +908,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 ,
 .NPv26QCDgdnwsPOlYJmQ
 
-/* Places */
-  {
+/* Places */ {
   height: fit-content;
   padding: 12px 12px;
   margin: 2px 0;
@@ -928,8 +936,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 .zQy0G59IX5G4Cc9AtWRT,
 .TkEnV1bItcSb11Yb8h7h
 
-/* Follower Count Card */
-  {
+/* Follower Count Card */ {
   background-color: rgba(var(--clr-tertiary-container-rgb), 0.5);
   color: var(--clr-on-tertiary-container);
 
@@ -940,8 +947,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 
 .TV2j1oIRIkKH_6D1xP82
 
-/* Main Card */
-  {
+/* Main Card */ {
   margin: 0px 8px;
   padding: 12px 16px;
   border-radius: var(--m-br);
@@ -992,8 +998,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 
 .OyLgnahIHw63684ABRBF
 
-/* Avatar card (Posted by) */
-  {
+/* Avatar card (Posted by) */ {
   margin-top: 16px;
   background-color: rgba(var(--clr-surface-3-rgb), 0.5);
   width: fit-content;
@@ -1015,8 +1020,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 
 .DVWIV41y6daOMjQKR8Zj
 
-/* Links */
-  {
+/* Links */ {
   margin-top: 0;
 }
 
@@ -1036,7 +1040,6 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 
 /* ===== Discography page =====*/
 .at-disco {
-
   .umv,
   .umv.desktop {
     --umv-height: 50vh;
@@ -1085,8 +1088,7 @@ div[data-testid="settings-page"] {
 /* Lyrics */
 .lyrics-lyricsContainer-Provider
 
-/* No one cares about the provider :3 */
-  {
+/* No one cares about the provider :3 */ {
   display: none;
 }
 
@@ -1095,7 +1097,7 @@ div[data-testid="settings-page"] {
 }
 
 /* Fix for specific extensions */
-#sleep-timer-menu>div,
+#sleep-timer-menu > div,
 #sesh-stats-overlay {
   border-radius: var(--m-br);
   border: var(--default-border);

@@ -38,7 +38,7 @@ export type DebouncedFunction<T extends Array<unknown>> = {
 // deno-lint-ignore no-explicit-any
 function debounce<T extends Array<any>>(
   fn: (this: DebouncedFunction<T>, ...args: T) => void,
-  wait: number = 300
+  wait: number = 300,
 ): DebouncedFunction<T> {
   let timeout: number | null = null;
   let flush: (() => void) | null = null;
@@ -53,7 +53,7 @@ function debounce<T extends Array<any>>(
   }) as DebouncedFunction<T>;
 
   debounced.clear = () => {
-    if (typeof timeout === 'number') {
+    if (typeof timeout === "number") {
       clearTimeout(timeout);
       timeout = null;
       flush = null;
@@ -64,8 +64,8 @@ function debounce<T extends Array<any>>(
     flush?.();
   };
 
-  Object.defineProperty(debounced, 'pending', {
-    get: () => typeof timeout === 'number',
+  Object.defineProperty(debounced, "pending", {
+    get: () => typeof timeout === "number",
   });
 
   return debounced;

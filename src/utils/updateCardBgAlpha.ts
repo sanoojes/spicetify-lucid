@@ -8,7 +8,7 @@ export function updateCardBgAlpha(className: string, alpha = 0.25) {
       const [, r, g, b] = match;
       const rgb = `${r},${g},${b}`;
 
-      card.style.setProperty('--accent-color', rgb);
+      card.style.setProperty("--accent-color", rgb);
       card.style.backgroundColor = `rgba(${rgb}, ${alpha})`;
     }
   });

@@ -1,6 +1,6 @@
-import type { GoogleFont } from '@/utils/font.ts';
-import type { ReactNode } from 'react';
-import type { ZodSafeParseResult } from 'zod';
+import type { GoogleFont } from "@/utils/font.ts";
+import type { ReactNode } from "react";
+import type { ZodSafeParseResult } from "zod";
 
 export type FontPickerProps = {
   value?: string;
@@ -23,18 +23,18 @@ export type BaseInputProps = {
 
 export type InputProps =
   | (BaseInputProps & {
-    inputType: 'text';
-    value?: string;
-    onChange: (value: string) => void;
-    validation?: (value: string) => ZodSafeParseResult<string> | boolean;
-  })
+      inputType: "text";
+      value?: string;
+      onChange: (value: string) => void;
+      validation?: (value: string) => ZodSafeParseResult<string> | boolean;
+    })
   | (BaseInputProps & {
-    inputType: 'number';
-    value?: number;
-    onChange: (value: number) => void;
-    validation?: (value: number) => ZodSafeParseResult<number> | boolean;
-    step?: number;
-  });
+      inputType: "number";
+      value?: number;
+      onChange: (value: number) => void;
+      validation?: (value: number) => ZodSafeParseResult<number> | boolean;
+      step?: number;
+    });
 
 export type ToggleProps = {
   isChecked: boolean;
@@ -43,7 +43,7 @@ export type ToggleProps = {
 
 export type ButtonProps = {
   className?: string;
-  variant?: 'default' | 'primary' | 'danger' | 'icon' | 'icon-no-border';
+  variant?: "default" | "primary" | "danger" | "icon" | "icon-no-border";
   onClick: () => void;
   buttonText?: string | ReactNode;
   children?: string | ReactNode;

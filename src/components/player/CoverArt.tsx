@@ -1,4 +1,4 @@
-import { MusicNote2Filled } from '@fluentui/react-icons';
+import { MusicNote2Filled } from "@fluentui/react-icons";
 
 const CoverArt: React.FC<{ imageSrc: string | null; href?: string }> = ({ imageSrc, href }) => (
   <div className="main-coverSlotCollapsed-container main-coverSlotCollapsed-navAltContainer">

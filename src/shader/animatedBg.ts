@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 // Updated Uniforms
 const Uniforms = `
@@ -120,16 +120,16 @@ for (const match of Uniforms.matchAll(/uniform\s+(\w+)\s+(\w+);/g)) {
 export const GetShaderUniforms = (): ShaderUniforms => {
   const uniforms: Record<string, unknown> = {};
   for (const [uniformName, uniformType] of ShaderUniformStructure.entries()) {
-    if (uniformType === 'float') {
-      uniforms[uniformName] = { value: uniformName === 'TextureFade' ? 1.0 : 0 };
-    } else if (uniformType === 'vec2') {
+    if (uniformType === "float") {
+      uniforms[uniformName] = { value: uniformName === "TextureFade" ? 1.0 : 0 };
+    } else if (uniformType === "vec2") {
       uniforms[uniformName] = { value: new THREE.Vector2() };
-    } else if (uniformType === 'sampler2D') {
-      const blankCanvas = document.createElement('canvas');
+    } else if (uniformType === "sampler2D") {
+      const blankCanvas = document.createElement("canvas");
       blankCanvas.width = blankCanvas.height = 2;
-      const ctx = blankCanvas.getContext('2d');
+      const ctx = blankCanvas.getContext("2d");
       if (ctx) {
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = "black";
         ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       }
       const texture = new THREE.CanvasTexture(blankCanvas);

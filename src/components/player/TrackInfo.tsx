@@ -1,7 +1,7 @@
-import UI from '@/components/ui';
+import UI from "@/components/ui";
 
 const TrackInfo: React.FC<{
-  metadata?: Spicetify.PlayerTrack['metadata'];
+  metadata?: Spicetify.PlayerTrack["metadata"];
   artists?: Spicetify.ArtistsEntity[];
   loading: boolean;
 }> = ({ metadata, artists, loading }) => (
@@ -16,7 +16,7 @@ const TrackInfo: React.FC<{
           <div className="placeholder-title" />
         ) : (
           <a draggable="false" href={metadata?.album_uri}>
-            {metadata?.title ?? ''}
+            {metadata?.title ?? ""}
           </a>
         )}
       </div>
@@ -34,7 +34,7 @@ const TrackInfo: React.FC<{
               <a draggable="true" dir="auto" href={artist?.uri}>
                 {artist?.name}
               </a>
-              {index < artists.length - 1 && ', '}
+              {index < artists.length - 1 && ", "}
             </span>
           ))
         )}

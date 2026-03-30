@@ -1,9 +1,9 @@
-import getOrCreateElement from '@/utils/dom/getOrCreateElement.ts';
-import { QuestionCircle20Regular } from '@fluentui/react-icons';
-import appStore from '@/store/appStore.ts';
-import { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { useStore } from 'zustand';
+import getOrCreateElement from "@/utils/dom/getOrCreateElement.ts";
+import { QuestionCircle20Regular } from "@fluentui/react-icons";
+import appStore from "@/store/appStore.ts";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useStore } from "zustand";
 
 type TippyProps = {
   label?: React.ReactNode;
@@ -12,7 +12,7 @@ type TippyProps = {
   show?: boolean;
 };
 
-const tooltipRootId = 'tooltip-root';
+const tooltipRootId = "tooltip-root";
 
 const Tippy: React.FC<TippyProps> = ({ label = null, children, hasIcon = false, show = true }) => {
   const [visible, setVisible] = useState(false);
@@ -43,18 +43,18 @@ const Tippy: React.FC<TippyProps> = ({ label = null, children, hasIcon = false, 
       setVisible(false);
     };
 
-    container.addEventListener('mouseenter', showTooltip);
-    container.addEventListener('mouseleave', hideTooltip);
+    container.addEventListener("mouseenter", showTooltip);
+    container.addEventListener("mouseleave", hideTooltip);
 
     return () => {
-      container.removeEventListener('mouseenter', showTooltip);
-      container.removeEventListener('mouseleave', hideTooltip);
+      container.removeEventListener("mouseenter", showTooltip);
+      container.removeEventListener("mouseleave", hideTooltip);
     };
   }, [disableTippy]);
 
   return (
     <>
-      <div ref={containerRef} style={{ display: show ? 'inline' : 'none' }} data-tippy-container>
+      <div ref={containerRef} style={{ display: show ? "inline" : "none" }} data-tippy-container>
         {children}
         {hasIcon && !disableTippy && (
           <div className="tooltip-icon-wrapper">
@@ -77,7 +77,7 @@ const Tippy: React.FC<TippyProps> = ({ label = null, children, hasIcon = false, 
           >
             {label}
           </div>,
-          getOrCreateElement('div', tooltipRootId, document.body)
+          getOrCreateElement("div", tooltipRootId, document.body),
         )}
     </>
   );

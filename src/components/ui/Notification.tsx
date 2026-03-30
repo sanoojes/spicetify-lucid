@@ -1,6 +1,6 @@
-import UI from '@/components/ui';
-import { Dismiss16Filled } from '@fluentui/react-icons';
-import { useEffect, useState } from 'react';
+import UI from "@/components/ui";
+import { Dismiss16Filled } from "@fluentui/react-icons";
+import { useEffect, useState } from "react";
 
 type NotificationProps = {
   message: React.ReactNode;
@@ -34,7 +34,7 @@ const Notification: React.FC<NotificationProps> = ({
   };
 
   return (
-    <div className={`notification${isError ? ' error' : ''}${!visible ? ' fade-out' : ''}`}>
+    <div className={`notification${isError ? " error" : ""}${!visible ? " fade-out" : ""}`}>
       <span>{message}</span>
       <UI.Button
         className="notification-close"

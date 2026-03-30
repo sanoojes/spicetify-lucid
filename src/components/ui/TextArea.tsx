@@ -1,10 +1,10 @@
-import type { InputProps } from '@/types/uiSchema.ts';
-import { showNotification } from '@/utils/showNotification.tsx';
-import { useCallback, useEffect, useState } from 'react';
+import type { InputProps } from "@/types/uiSchema.ts";
+import { showNotification } from "@/utils/showNotification.tsx";
+import { useCallback, useEffect, useState } from "react";
 
-const TextArea: React.FC<Extract<InputProps, { inputType: 'text' }>> = ({
+const TextArea: React.FC<Extract<InputProps, { inputType: "text" }>> = ({
   placeholder,
-  value: defaultValue = '',
+  value: defaultValue = "",
   onChange,
   validation,
 }) => {
@@ -19,18 +19,18 @@ const TextArea: React.FC<Extract<InputProps, { inputType: 'text' }>> = ({
     (val: string): boolean => {
       const result = validation?.(val);
 
-      if (typeof result !== 'boolean' && result && !result.success && result?.error) {
+      if (typeof result !== "boolean" && result && !result.success && result?.error) {
         showNotification({
-          message: result.error.issues?.[0].message || 'Invalid input',
+          message: result.error.issues?.[0].message || "Invalid input",
           isError: true,
         });
       }
 
-      const success = typeof result === 'boolean' ? result : (result?.success ?? true);
+      const success = typeof result === "boolean" ? result : (result?.success ?? true);
       setIsValid(success);
       return success;
     },
-    [validation]
+    [validation],
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -44,7 +44,7 @@ const TextArea: React.FC<Extract<InputProps, { inputType: 'text' }>> = ({
   return (
     <div className="lucid-input-wrapper textarea">
       <textarea
-        className={`lucid-input textarea${!isValid ? ' error' : ''}`}
+        className={`lucid-input textarea${!isValid ? " error" : ""}`}
         placeholder={placeholder}
         value={value}
         onChange={handleChange}

@@ -1,12 +1,12 @@
-import type { FontPickerProps } from '@/types/uiSchema.ts';
-import UI from '@/components/ui';
-import { CheckboxChecked16Filled, CheckboxUnchecked16Filled } from '@fluentui/react-icons';
-import { fetchGoogleFonts, type GoogleFont, loadFont } from '@/utils/font.ts';
-import { showNotification } from '@/utils/showNotification.tsx';
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import type { FontPickerProps } from "@/types/uiSchema.ts";
+import UI from "@/components/ui";
+import { CheckboxChecked16Filled, CheckboxUnchecked16Filled } from "@fluentui/react-icons";
+import { fetchGoogleFonts, type GoogleFont, loadFont } from "@/utils/font.ts";
+import { showNotification } from "@/utils/showNotification.tsx";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 
 const FontPicker: React.FC<FontPickerProps> = ({ value, onChange }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [isLoading, setIsLoading] = useState(false);
   const [fonts, setFonts] = useState<GoogleFont[]>([]);
   const [selectedFont, setSelectedFont] = useState<GoogleFont | null>(null);
@@ -14,7 +14,7 @@ const FontPicker: React.FC<FontPickerProps> = ({ value, onChange }) => {
 
   useEffect(() => {
     if (error?.message) {
-      showNotification({ message: error.message, id: 'font-picker-notify' });
+      showNotification({ message: error.message, id: "font-picker-notify" });
     }
   }, [error]);
 
@@ -30,8 +30,8 @@ const FontPicker: React.FC<FontPickerProps> = ({ value, onChange }) => {
         }
         setError(null);
       } catch (err) {
-        setError(err instanceof Error ? err : new Error('Failed to load fonts'));
-        console.error('Error loading fonts:', err);
+        setError(err instanceof Error ? err : new Error("Failed to load fonts"));
+        console.error("Error loading fonts:", err);
       } finally {
         setIsLoading(false);
       }
@@ -45,7 +45,7 @@ const FontPicker: React.FC<FontPickerProps> = ({ value, onChange }) => {
       setSelectedFont(font);
       onChange?.(font);
     },
-    [onChange]
+    [onChange],
   );
 
   const categories = useMemo(() => {
@@ -55,22 +55,22 @@ const FontPicker: React.FC<FontPickerProps> = ({ value, onChange }) => {
 
   const categoryOptions = useMemo(
     () =>
-      [['All', 'all'], ...categories.map((cat) => [cat[0].toUpperCase() + cat.slice(1), cat])] as [
+      [["All", "all"], ...categories.map((cat) => [cat[0].toUpperCase() + cat.slice(1), cat])] as [
         string,
         string,
       ][],
-    [categories]
+    [categories],
   );
 
   const filteredFonts = useMemo(() => {
-    return selectedCategory === 'all'
+    return selectedCategory === "all"
       ? fonts
       : fonts.filter((font) => font.category === selectedCategory);
   }, [fonts, selectedCategory]);
 
   return (
     <UI.Dropdown>
-      <UI.Dropdown.Button>{selectedFont?.family || 'Open Font Picker'}</UI.Dropdown.Button>
+      <UI.Dropdown.Button>{selectedFont?.family || "Open Font Picker"}</UI.Dropdown.Button>
       <UI.Dropdown.Content>
         {isLoading ? (
           <UI.Loader />
@@ -109,12 +109,12 @@ const FontItem: React.FC<{ font: GoogleFont; isSelected: boolean }> = memo(
       if (!isFontLoaded) {
         loadFont(font.family)
           .then(() => setIsFontLoaded(true))
-          .catch((error) => console.error('Failed to load font:', error));
+          .catch((error) => console.error("Failed to load font:", error));
       }
     }, [isFontLoaded, font.family]);
 
     return (
-      <div className={`font-item ${isSelected ? 'selected' : ''}`}>
+      <div className={`font-item ${isSelected ? "selected" : ""}`}>
         <div className={`font-item-firstColumn`}>
           {isSelected ? <CheckboxChecked16Filled /> : <CheckboxUnchecked16Filled />}
         </div>
@@ -124,7 +124,7 @@ const FontItem: React.FC<{ font: GoogleFont; isSelected: boolean }> = memo(
             className="font-preview"
             style={{
               opacity: isFontLoaded ? 1 : 0,
-              fontFamily: isFontLoaded ? font.family : 'system-ui',
+              fontFamily: isFontLoaded ? font.family : "system-ui",
             }}
           >
             The quick brown fox
@@ -134,5 +134,6 @@ const FontItem: React.FC<{ font: GoogleFont; isSelected: boolean }> = memo(
     );
   },
   (prevProps, nextProps) =>
-    prevProps.font.family === nextProps.font.family && prevProps.isSelected === nextProps.isSelected
+    prevProps.font.family === nextProps.font.family &&
+    prevProps.isSelected === nextProps.isSelected,
 );

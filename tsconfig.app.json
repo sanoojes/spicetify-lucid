@@ -2,15 +2,9 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "esnext",
-    "types": [
-      "@spicemod/creator/client"
-    ],
+    "types": ["@spicemod/creator/client"],
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -29,15 +23,9 @@
     // Paths
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@icons/*": [
-        "./assets/icons/*"
-      ]
+      "@/*": ["./src/*"],
+      "@icons/*": ["./assets/icons/*"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

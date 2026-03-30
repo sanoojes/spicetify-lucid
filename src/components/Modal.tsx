@@ -1,6 +1,6 @@
-import UI from '@/components/ui';
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import UI from "@/components/ui";
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
 
 type ModalProps = {
   isOpen: boolean;
@@ -12,12 +12,12 @@ type ModalProps = {
 const Modal: React.FC<ModalProps> = ({ isOpen, title, children, onClose }) => {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         onClose();
       }
     };
-    document.addEventListener('keydown', handleEsc);
-    return () => document.removeEventListener('keydown', handleEsc);
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
   if (!isOpen) return null;
@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, title, children, onClose }) => {
         </div>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 };
 

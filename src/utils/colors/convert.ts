@@ -1,11 +1,11 @@
 export function hexToRGB(hex: string): string {
-  const parsed = hex.startsWith('#') ? hex.slice(1) : hex;
+  const parsed = hex.startsWith("#") ? hex.slice(1) : hex;
   const full =
     parsed.length === 3
       ? parsed
-          .split('')
+          .split("")
           .map((c) => c + c)
-          .join('')
+          .join("")
       : parsed;
 
   const int = parseInt(full, 16);

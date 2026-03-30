@@ -1,142 +1,142 @@
 declare namespace Spicetify {
   type Icon =
-    | 'album'
-    | 'artist'
-    | 'block'
-    | 'brightness'
-    | 'car'
-    | 'chart-down'
-    | 'chart-up'
-    | 'check'
-    | 'check-alt-fill'
-    | 'chevron-left'
-    | 'chevron-right'
-    | 'chromecast-disconnected'
-    | 'clock'
-    | 'collaborative'
-    | 'computer'
-    | 'copy'
-    | 'download'
-    | 'downloaded'
-    | 'edit'
-    | 'enhance'
-    | 'exclamation-circle'
-    | 'external-link'
-    | 'facebook'
-    | 'follow'
-    | 'fullscreen'
-    | 'gamepad'
-    | 'grid-view'
-    | 'heart'
-    | 'heart-active'
-    | 'instagram'
-    | 'laptop'
-    | 'library'
-    | 'list-view'
-    | 'location'
-    | 'locked'
-    | 'locked-active'
-    | 'lyrics'
-    | 'menu'
-    | 'minimize'
-    | 'minus'
-    | 'more'
-    | 'new-spotify-connect'
-    | 'offline'
-    | 'pause'
-    | 'phone'
-    | 'play'
-    | 'playlist'
-    | 'playlist-folder'
-    | 'plus-alt'
-    | 'plus2px'
-    | 'podcasts'
-    | 'projector'
-    | 'queue'
-    | 'repeat'
-    | 'repeat-once'
-    | 'search'
-    | 'search-active'
-    | 'shuffle'
-    | 'skip-back'
-    | 'skip-back15'
-    | 'skip-forward'
-    | 'skip-forward15'
-    | 'soundbetter'
-    | 'speaker'
-    | 'spotify'
-    | 'subtitles'
-    | 'tablet'
-    | 'ticket'
-    | 'twitter'
-    | 'visualizer'
-    | 'voice'
-    | 'volume'
-    | 'volume-off'
-    | 'volume-one-wave'
-    | 'volume-two-wave'
-    | 'watch'
-    | 'x';
+    | "album"
+    | "artist"
+    | "block"
+    | "brightness"
+    | "car"
+    | "chart-down"
+    | "chart-up"
+    | "check"
+    | "check-alt-fill"
+    | "chevron-left"
+    | "chevron-right"
+    | "chromecast-disconnected"
+    | "clock"
+    | "collaborative"
+    | "computer"
+    | "copy"
+    | "download"
+    | "downloaded"
+    | "edit"
+    | "enhance"
+    | "exclamation-circle"
+    | "external-link"
+    | "facebook"
+    | "follow"
+    | "fullscreen"
+    | "gamepad"
+    | "grid-view"
+    | "heart"
+    | "heart-active"
+    | "instagram"
+    | "laptop"
+    | "library"
+    | "list-view"
+    | "location"
+    | "locked"
+    | "locked-active"
+    | "lyrics"
+    | "menu"
+    | "minimize"
+    | "minus"
+    | "more"
+    | "new-spotify-connect"
+    | "offline"
+    | "pause"
+    | "phone"
+    | "play"
+    | "playlist"
+    | "playlist-folder"
+    | "plus-alt"
+    | "plus2px"
+    | "podcasts"
+    | "projector"
+    | "queue"
+    | "repeat"
+    | "repeat-once"
+    | "search"
+    | "search-active"
+    | "shuffle"
+    | "skip-back"
+    | "skip-back15"
+    | "skip-forward"
+    | "skip-forward15"
+    | "soundbetter"
+    | "speaker"
+    | "spotify"
+    | "subtitles"
+    | "tablet"
+    | "ticket"
+    | "twitter"
+    | "visualizer"
+    | "voice"
+    | "volume"
+    | "volume-off"
+    | "volume-one-wave"
+    | "volume-two-wave"
+    | "watch"
+    | "x";
   type Variant =
-    | 'bass'
-    | 'forte'
-    | 'brio'
-    | 'altoBrio'
-    | 'alto'
-    | 'canon'
-    | 'celloCanon'
-    | 'cello'
-    | 'ballad'
-    | 'balladBold'
-    | 'viola'
-    | 'violaBold'
-    | 'mesto'
-    | 'mestoBold'
-    | 'metronome'
-    | 'finale'
-    | 'finaleBold'
-    | 'minuet'
-    | 'minuetBold';
+    | "bass"
+    | "forte"
+    | "brio"
+    | "altoBrio"
+    | "alto"
+    | "canon"
+    | "celloCanon"
+    | "cello"
+    | "ballad"
+    | "balladBold"
+    | "viola"
+    | "violaBold"
+    | "mesto"
+    | "mestoBold"
+    | "metronome"
+    | "finale"
+    | "finaleBold"
+    | "minuet"
+    | "minuetBold";
   type SemanticColor =
-    | 'textBase'
-    | 'textSubdued'
-    | 'textBrightAccent'
-    | 'textNegative'
-    | 'textWarning'
-    | 'textPositive'
-    | 'textAnnouncement'
-    | 'essentialBase'
-    | 'essentialSubdued'
-    | 'essentialBrightAccent'
-    | 'essentialNegative'
-    | 'essentialWarning'
-    | 'essentialPositive'
-    | 'essentialAnnouncement'
-    | 'decorativeBase'
-    | 'decorativeSubdued'
-    | 'backgroundBase'
-    | 'backgroundHighlight'
-    | 'backgroundPress'
-    | 'backgroundElevatedBase'
-    | 'backgroundElevatedHighlight'
-    | 'backgroundElevatedPress'
-    | 'backgroundTintedBase'
-    | 'backgroundTintedHighlight'
-    | 'backgroundTintedPress'
-    | 'backgroundUnsafeForSmallTextBase'
-    | 'backgroundUnsafeForSmallTextHighlight'
-    | 'backgroundUnsafeForSmallTextPress';
+    | "textBase"
+    | "textSubdued"
+    | "textBrightAccent"
+    | "textNegative"
+    | "textWarning"
+    | "textPositive"
+    | "textAnnouncement"
+    | "essentialBase"
+    | "essentialSubdued"
+    | "essentialBrightAccent"
+    | "essentialNegative"
+    | "essentialWarning"
+    | "essentialPositive"
+    | "essentialAnnouncement"
+    | "decorativeBase"
+    | "decorativeSubdued"
+    | "backgroundBase"
+    | "backgroundHighlight"
+    | "backgroundPress"
+    | "backgroundElevatedBase"
+    | "backgroundElevatedHighlight"
+    | "backgroundElevatedPress"
+    | "backgroundTintedBase"
+    | "backgroundTintedHighlight"
+    | "backgroundTintedPress"
+    | "backgroundUnsafeForSmallTextBase"
+    | "backgroundUnsafeForSmallTextHighlight"
+    | "backgroundUnsafeForSmallTextPress";
   type ColorSet =
-    | 'base'
-    | 'brightAccent'
-    | 'negative'
-    | 'warning'
-    | 'positive'
-    | 'announcement'
-    | 'invertedDark'
-    | 'invertedLight'
-    | 'mutedAccent'
-    | 'overMedia';
+    | "base"
+    | "brightAccent"
+    | "negative"
+    | "warning"
+    | "positive"
+    | "announcement"
+    | "invertedDark"
+    | "invertedLight"
+    | "mutedAccent"
+    | "overMedia";
   type ColorSetBackgroundColors = {
     base: string;
     highlight: string;
@@ -195,7 +195,7 @@ declare namespace Spicetify {
     uri: string;
     url: string;
     metadata: {
-      'player.arch': string;
+      "player.arch": string;
     };
   };
   type PlayerIndex = {
@@ -226,25 +226,25 @@ declare namespace Spicetify {
     entity_uri: string;
     iteration: string;
     title: string;
-    'collection.is_banned': string;
-    'artist_uri:1': string;
-    'collection.in_collection': string;
+    "collection.is_banned": string;
+    "artist_uri:1": string;
+    "collection.in_collection": string;
     image_small_url: string;
-    'collection.can_ban': string;
+    "collection.can_ban": string;
     is_explicit: string;
     album_disc_number: string;
     album_disc_count: string;
     track_player: string;
     album_title: string;
-    'collection.can_add': string;
+    "collection.can_add": string;
     image_large_url: string;
-    'actions.skipping_prev_past_track': string;
+    "actions.skipping_prev_past_track": string;
     page_instance_id: string;
     image_xlarge_url: string;
     marked_for_download: string;
-    'actions.skipping_next_past_track': string;
+    "actions.skipping_next_past_track": string;
     context_uri: string;
-    'artist_name:1': string;
+    "artist_name:1": string;
     has_lyrics: string;
     interaction_id: string;
     image_url: string;
@@ -309,19 +309,19 @@ declare namespace Spicetify {
      */
     function addEventListener(type: string, callback: (event?: Event) => void): void;
     function addEventListener(
-      type: 'songchange',
-      callback: (event?: Event & { data: PlayerState }) => void
+      type: "songchange",
+      callback: (event?: Event & { data: PlayerState }) => void,
     ): void;
     function addEventListener(
-      type: 'onplaypause',
-      callback: (event?: Event & { data: PlayerState }) => void
+      type: "onplaypause",
+      callback: (event?: Event & { data: PlayerState }) => void,
     ): void;
     function addEventListener(
-      type: 'onprogress',
-      callback: (event?: Event & { data: number }) => void
+      type: "onprogress",
+      callback: (event?: Event & { data: number }) => void,
     ): void;
     function addEventListener(
-      type: 'appchange',
+      type: "appchange",
       callback: (
         event?: Event & {
           data: {
@@ -334,8 +334,8 @@ declare namespace Spicetify {
              */
             container: HTMLElement;
           };
-        }
-      ) => void
+        },
+      ) => void,
     ): void;
     /**
      * Skip to previous track.
@@ -504,7 +504,7 @@ declare namespace Spicetify {
    * Async wrappers of CosmosAPI
    */
   namespace CosmosAsync {
-    type Method = 'DELETE' | 'GET' | 'HEAD' | 'PATCH' | 'POST' | 'PUT' | 'SUB';
+    type Method = "DELETE" | "GET" | "HEAD" | "PATCH" | "POST" | "PUT" | "SUB";
     interface Error {
       code: number;
       error: string;
@@ -523,35 +523,35 @@ declare namespace Spicetify {
     }
 
     function head(url: string, headers?: Headers): Promise<Headers>;
-    function get(url: string, body?: Body, headers?: Headers): Promise<Response['body']>;
-    function post(url: string, body?: Body, headers?: Headers): Promise<Response['body']>;
-    function put(url: string, body?: Body, headers?: Headers): Promise<Response['body']>;
-    function del(url: string, body?: Body, headers?: Headers): Promise<Response['body']>;
-    function patch(url: string, body?: Body, headers?: Headers): Promise<Response['body']>;
+    function get(url: string, body?: Body, headers?: Headers): Promise<Response["body"]>;
+    function post(url: string, body?: Body, headers?: Headers): Promise<Response["body"]>;
+    function put(url: string, body?: Body, headers?: Headers): Promise<Response["body"]>;
+    function del(url: string, body?: Body, headers?: Headers): Promise<Response["body"]>;
+    function patch(url: string, body?: Body, headers?: Headers): Promise<Response["body"]>;
     function sub(
       url: string,
-      callback: (b: Response['body']) => void,
+      callback: (b: Response["body"]) => void,
       onError?: (e: Error) => void,
       body?: Body,
-      headers?: Headers
-    ): Promise<Response['body']>;
+      headers?: Headers,
+    ): Promise<Response["body"]>;
     function postSub(
       url: string,
       body: Body | null,
-      callback: (b: Response['body']) => void,
-      onError?: (e: Error) => void
-    ): Promise<Response['body']>;
+      callback: (b: Response["body"]) => void,
+      onError?: (e: Error) => void,
+    ): Promise<Response["body"]>;
     function request(
       method: Method,
       url: string,
       body?: Body,
-      headers?: Headers
+      headers?: Headers,
     ): Promise<Response>;
     function resolve(
       method: Method,
       url: string,
       body?: Body,
-      headers?: Headers
+      headers?: Headers,
     ): Promise<Response>;
   }
   /**
@@ -581,110 +581,110 @@ declare namespace Spicetify {
    */
   namespace Keyboard {
     type ValidKey =
-      | 'BACKSPACE'
-      | 'TAB'
-      | 'ENTER'
-      | 'SHIFT'
-      | 'CTRL'
-      | 'ALT'
-      | 'CAPS'
-      | 'ESCAPE'
-      | 'SPACE'
-      | 'PAGE_UP'
-      | 'PAGE_DOWN'
-      | 'END'
-      | 'HOME'
-      | 'ARROW_LEFT'
-      | 'ARROW_UP'
-      | 'ARROW_RIGHT'
-      | 'ARROW_DOWN'
-      | 'INSERT'
-      | 'DELETE'
-      | 'A'
-      | 'B'
-      | 'C'
-      | 'D'
-      | 'E'
-      | 'F'
-      | 'G'
-      | 'H'
-      | 'I'
-      | 'J'
-      | 'K'
-      | 'L'
-      | 'M'
-      | 'N'
-      | 'O'
-      | 'P'
-      | 'Q'
-      | 'R'
-      | 'S'
-      | 'T'
-      | 'U'
-      | 'V'
-      | 'W'
-      | 'X'
-      | 'Y'
-      | 'Z'
-      | 'WINDOW_LEFT'
-      | 'WINDOW_RIGHT'
-      | 'SELECT'
-      | 'NUMPAD_0'
-      | 'NUMPAD_1'
-      | 'NUMPAD_2'
-      | 'NUMPAD_3'
-      | 'NUMPAD_4'
-      | 'NUMPAD_5'
-      | 'NUMPAD_6'
-      | 'NUMPAD_7'
-      | 'NUMPAD_8'
-      | 'NUMPAD_9'
-      | 'MULTIPLY'
-      | 'ADD'
-      | 'SUBTRACT'
-      | 'DECIMAL_POINT'
-      | 'DIVIDE'
-      | 'F1'
-      | 'F2'
-      | 'F3'
-      | 'F4'
-      | 'F5'
-      | 'F6'
-      | 'F7'
-      | 'F8'
-      | 'F9'
-      | 'F10'
-      | 'F11'
-      | 'F12'
-      | ';'
-      | '='
-      | ' | '
-      | '-'
-      | '.'
-      | '/'
-      | '`'
-      | '['
-      | '\\'
-      | ']'
+      | "BACKSPACE"
+      | "TAB"
+      | "ENTER"
+      | "SHIFT"
+      | "CTRL"
+      | "ALT"
+      | "CAPS"
+      | "ESCAPE"
+      | "SPACE"
+      | "PAGE_UP"
+      | "PAGE_DOWN"
+      | "END"
+      | "HOME"
+      | "ARROW_LEFT"
+      | "ARROW_UP"
+      | "ARROW_RIGHT"
+      | "ARROW_DOWN"
+      | "INSERT"
+      | "DELETE"
+      | "A"
+      | "B"
+      | "C"
+      | "D"
+      | "E"
+      | "F"
+      | "G"
+      | "H"
+      | "I"
+      | "J"
+      | "K"
+      | "L"
+      | "M"
+      | "N"
+      | "O"
+      | "P"
+      | "Q"
+      | "R"
+      | "S"
+      | "T"
+      | "U"
+      | "V"
+      | "W"
+      | "X"
+      | "Y"
+      | "Z"
+      | "WINDOW_LEFT"
+      | "WINDOW_RIGHT"
+      | "SELECT"
+      | "NUMPAD_0"
+      | "NUMPAD_1"
+      | "NUMPAD_2"
+      | "NUMPAD_3"
+      | "NUMPAD_4"
+      | "NUMPAD_5"
+      | "NUMPAD_6"
+      | "NUMPAD_7"
+      | "NUMPAD_8"
+      | "NUMPAD_9"
+      | "MULTIPLY"
+      | "ADD"
+      | "SUBTRACT"
+      | "DECIMAL_POINT"
+      | "DIVIDE"
+      | "F1"
+      | "F2"
+      | "F3"
+      | "F4"
+      | "F5"
+      | "F6"
+      | "F7"
+      | "F8"
+      | "F9"
+      | "F10"
+      | "F11"
+      | "F12"
+      | ";"
+      | "="
+      | " | "
+      | "-"
+      | "."
+      | "/"
+      | "`"
+      | "["
+      | "\\"
+      | "]"
       | '"'
-      | '~'
-      | '!'
-      | '@'
-      | '#'
-      | '$'
-      | '%'
-      | '^'
-      | '&'
-      | '*'
-      | '('
-      | ')'
-      | '_'
-      | '+'
-      | ':'
-      | '<'
-      | '>'
-      | '?'
-      | '|';
+      | "~"
+      | "!"
+      | "@"
+      | "#"
+      | "$"
+      | "%"
+      | "^"
+      | "&"
+      | "*"
+      | "("
+      | ")"
+      | "_"
+      | "+"
+      | ":"
+      | "<"
+      | ">"
+      | "?"
+      | "|";
     type KeysDefine =
       | string
       | {
@@ -698,11 +698,11 @@ declare namespace Spicetify {
     function registerShortcut(keys: KeysDefine, callback: (event: KeyboardEvent) => void): void;
     function registerIsolatedShortcut(
       keys: KeysDefine,
-      callback: (event: KeyboardEvent) => void
+      callback: (event: KeyboardEvent) => void,
     ): void;
     function registerImportantShortcut(
       keys: KeysDefine,
-      callback: (event: KeyboardEvent) => void
+      callback: (event: KeyboardEvent) => void,
     ): void;
     function _deregisterShortcut(keys: KeysDefine): void;
     function deregisterImportantShortcut(keys: KeysDefine): void;
@@ -744,7 +744,7 @@ declare namespace Spicetify {
         name: string,
         isEnabled: boolean,
         onClick: (self: Item) => void,
-        icon?: Icon | string
+        icon?: Icon | string,
       );
       name: string;
       isEnabled: boolean;
@@ -1269,7 +1269,7 @@ declare namespace Spicetify {
         onClick: OnClickCallback,
         shouldAdd?: ShouldAddCallback,
         icon?: Icon,
-        disabled?: boolean
+        disabled?: boolean,
       );
       name: string;
       icon: Icon | string;
@@ -1301,7 +1301,7 @@ declare namespace Spicetify {
         name: string,
         subItems: Iterable<Item>,
         shouldAdd?: ShouldAddCallback,
-        disabled?: boolean
+        disabled?: boolean,
       );
       name: string;
       disabled: boolean;
@@ -1344,11 +1344,11 @@ declare namespace Spicetify {
   }
 
   /** React instance to create components */
-  const React: typeof import('react');
+  const React: typeof import("react");
   /** React DOM instance to render and mount components */
-  const ReactDOM: typeof import('react-dom/client');
+  const ReactDOM: typeof import("react-dom/client");
   /** React DOM Server instance to render components to string */
-  const ReactDOMServer: typeof import('react-dom');
+  const ReactDOMServer: typeof import("react-dom");
 
   /** Stock React components exposed from Spotify library */
   namespace ReactComponent {
@@ -1362,28 +1362,28 @@ declare namespace Spicetify {
       /**
        * Determins what will trigger the context menu. For example, a click, or a right-click
        */
-      trigger?: 'click' | 'right-click';
+      trigger?: "click" | "right-click";
       /**
        * Determins is the context menu should open or toggle when triggered
        */
-      action?: 'toggle' | 'open';
+      action?: "toggle" | "open";
       /**
        * The preferred placement of the context menu when it opens.
        * Relative to trigger element.
        */
       placement?:
-        | 'top'
-        | 'top-start'
-        | 'top-end'
-        | 'right'
-        | 'right-start'
-        | 'right-end'
-        | 'bottom'
-        | 'bottom-start'
-        | 'bottom-end'
-        | 'left'
-        | 'left-start'
-        | 'left-end';
+        | "top"
+        | "top-start"
+        | "top-end"
+        | "right"
+        | "right-start"
+        | "right-end"
+        | "bottom"
+        | "bottom-start"
+        | "bottom-end"
+        | "left"
+        | "left-start"
+        | "left-end";
       /**
        * The x and y offset distances at which the context menu should open.
        * Relative to trigger element and `position`.
@@ -1413,7 +1413,7 @@ declare namespace Spicetify {
         | ((
             isOpen?: boolean,
             handleContextMenu?: (e: MouseEvent) => void,
-            ref?: (e: Element) => void
+            ref?: (e: Element) => void,
           ) => Element);
     };
     type MenuProps = {
@@ -1440,7 +1440,7 @@ declare namespace Spicetify {
       /**
        * Indicate that a divider line should be added `before` or `after` this `MenuItem`
        */
-      divider?: 'before' | 'after' | 'both';
+      divider?: "before" | "after" | "both";
       /**
        * React component icon that will be rendered at the end of the `MenuItem`
        * @deprecated Since Spotify `1.2.8`. Use `leadingIcon` or `trailingIcon` instead
@@ -1488,18 +1488,18 @@ declare namespace Spicetify {
        * @default 'top'
        */
       placement?:
-        | 'top'
-        | 'top-start'
-        | 'top-end'
-        | 'right'
-        | 'right-start'
-        | 'right-end'
-        | 'bottom'
-        | 'bottom-start'
-        | 'bottom-end'
-        | 'left'
-        | 'left-start'
-        | 'left-end';
+        | "top"
+        | "top-start"
+        | "top-end"
+        | "right"
+        | "right-start"
+        | "right-end"
+        | "bottom"
+        | "bottom-start"
+        | "bottom-end"
+        | "left"
+        | "left-start"
+        | "left-end";
       /**
        * Class name to apply to the tooltip
        */
@@ -1571,7 +1571,7 @@ declare namespace Spicetify {
       /**
        * Font weight
        */
-      weight?: 'book' | 'bold' | 'black';
+      weight?: "book" | "bold" | "black";
     };
     type ConfirmDialogProps = {
       /**
@@ -1698,13 +1698,13 @@ declare namespace Spicetify {
        * Size for the button.
        * @default "md"
        */
-      buttonSize?: 'sm' | 'md' | 'lg';
+      buttonSize?: "sm" | "md" | "lg";
       /**
        * Size for the button.
        * @deprecated Use `buttonSize` prop instead, as it will take precedence.
        * @default "medium"
        */
-      size?: 'small' | 'medium' | 'large';
+      size?: "small" | "medium" | "large";
       /**
        * Unused by Spotify. Usage unknown.
        */
@@ -1728,11 +1728,11 @@ declare namespace Spicetify {
       /**
        * Label of the element for screen readers.
        */
-      'aria-label'?: string;
+      "aria-label"?: string;
       /**
        * ID of an element that describes the button for screen readers.
        */
-      'aria-labelledby'?: string;
+      "aria-labelledby"?: string;
       /**
        * Unsafely set the color set for the button.
        * Values from the colorSet will be pasted into the CSS.
@@ -1861,7 +1861,7 @@ declare namespace Spicetify {
         icon: Icon | string,
         onClick: (self: Button) => void,
         disabled?: boolean,
-        isRight?: boolean
+        isRight?: boolean,
       );
       label: string;
       icon: string;
@@ -1887,7 +1887,7 @@ declare namespace Spicetify {
         onClick?: (self: Button) => void,
         disabled?: boolean,
         active?: boolean,
-        registerOnCreate?: boolean
+        registerOnCreate?: boolean,
       );
       label: string;
       icon: string;
@@ -1910,7 +1910,7 @@ declare namespace Spicetify {
         onClick?: (self: Widget) => void,
         disabled?: boolean,
         active?: boolean,
-        registerOnCreate?: boolean
+        registerOnCreate?: boolean,
       );
       label: string;
       icon: string;
@@ -1989,97 +1989,97 @@ declare namespace Spicetify {
      * This list is dynamic and may change in the future.
      */
     type Query =
-      | 'decorateItemsForEnhance'
-      | 'imageURLAndSize'
-      | 'imageSources'
-      | 'audioItems'
-      | 'creator'
-      | 'extractedColors'
-      | 'extractedColorsAndImageSources'
-      | 'fetchExtractedColorAndImageForAlbumEntity'
-      | 'fetchExtractedColorAndImageForArtistEntity'
-      | 'fetchExtractedColorAndImageForEpisodeEntity'
-      | 'fetchExtractedColorAndImageForPlaylistEntity'
-      | 'fetchExtractedColorAndImageForPodcastEntity'
-      | 'fetchExtractedColorAndImageForTrackEntity'
-      | 'fetchExtractedColorForAlbumEntity'
-      | 'fetchExtractedColorForArtistEntity'
-      | 'fetchExtractedColorForEpisodeEntity'
-      | 'fetchExtractedColorForPlaylistEntity'
-      | 'fetchExtractedColorForPodcastEntity'
-      | 'fetchExtractedColorForTrackEntity'
-      | 'getAlbumNameAndTracks'
-      | 'getEpisodeName'
-      | 'getTrackName'
-      | 'queryAlbumTrackUris'
-      | 'queryTrackArtists'
-      | 'decorateContextEpisodesOrChapters'
-      | 'decorateContextTracks'
-      | 'fetchTracksForRadioStation'
-      | 'decoratePlaylists'
-      | 'playlistUser'
-      | 'FetchPlaylistMetadata'
-      | 'playlistContentsItemTrackArtist'
-      | 'playlistContentsItemTrackAlbum'
-      | 'playlistContentsItemTrack'
-      | 'playlistContentsItemLocalTrack'
-      | 'playlistContentsItemEpisodeShow'
-      | 'playlistContentsItemEpisode'
-      | 'playlistContentsItemResponse'
-      | 'playlistContentsItem'
-      | 'FetchPlaylistContents'
-      | 'episodeTrailerUri'
-      | 'podcastEpisode'
-      | 'podcastMetadataV2'
-      | 'minimalAudiobook'
-      | 'audiobookChapter'
-      | 'audiobookMetadataV2'
-      | 'fetchExtractedColors'
-      | 'queryFullscreenMode'
-      | 'queryNpvEpisode'
-      | 'queryNpvArtist'
-      | 'albumTrack'
-      | 'getAlbum'
-      | 'queryAlbumTracks'
-      | 'queryArtistOverview'
-      | 'queryArtistAppearsOn'
-      | 'discographyAlbum'
-      | 'albumMetadataReleases'
-      | 'albumMetadata'
-      | 'queryArtistDiscographyAlbums'
-      | 'queryArtistDiscographySingles'
-      | 'queryArtistDiscographyCompilations'
-      | 'queryArtistDiscographyAll'
-      | 'queryArtistDiscographyOverview'
-      | 'artistPlaylist'
-      | 'queryArtistPlaylists'
-      | 'queryArtistDiscoveredOn'
-      | 'queryArtistFeaturing'
-      | 'queryArtistRelated'
-      | 'queryArtistMinimal'
-      | 'searchModalResults'
-      | 'queryWhatsNewFeed'
-      | 'whatsNewFeedNewItems'
-      | 'SetItemsStateInWhatsNewFeed'
-      | 'browseImageURLAndSize'
-      | 'browseImageSources'
-      | 'browseAlbum'
-      | 'browseArtist'
-      | 'browseEpisode'
-      | 'browseChapter'
-      | 'browsePlaylist'
-      | 'browsePodcast'
-      | 'browseAudiobook'
-      | 'browseTrack'
-      | 'browseUser'
-      | 'browseMerch'
-      | 'browseArtistConcerts'
-      | 'browseContent'
-      | 'browseSectionContainer'
-      | 'browseClientFeature'
-      | 'browseItem'
-      | 'browseAll'
-      | 'browsePage';
+      | "decorateItemsForEnhance"
+      | "imageURLAndSize"
+      | "imageSources"
+      | "audioItems"
+      | "creator"
+      | "extractedColors"
+      | "extractedColorsAndImageSources"
+      | "fetchExtractedColorAndImageForAlbumEntity"
+      | "fetchExtractedColorAndImageForArtistEntity"
+      | "fetchExtractedColorAndImageForEpisodeEntity"
+      | "fetchExtractedColorAndImageForPlaylistEntity"
+      | "fetchExtractedColorAndImageForPodcastEntity"
+      | "fetchExtractedColorAndImageForTrackEntity"
+      | "fetchExtractedColorForAlbumEntity"
+      | "fetchExtractedColorForArtistEntity"
+      | "fetchExtractedColorForEpisodeEntity"
+      | "fetchExtractedColorForPlaylistEntity"
+      | "fetchExtractedColorForPodcastEntity"
+      | "fetchExtractedColorForTrackEntity"
+      | "getAlbumNameAndTracks"
+      | "getEpisodeName"
+      | "getTrackName"
+      | "queryAlbumTrackUris"
+      | "queryTrackArtists"
+      | "decorateContextEpisodesOrChapters"
+      | "decorateContextTracks"
+      | "fetchTracksForRadioStation"
+      | "decoratePlaylists"
+      | "playlistUser"
+      | "FetchPlaylistMetadata"
+      | "playlistContentsItemTrackArtist"
+      | "playlistContentsItemTrackAlbum"
+      | "playlistContentsItemTrack"
+      | "playlistContentsItemLocalTrack"
+      | "playlistContentsItemEpisodeShow"
+      | "playlistContentsItemEpisode"
+      | "playlistContentsItemResponse"
+      | "playlistContentsItem"
+      | "FetchPlaylistContents"
+      | "episodeTrailerUri"
+      | "podcastEpisode"
+      | "podcastMetadataV2"
+      | "minimalAudiobook"
+      | "audiobookChapter"
+      | "audiobookMetadataV2"
+      | "fetchExtractedColors"
+      | "queryFullscreenMode"
+      | "queryNpvEpisode"
+      | "queryNpvArtist"
+      | "albumTrack"
+      | "getAlbum"
+      | "queryAlbumTracks"
+      | "queryArtistOverview"
+      | "queryArtistAppearsOn"
+      | "discographyAlbum"
+      | "albumMetadataReleases"
+      | "albumMetadata"
+      | "queryArtistDiscographyAlbums"
+      | "queryArtistDiscographySingles"
+      | "queryArtistDiscographyCompilations"
+      | "queryArtistDiscographyAll"
+      | "queryArtistDiscographyOverview"
+      | "artistPlaylist"
+      | "queryArtistPlaylists"
+      | "queryArtistDiscoveredOn"
+      | "queryArtistFeaturing"
+      | "queryArtistRelated"
+      | "queryArtistMinimal"
+      | "searchModalResults"
+      | "queryWhatsNewFeed"
+      | "whatsNewFeedNewItems"
+      | "SetItemsStateInWhatsNewFeed"
+      | "browseImageURLAndSize"
+      | "browseImageSources"
+      | "browseAlbum"
+      | "browseArtist"
+      | "browseEpisode"
+      | "browseChapter"
+      | "browsePlaylist"
+      | "browsePodcast"
+      | "browseAudiobook"
+      | "browseTrack"
+      | "browseUser"
+      | "browseMerch"
+      | "browseArtistConcerts"
+      | "browseContent"
+      | "browseSectionContainer"
+      | "browseClientFeature"
+      | "browseItem"
+      | "browseAll"
+      | "browsePage";
     /**
      * Collection of GraphQL definitions.
      */
@@ -2095,7 +2095,7 @@ declare namespace Spicetify {
     function Request(
       query: (typeof Definitions)[Query | string],
       variables?: Record<string, any>,
-      context?: Record<string, any>
+      context?: Record<string, any>,
     ): Promise<any>;
     /**
      * Context for GraphQL queries.
@@ -2108,11 +2108,11 @@ declare namespace Spicetify {
      * @return Function to handle GraphQL queries
      */
     function Handler(
-      context: Record<string, any>
+      context: Record<string, any>,
     ): (
       query: (typeof Definitions)[Query | string],
       variables?: Record<string, any>,
-      context?: Record<string, any>
+      context?: Record<string, any>,
     ) => Promise<any>;
   }
 
@@ -2132,13 +2132,13 @@ declare namespace Spicetify {
       label?: string,
       contextUri?: string,
       sectionIndex?: number,
-      dropOriginUri?: string
+      dropOriginUri?: string,
     ): (
       event: React.DragEvent,
       uris?: string[],
       label?: string,
       contextUri?: string,
-      sectionIndex?: number
+      sectionIndex?: number,
     ) => void;
 
     /**
@@ -2158,7 +2158,7 @@ declare namespace Spicetify {
     function useExtractedColor(
       uri: string,
       fallbackColor?: string,
-      variant?: 'colorRaw' | 'colorLight' | 'colorDark'
+      variant?: "colorRaw" | "colorLight" | "colorDark",
     ): string;
   }
 
@@ -2215,7 +2215,7 @@ declare namespace Spicetify {
     g: number;
     b: number;
   }
-  type CSSColors = 'HEX' | 'HEXA' | 'HSL' | 'HSLA' | 'RGB' | 'RGBA';
+  type CSSColors = "HEX" | "HEXA" | "HSL" | "HSLA" | "RGB" | "RGBA";
   /**
    * Spotify's internal color class
    */
@@ -2304,7 +2304,7 @@ declare namespace Spicetify {
      */
     function formatDate(
       date: number | Date | undefined,
-      options?: Intl.DateTimeFormatOptions
+      options?: Intl.DateTimeFormatOptions,
     ): string;
     /**
      * Format time into relative locale string
@@ -2316,7 +2316,7 @@ declare namespace Spicetify {
      */
     function formatRelativeTime(
       date: number | Date | undefined,
-      options?: Intl.DateTimeFormatOptions
+      options?: Intl.DateTimeFormatOptions,
     ): string;
     /**
      * Format number into locale string
@@ -2406,7 +2406,7 @@ declare namespace Spicetify {
      * @param dictionary Dictionary to set
      */
     function setDictionary(
-      dictionary: Record<string, string | { one: string; other: string }>
+      dictionary: Record<string, string | { one: string; other: string }>,
     ): void;
     /**
      * Transform text into locale lowercase

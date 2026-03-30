@@ -2,9 +2,9 @@ import {
   addNotification,
   type NotificationItem,
   pendingQueue,
-} from '@/components/NotificationManager.tsx';
-import generateId from '@/utils/generateId.ts';
-import type { ReactNode } from 'react';
+} from "@/components/NotificationManager.tsx";
+import generateId from "@/utils/generateId.ts";
+import type { ReactNode } from "react";
 
 type ShowNotificationArgs = {
   message: ReactNode;

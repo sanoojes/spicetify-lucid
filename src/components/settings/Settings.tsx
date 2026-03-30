@@ -1,22 +1,22 @@
-import type { Component, GroupProps, SectionProps } from '@/types/settingSchema.ts';
-import getSettingsSections from '@/components/settings/helper/getSettingsSections.ts';
-import Section from '@/components/settings/ui/Section.tsx';
-import UI from '@/components/ui';
-import appStore from '@/store/appStore.ts';
-import setFloating from '@/utils/dom/setFloating.ts';
-import React, { useEffect, useState } from 'react';
-import { useStore } from 'zustand';
+import type { Component, GroupProps, SectionProps } from "@/types/settingSchema.ts";
+import getSettingsSections from "@/components/settings/helper/getSettingsSections.ts";
+import Section from "@/components/settings/ui/Section.tsx";
+import UI from "@/components/ui";
+import appStore from "@/store/appStore.ts";
+import setFloating from "@/utils/dom/setFloating.ts";
+import React, { useEffect, useState } from "react";
+import { useStore } from "zustand";
 
 const Settings: React.FC = () => {
   const [sections, setSections] = useState<SectionProps[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const isFloating = useStore(appStore, (state) => state.settingModal.isFloating);
 
   useEffect(() => {
-    document.body.classList.add('settings-open');
+    document.body.classList.add("settings-open");
 
     const initialSections = getSettingsSections();
     setSections(initialSections);
@@ -27,16 +27,16 @@ const Settings: React.FC = () => {
       setSections(updatedSections);
     });
     return () => {
-      document.body.classList.remove('settings-open');
+      document.body.classList.remove("settings-open");
       unsubscribe();
     };
   }, []);
 
   useEffect(() => {
     if (!isFloating) return;
-    const target = document.querySelector('.GenericModal') as HTMLElement | null;
+    const target = document.querySelector(".GenericModal") as HTMLElement | null;
     const dragTarget = document.querySelector(
-      '.main-trackCreditsModal-header'
+      ".main-trackCreditsModal-header",
     ) as HTMLElement | null;
     if (!target || !dragTarget) return;
 
@@ -45,7 +45,7 @@ const Settings: React.FC = () => {
       dragTarget,
       defaultPosition: appStore.getState().settingModal.floatingPosition,
       addClassTarget: document.querySelectorAll(
-        '.GenericModal__overlay,.GenericModal,.main-embedWidgetGenerator-container'
+        ".GenericModal__overlay,.GenericModal,.main-embedWidgetGenerator-container",
       ),
       onDragEnd: (x, y) => appStore.getState().setSettingModalPosition(x, y),
     });
@@ -56,12 +56,12 @@ const Settings: React.FC = () => {
   const lowerSearch = searchQuery.toLowerCase();
 
   const filteredSections = sections
-    .filter((section) => section.sectionName === selectedCategory || selectedCategory === 'All')
+    .filter((section) => section.sectionName === selectedCategory || selectedCategory === "All")
     .map((section) => {
       const filteredGroups = section.groups
         .map((group) => {
           const filteredComponents = group.components.filter((comp: Component) =>
-            comp.label.toLowerCase().includes(lowerSearch)
+            comp.label.toLowerCase().includes(lowerSearch),
           );
           if (filteredComponents.length === 0) return null;
           return { ...group, components: filteredComponents };
@@ -73,7 +73,7 @@ const Settings: React.FC = () => {
     })
     .filter(Boolean) as SectionProps[];
 
-  const categories = ['All', ...sections.map((s) => s.sectionName)];
+  const categories = ["All", ...sections.map((s) => s.sectionName)];
 
   return (
     <div className="lucid-settings">

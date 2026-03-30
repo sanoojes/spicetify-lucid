@@ -8,6 +8,5 @@ By participating, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## How to Contribute
 
-* Open a pull request or issue
-* Join our Discord for discussions
-
+- Open a pull request or issue
+- Join our Discord for discussions

@@ -1,4 +1,4 @@
-import { makeRequest } from '@/utils/graphql/makeRequest.ts';
+import { makeRequest } from "@/utils/graphql/makeRequest.ts";
 
 type Color = { hex: string; fallback: boolean };
 export type ExtractedColor = {
@@ -43,26 +43,26 @@ type Album = {
 export const getAlbum = (uri: string): Promise<Album | null> =>
   makeRequest<Album>(
     {
-      name: 'getAlbum',
-      sha256Hash: '469874edcad37b7a379d4f22f0083a49ea3d6ae097916120d9bbe3e36ca79e9d',
+      name: "getAlbum",
+      sha256Hash: "469874edcad37b7a379d4f22f0083a49ea3d6ae097916120d9bbe3e36ca79e9d",
     },
-    { uri, locale: null, offset: 0, limit: 50 }
+    { uri, locale: null, offset: 0, limit: 50 },
   );
 
 export const getArtist = (uri: string): Promise<Artist | null> =>
   makeRequest<Artist>(
     {
-      name: 'queryArtistOverview',
-      sha256Hash: '35648a112beb1794e39ab931365f6ae4a8d45e65396d641eeda94e4003d41497',
+      name: "queryArtistOverview",
+      sha256Hash: "35648a112beb1794e39ab931365f6ae4a8d45e65396d641eeda94e4003d41497",
     },
-    { uri, includePrerelease: true, locale: null }
+    { uri, includePrerelease: true, locale: null },
   );
 
 export const getExtractedColors = (uris: string[]) =>
   makeRequest<ColorsData>(
     {
-      name: 'fetchExtractedColors',
-      sha256Hash: '86bdf61bb598ee07dc85d6c3456d9c88eb94f33178509ddc9b33fc9710aa9e9c',
+      name: "fetchExtractedColors",
+      sha256Hash: "86bdf61bb598ee07dc85d6c3456d9c88eb94f33178509ddc9b33fc9710aa9e9c",
     },
-    { uris }
+    { uris },
   );

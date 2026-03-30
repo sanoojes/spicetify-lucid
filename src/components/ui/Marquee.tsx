@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from "react";
 
 type MarqueeProps = {
   children: React.ReactNode;
@@ -6,7 +6,7 @@ type MarqueeProps = {
   speed?: number;
 };
 
-const Marquee: React.FC<MarqueeProps> = ({ children, speed = 12, className = '' }) => {
+const Marquee: React.FC<MarqueeProps> = ({ children, speed = 12, className = "" }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLSpanElement>(null);
   const animationRef = useRef<Animation | null>(null);
@@ -27,8 +27,8 @@ const Marquee: React.FC<MarqueeProps> = ({ children, speed = 12, className = '' 
     if (distance <= 0) return;
 
     const duration = Math.max((distance / speed) * 1000, 5000);
-    const isRTL = getComputedStyle(content).direction === 'rtl';
-    const from = 'translateX(0)';
+    const isRTL = getComputedStyle(content).direction === "rtl";
+    const from = "translateX(0)";
     const to = `translateX(-${distance}px)`;
 
     const keyframes = isRTL
@@ -40,10 +40,10 @@ const Marquee: React.FC<MarqueeProps> = ({ children, speed = 12, className = '' 
     const animation = content.animate(keyframes, {
       duration,
       iterations: 2,
-      direction: 'alternate',
-      easing: 'ease-in-out',
-      fill: 'forwards',
-      composite: 'replace',
+      direction: "alternate",
+      easing: "ease-in-out",
+      fill: "forwards",
+      composite: "replace",
     });
 
     animationRef.current = animation;
@@ -63,10 +63,10 @@ const Marquee: React.FC<MarqueeProps> = ({ children, speed = 12, className = '' 
 
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       animationRef.current?.cancel();
     };
   }, [children, setupAnimation]);

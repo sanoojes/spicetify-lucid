@@ -1,9 +1,9 @@
-import CoverArt from '@/components/player/CoverArt.tsx';
-import TrackInfo from '@/components/player/TrackInfo.tsx';
-import appStore from '@/store/appStore.ts';
-import tempStore from '@/store/tempStore.ts';
-import { useEffect, useMemo, useState } from 'react';
-import { useStore } from 'zustand';
+import CoverArt from "@/components/player/CoverArt.tsx";
+import TrackInfo from "@/components/player/TrackInfo.tsx";
+import appStore from "@/store/appStore.ts";
+import tempStore from "@/store/tempStore.ts";
+import { useEffect, useMemo, useState } from "react";
+import { useStore } from "zustand";
 
 const NextSongCard: React.FC = () => {
   const {
@@ -42,14 +42,14 @@ const NextSongCard: React.FC = () => {
 
   return (
     <div
-      className={`next-playing-card ${isFloating ? 'floating' : ''} ${position}`}
+      className={`next-playing-card ${isFloating ? "floating" : ""} ${position}`}
       style={
         {
-          '--height': `${height}px`,
-          '--x-padding': `${paddingX}px`,
-          '--y-padding': `${paddingY}px`,
-          '--gap': `${gap}px`,
-          '--cover-size': `${coverArtSize}px`,
+          "--height": `${height}px`,
+          "--x-padding": `${paddingX}px`,
+          "--y-padding": `${paddingY}px`,
+          "--gap": `${gap}px`,
+          "--cover-size": `${coverArtSize}px`,
           maxWidth: `${maxWidth}px`,
         } as React.CSSProperties
       }

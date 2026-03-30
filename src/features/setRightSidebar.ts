@@ -1,9 +1,9 @@
-import appStore from '@/store/appStore.ts';
-import serializeFilters from '@/utils/dom/serializeFilters.ts';
-import setupHoverToggle from '@/utils/setupHoverToggle.ts';
-import { updateCardBgAlpha } from '@/utils/updateCardBgAlpha.ts';
+import appStore from "@/store/appStore.ts";
+import serializeFilters from "@/utils/dom/serializeFilters.ts";
+import setupHoverToggle from "@/utils/setupHoverToggle.ts";
+import { updateCardBgAlpha } from "@/utils/updateCardBgAlpha.ts";
 
-const FULL_SCREEN_CLASS_NAME = '.a7Ka5yznvrbSDPk1G36o,.pd3cZQBgtgOFLAp9ns7Q,.JVoVebPNAPKBLKSlIBXw';
+const FULL_SCREEN_CLASS_NAME = ".a7Ka5yznvrbSDPk1G36o,.pd3cZQBgtgOFLAp9ns7Q,.JVoVebPNAPKBLKSlIBXw";
 let hoverTarget: null | ReturnType<typeof setupHoverToggle> = null;
 export default function setRightSidebar(rightSidebar = appStore.getState().rightSidebar) {
   const {
@@ -16,27 +16,27 @@ export default function setRightSidebar(rightSidebar = appStore.getState().right
     compactSize,
   } = rightSidebar;
 
-  ['compact', 'default'].forEach((type) =>
-    document.body.classList.toggle(`npv-${type}`, mode === type)
+  ["compact", "default"].forEach((type) =>
+    document.body.classList.toggle(`npv-${type}`, mode === type),
   );
-  ['left', 'right'].forEach((pos) =>
-    document.body.classList.toggle(`npv-${pos}`, positionX === pos)
+  ["left", "right"].forEach((pos) =>
+    document.body.classList.toggle(`npv-${pos}`, positionX === pos),
   );
-  ['bottom', 'top'].forEach((pos) =>
-    document.body.classList.toggle(`npv-${pos}`, positionY === pos)
+  ["bottom", "top"].forEach((pos) =>
+    document.body.classList.toggle(`npv-${pos}`, positionY === pos),
   );
 
-  document.body.classList.toggle('right-sidebar-auto-hide', autoHide && mode === 'default');
+  document.body.classList.toggle("right-sidebar-auto-hide", autoHide && mode === "default");
 
   if (autoHide) {
-    document.body.style.setProperty('--rs-target-size', `${hoverTargetSize}px`);
+    document.body.style.setProperty("--rs-target-size", `${hoverTargetSize}px`);
   } else {
-    document.body.style.removeProperty('--rs-target-size');
+    document.body.style.removeProperty("--rs-target-size");
   }
 
-  if (mode === 'compact') {
-    document.body.style.setProperty('--rs-compact-blur', serializeFilters(compactBackdropFilter));
-    document.body.style.setProperty('--rs-compact-size', `${compactSize}px`);
+  if (mode === "compact") {
+    document.body.style.setProperty("--rs-compact-blur", serializeFilters(compactBackdropFilter));
+    document.body.style.setProperty("--rs-compact-size", `${compactSize}px`);
   }
 
   if (hoverTarget) {
@@ -44,12 +44,12 @@ export default function setRightSidebar(rightSidebar = appStore.getState().right
     hoverTarget = null;
   }
 
-  if (autoHide && mode !== 'compact') {
+  if (autoHide && mode !== "compact") {
     hoverTarget = setupHoverToggle({
-      containerSelector: '.Root__top-container',
-      onTopContainerSelectors: ['.Root__right-sidebar'],
-      hoverTargetId: 'rs-hover-target',
-      className: 'show',
+      containerSelector: ".Root__top-container",
+      onTopContainerSelectors: [".Root__right-sidebar"],
+      hoverTargetId: "rs-hover-target",
+      className: "show",
     });
   }
   let currentTarget: Element | null = null;
@@ -62,7 +62,7 @@ export default function setRightSidebar(rightSidebar = appStore.getState().right
     });
     targetObserver.observe(el, {
       attributes: true,
-      attributeFilter: ['style'],
+      attributeFilter: ["style"],
     });
   };
 

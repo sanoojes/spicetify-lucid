@@ -1,6 +1,6 @@
-import debounce from '@/utils/debounce.ts';
-import getOrCreateElement from '@/utils/dom/getOrCreateElement.ts';
-import waitForElements from '@/utils/dom/waitForElements.ts';
+import debounce from "@/utils/debounce.ts";
+import getOrCreateElement from "@/utils/dom/getOrCreateElement.ts";
+import waitForElements from "@/utils/dom/waitForElements.ts";
 
 interface HoverToggleOptions {
   bodyClass?: string;
@@ -15,8 +15,8 @@ interface HoverToggleOptions {
 export default function setupHoverToggle({
   containerSelector,
   onTopContainerSelectors,
-  className = 'show',
-  hoverTargetId = 'hover-target',
+  className = "show",
+  hoverTargetId = "hover-target",
   bodyClass,
   onHoverBodyClass,
   onNotHoverBodyClass,
@@ -31,7 +31,7 @@ export default function setupHoverToggle({
 
   const isResizingOrContextMenuOpen = () =>
     targetElements.some((el) =>
-      el.querySelector('.LayoutResizer__resize-bar--resizing, [data-context-menu-open="true"]')
+      el.querySelector('.LayoutResizer__resize-bar--resizing, [data-context-menu-open="true"]'),
     );
 
   const performUpdateVisibility = () => {
@@ -40,10 +40,10 @@ export default function setupHoverToggle({
     if (onNotHoverBodyClass)
       document.body.classList.toggle(
         onNotHoverBodyClass,
-        !(isHoveringElements || isHoveringTarget)
+        !(isHoveringElements || isHoveringTarget),
       );
     targetElements.forEach((el) =>
-      el.classList.toggle(className, isHoveringTarget || isHoveringElements)
+      el.classList.toggle(className, isHoveringTarget || isHoveringElements),
     );
   };
 
@@ -81,10 +81,10 @@ export default function setupHoverToggle({
 
   const attachHoverListeners = () => {
     targetElements.forEach((el) => {
-      el.removeEventListener('mouseenter', handleElementEnter);
-      el.removeEventListener('mouseleave', handleElementLeave);
-      el.addEventListener('mouseenter', handleElementEnter);
-      el.addEventListener('mouseleave', handleElementLeave);
+      el.removeEventListener("mouseenter", handleElementEnter);
+      el.removeEventListener("mouseleave", handleElementLeave);
+      el.addEventListener("mouseenter", handleElementEnter);
+      el.addEventListener("mouseleave", handleElementLeave);
     });
   };
 
@@ -114,16 +114,16 @@ export default function setupHoverToggle({
             (node) =>
               node instanceof HTMLElement &&
               onTopContainerSelectors.some(
-                (sel) => node.matches?.(sel) || node.querySelector?.(sel)
-              )
+                (sel) => node.matches?.(sel) || node.querySelector?.(sel),
+              ),
           ) ||
           Array.from(mutation.removedNodes).some(
             (node) =>
               node instanceof HTMLElement &&
               onTopContainerSelectors.some(
-                (sel) => node.matches?.(sel) || node.querySelector?.(sel)
-              )
-          )
+                (sel) => node.matches?.(sel) || node.querySelector?.(sel),
+              ),
+          ),
       );
 
       if (relevantChange) debouncedUpdate();
@@ -137,8 +137,8 @@ export default function setupHoverToggle({
 
   const destroy = () => {
     targetElements.forEach((el) => {
-      el.removeEventListener('mouseenter', handleElementEnter);
-      el.removeEventListener('mouseleave', handleElementLeave);
+      el.removeEventListener("mouseenter", handleElementEnter);
+      el.removeEventListener("mouseleave", handleElementLeave);
       el.classList.remove(className);
     });
 
@@ -170,14 +170,14 @@ export default function setupHoverToggle({
     waitForElements(containerSelector).then((container) => {
       if (bodyClass) document.body.classList.add(bodyClass);
 
-      hoverTarget = getOrCreateElement('div', hoverTargetId, container);
+      hoverTarget = getOrCreateElement("div", hoverTargetId, container);
 
-      hoverTarget.addEventListener('mouseenter', () => {
+      hoverTarget.addEventListener("mouseenter", () => {
         isHoveringTarget = true;
         updateVisibility();
       });
 
-      hoverTarget.addEventListener('mouseleave', () => {
+      hoverTarget.addEventListener("mouseleave", () => {
         isHoveringTarget = false;
         updateVisibility();
       });

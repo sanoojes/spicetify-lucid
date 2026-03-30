@@ -1,43 +1,43 @@
-import getOrCreateStyle from '@/utils/dom/getOrCreateStyle.ts';
-import waitForElements from '@/utils/dom/waitForElements.ts';
-import { showNotification } from '@/utils/showNotification.tsx';
+import getOrCreateStyle from "@/utils/dom/getOrCreateStyle.ts";
+import waitForElements from "@/utils/dom/waitForElements.ts";
+import { showNotification } from "@/utils/showNotification.tsx";
 
 const CART_ICON = `<svg width="24" height="24" fill="none" class="cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.25a.75.75 0 0 1 .75-.75h.558c.95 0 1.52.639 1.845 1.233.217.396.374.855.497 1.271A1.29 1.29 0 0 1 6.25 6h12.498c.83 0 1.43.794 1.202 1.593l-1.828 6.409a2.75 2.75 0 0 1-2.644 1.996H9.53a2.75 2.75 0 0 1-2.652-2.022l-.76-2.772-1.26-4.248-.001-.008c-.156-.567-.302-1.098-.52-1.494C4.128 5.069 3.96 5 3.809 5H3.25a.75.75 0 0 1-.75-.75Zm5.073 6.59.751 2.739c.15.542.643.919 1.206.919h5.948a1.25 1.25 0 0 0 1.202-.907L18.417 7.5H6.585l.974 3.287.014.053ZM11 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-1.5 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0ZM18 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-1.5 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0Z" fill="currentColor"/></svg>`;
 const CART_ICON_FILLED = `<svg width="24" height="24" fill="none" class="cart-icon-filled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.25a.75.75 0 0 1 .75-.75h.558c.95 0 1.52.639 1.845 1.233.217.396.374.855.497 1.271A1.29 1.29 0 0 1 6.25 6h12.498c.83 0 1.43.794 1.202 1.593l-1.828 6.409a2.75 2.75 0 0 1-2.644 1.996H9.53a2.75 2.75 0 0 1-2.652-2.022l-.76-2.772-1.26-4.248-.001-.008c-.156-.567-.302-1.098-.52-1.494C4.128 5.069 3.96 5 3.809 5H3.25a.75.75 0 0 1-.75-.75ZM9 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM16 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="currentColor"/></svg>`;
 type LocaleKeys =
-  | 'home'
-  | 'searchPlaylist'
-  | 'search'
-  | 'play'
-  | 'pause'
-  | 'skipBack'
-  | 'enableRepeat'
-  | 'enableRepeatOne'
-  | 'disableRepeat'
-  | 'skipForward'
-  | 'friendActivity'
-  | 'whatsNew'
-  | 'browse'
-  | 'close'
-  | 'closeBtn'
-  | 'download'
-  | 'fullscreen'
-  | 'moreContext'
-  | 'copyTrackLink'
-  | 'openMiniPlayer'
-  | 'downloadContext'
-  | 'disableShuffle'
-  | 'enableShuffle'
-  | 'disableShuffleSpecific'
-  | 'enableShuffleSpecific'
-  | 'disableShuffleGeneric'
-  | 'enableShuffleGeneric'
-  | 'duration'
-  | 'queue'
-  | 'createPlaylist'
-  | 'createButton'
-  | 'enableSmartShuffleSpecific'
-  | 'enableSmartShuffleGeneric';
+  | "home"
+  | "searchPlaylist"
+  | "search"
+  | "play"
+  | "pause"
+  | "skipBack"
+  | "enableRepeat"
+  | "enableRepeatOne"
+  | "disableRepeat"
+  | "skipForward"
+  | "friendActivity"
+  | "whatsNew"
+  | "browse"
+  | "close"
+  | "closeBtn"
+  | "download"
+  | "fullscreen"
+  | "moreContext"
+  | "copyTrackLink"
+  | "openMiniPlayer"
+  | "downloadContext"
+  | "disableShuffle"
+  | "enableShuffle"
+  | "disableShuffleSpecific"
+  | "enableShuffleSpecific"
+  | "disableShuffleGeneric"
+  | "enableShuffleGeneric"
+  | "duration"
+  | "queue"
+  | "createPlaylist"
+  | "createButton"
+  | "enableSmartShuffleSpecific"
+  | "enableSmartShuffleGeneric";
 type Locales = {
   [key in LocaleKeys]: string;
 };
@@ -47,12 +47,12 @@ export default function patchIcons() {
     const g = (value: string, clean = false) =>
       clean
         ? LocaleAPI.get(value)
-          .replace(/[{0}{1}«»”“]/g, '')
-          .trim()
+            .replace(/[{0}{1}«»”“]/g, "")
+            .trim()
         : LocaleAPI.get(value);
 
     waitForElements(
-      '.Root__globalNav .main-globalNav-navLink.custom-navlink[aria-label*="Marketplace"]'
+      '.Root__globalNav .main-globalNav-navLink.custom-navlink[aria-label*="Marketplace"]',
     ).then((svg) => {
       svg.innerHTML = CART_ICON + CART_ICON_FILLED;
     });
@@ -61,45 +61,45 @@ export default function patchIcons() {
     if (!LocaleAPI) return;
 
     const locales: Locales = {
-      home: g('view.web-player-home'),
-      browse: g('browse'),
-      pause: g('pause'),
-      play: g('play'),
-      close: g('close'),
-      openMiniPlayer: g('miniplayer.open'),
-      createPlaylist: g('contextmenu.create-playlist'),
-      createButton: g('web-player.your-library-x.create.button-label'),
-      fullscreen: g('npv.full-screen'),
-      closeBtn: g('close_button_action'),
-      duration: g('sort.duration'),
-      search: g('navbar.search'),
-      queue: g('playback-control.queue'),
-      searchPlaylist: g('playlist.search_in_playlist'),
-      download: g('download.download'),
-      copyTrackLink: g('context-menu.copy-track-link'),
-      moreContext: g('more.label.context', true),
-      downloadContext: g('contextmenu.download'),
-      friendActivity: g('buddy-feed.friend-activity'),
-      whatsNew: g('web-player.whats-new-feed.button-label'),
-      skipForward: g('playback-control.skip-forward'),
-      skipBack: g('playback-control.skip-back'),
-      disableShuffle: g('playback-control.disable-shuffle'),
-      enableShuffle: g('playback-control.enable-shuffle'),
-      disableShuffleGeneric: g('web-player.smart-shuffle.button-disable-shuffle-generic'),
-      disableShuffleSpecific: g('web-player.smart-shuffle.button-disable-shuffle-specific', true),
-      enableShuffleGeneric: g('web-player.smart-shuffle.button-enable-shuffle-generic'),
-      enableShuffleSpecific: g('web-player.smart-shuffle.button-enable-shuffle-specific', true),
+      home: g("view.web-player-home"),
+      browse: g("browse"),
+      pause: g("pause"),
+      play: g("play"),
+      close: g("close"),
+      openMiniPlayer: g("miniplayer.open"),
+      createPlaylist: g("contextmenu.create-playlist"),
+      createButton: g("web-player.your-library-x.create.button-label"),
+      fullscreen: g("npv.full-screen"),
+      closeBtn: g("close_button_action"),
+      duration: g("sort.duration"),
+      search: g("navbar.search"),
+      queue: g("playback-control.queue"),
+      searchPlaylist: g("playlist.search_in_playlist"),
+      download: g("download.download"),
+      copyTrackLink: g("context-menu.copy-track-link"),
+      moreContext: g("more.label.context", true),
+      downloadContext: g("contextmenu.download"),
+      friendActivity: g("buddy-feed.friend-activity"),
+      whatsNew: g("web-player.whats-new-feed.button-label"),
+      skipForward: g("playback-control.skip-forward"),
+      skipBack: g("playback-control.skip-back"),
+      disableShuffle: g("playback-control.disable-shuffle"),
+      enableShuffle: g("playback-control.enable-shuffle"),
+      disableShuffleGeneric: g("web-player.smart-shuffle.button-disable-shuffle-generic"),
+      disableShuffleSpecific: g("web-player.smart-shuffle.button-disable-shuffle-specific", true),
+      enableShuffleGeneric: g("web-player.smart-shuffle.button-enable-shuffle-generic"),
+      enableShuffleSpecific: g("web-player.smart-shuffle.button-enable-shuffle-specific", true),
       enableSmartShuffleSpecific: g(
-        'web-player.smart-shuffle.button-enable-smart-shuffle-specific',
-        true
+        "web-player.smart-shuffle.button-enable-smart-shuffle-specific",
+        true,
       ),
-      enableSmartShuffleGeneric: g('web-player.smart-shuffle.button-enable-smart-shuffle-generic'),
-      enableRepeat: g('playback-control.enable-repeat'),
-      enableRepeatOne: g('playback-control.enable-repeat-one'),
-      disableRepeat: g('playback-control.disable-repeat'),
+      enableSmartShuffleGeneric: g("web-player.smart-shuffle.button-enable-smart-shuffle-generic"),
+      enableRepeat: g("playback-control.enable-repeat"),
+      enableRepeatOne: g("playback-control.enable-repeat-one"),
+      disableRepeat: g("playback-control.disable-repeat"),
     };
 
-    getOrCreateStyle('lucid-icon-patch').innerHTML = `
+    getOrCreateStyle("lucid-icon-patch").innerHTML = `
 .Root__globalNav .main-globalNav-navLink.custom-navlink[aria-label*="Marketplace"] .cart-icon-filled {
     display: none;
 }
@@ -318,7 +318,7 @@ button[data-testid="pip-toggle-button"] path{
 }
 `;
   } catch (error) {
-    console.error('Error patching icons.', error);
-    showNotification({ message: 'Error patching icons.', isError: true });
+    console.error("Error patching icons.", error);
+    showNotification({ message: "Error patching icons.", isError: true });
   }
 }

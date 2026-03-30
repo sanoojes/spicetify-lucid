@@ -1,7 +1,7 @@
-import UI from '@/components/ui';
-import { ChevronDown16Filled } from '@fluentui/react-icons';
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import UI from "@/components/ui";
+import { ChevronDown16Filled } from "@fluentui/react-icons";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type DropdownContextType = {
   open: boolean;
@@ -14,7 +14,7 @@ const DropdownContext = createContext<DropdownContextType | null>(null);
 function useDropdownContext() {
   const context = useContext(DropdownContext);
   if (!context) {
-    throw new Error('Dropdown components must be used within a Dropdown');
+    throw new Error("Dropdown components must be used within a Dropdown");
   }
   return context;
 }
@@ -46,7 +46,7 @@ const DropdownButton = ({ children }: DropdownButtonProps) => {
   const toggleOpen = () => setOpen(!open);
 
   return (
-    <UI.Tippy label={open ? 'Close' : 'Open'}>
+    <UI.Tippy label={open ? "Close" : "Open"}>
       <button
         ref={buttonRef}
         onClick={(e) => {
@@ -57,7 +57,7 @@ const DropdownButton = ({ children }: DropdownButtonProps) => {
         type="button"
       >
         {children}
-        <ChevronDown16Filled className={`dropdown-icon ${open ? 'rotate' : ''}`} />
+        <ChevronDown16Filled className={`dropdown-icon ${open ? "rotate" : ""}`} />
       </button>
     </UI.Tippy>
   );
@@ -114,15 +114,15 @@ const DropdownContent = ({ children }: DropdownContentProps) => {
       setReady(false);
       setShow(false);
       updatePosition();
-      window.addEventListener('resize', updatePosition);
+      window.addEventListener("resize", updatePosition);
       return () => {
-        window.removeEventListener('resize', updatePosition);
+        window.removeEventListener("resize", updatePosition);
       };
     }
   }, [open]);
 
   useEffect(() => {
-    document.body.classList.toggle('dropdown-open', open);
+    document.body.classList.toggle("dropdown-open", open);
   }, [open]);
 
   if (!open) return null;
@@ -134,7 +134,7 @@ const DropdownContent = ({ children }: DropdownContentProps) => {
     >
       <div
         ref={contentRef}
-        className={`dropdown-content ${ready && show ? 'visible' : ''}`}
+        className={`dropdown-content ${ready && show ? "visible" : ""}`}
         style={{
           top: coords.top,
           left: coords.left,
@@ -145,7 +145,7 @@ const DropdownContent = ({ children }: DropdownContentProps) => {
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 };
 

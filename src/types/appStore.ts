@@ -3,7 +3,7 @@ type Stringify<T extends string> = T | (string & {}); // just to trick the compi
 
 type Color = string;
 export type ColorState = {
-  mode: Stringify<'default' | 'dynamic' | 'custom'>;
+  mode: Stringify<"default" | "dynamic" | "custom">;
   accentColor: Color;
   isTinted: boolean;
   isDark: boolean;
@@ -23,8 +23,8 @@ export type BodyClassState = {
   flexyHome: boolean;
 };
 
-type BackgroundMode = Stringify<'solid' | 'static' | 'animated'>;
-type BackgroundImageMode = Stringify<'custom' | 'player' | 'page'>;
+type BackgroundMode = Stringify<"solid" | "static" | "animated">;
+type BackgroundImageMode = Stringify<"custom" | "player" | "page">;
 export type BackgroundState = {
   mode: BackgroundMode;
   options: {
@@ -47,7 +47,7 @@ type FontState = {
 };
 
 export type BorderStyle = Stringify<
-  'none' | 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset' | 'outset'
+  "none" | "dotted" | "dashed" | "solid" | "double" | "groove" | "ridge" | "inset" | "outset"
 >;
 
 type BorderState = {
@@ -67,7 +67,7 @@ export type UIPreferencesState = {
   windowControlHeight: number;
 };
 
-type UnderMainViewTypes = Stringify<'default' | 'playing' | 'custom-img' | 'custom-color' | 'none'>;
+type UnderMainViewTypes = Stringify<"default" | "playing" | "custom-img" | "custom-color" | "none">;
 export type UnderMainViewState = {
   type: UnderMainViewTypes;
 
@@ -80,14 +80,14 @@ export type UnderMainViewState = {
   customColor: Color;
 };
 
-type SettingModalAccessPoint = Stringify<'menu' | 'nav'>;
+type SettingModalAccessPoint = Stringify<"menu" | "nav">;
 export type SettingModalState = {
   accessPoint: SettingModalAccessPoint;
   isFloating: boolean;
   floatingPosition: { x: number; y: number };
 };
 
-type PlayerTypes = Stringify<'compact' | 'default'>;
+type PlayerTypes = Stringify<"compact" | "default">;
 export type PlayerStyle = {
   height: number;
   sliderHeight: number;
@@ -110,7 +110,7 @@ export type NextSongCardState = {
   coverArtSize: number;
   removeNextUp: boolean;
   isFloating: boolean;
-  position: Stringify<'left' | 'right'>;
+  position: Stringify<"left" | "right">;
 };
 export type PlayerState = {
   mode: PlayerTypes;
@@ -121,8 +121,8 @@ export type PlayerState = {
   nextSongCard: NextSongCardState;
 } & AutoHideBaseState;
 
-export type PageMode = Stringify<'card' | 'compact-card' | 'compact' | 'default'>;
-export type PageCoverImageMode = Stringify<'hidden' | 'as-bg' | 'default'>;
+export type PageMode = Stringify<"card" | "compact-card" | "compact" | "default">;
+export type PageCoverImageMode = Stringify<"hidden" | "as-bg" | "default">;
 export type PageState = {
   mode: PageMode;
   coverMode: PageCoverImageMode;
@@ -137,9 +137,9 @@ type AutoHideBaseState = {
 
 export type LibraryState = AutoHideBaseState & {};
 export type RightSidebarState = AutoHideBaseState & {
-  mode: Stringify<'compact' | 'default'>;
-  positionX: Stringify<'right' | 'left'>;
-  positionY: Stringify<'top' | 'bottom'>;
+  mode: Stringify<"compact" | "default">;
+  positionX: Stringify<"right" | "left">;
+  positionY: Stringify<"top" | "bottom">;
   compactBackdropFilter: CSSFilter;
   compactSize: number;
 };

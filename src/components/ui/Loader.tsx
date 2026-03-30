@@ -1,6 +1,6 @@
 // taken from: https://github.com/davidhu2000/react-spinners/blob/main/src/PuffLoader.tsx
 
-import type { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
+import type { CSSProperties, DetailedHTMLProps, HTMLAttributes } from "react";
 
 type CommonProps = DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> & {
   color?: string;
@@ -15,15 +15,15 @@ type LoaderSizeProps = CommonProps & {
 
 function Loader({
   loading = true,
-  color = 'var(--clr-on-surface, #fff)',
+  color = "var(--clr-on-surface, #fff)",
   speedMultiplier = 1,
   cssOverride = {},
   size = 60,
   ...additionalprops
 }) {
   const wrapper: CSSProperties = {
-    display: 'inherit',
-    position: 'relative',
+    display: "inherit",
+    position: "relative",
     width: `${size}px`,
     height: `${size}px`,
     ...cssOverride,
@@ -31,21 +31,21 @@ function Loader({
 
   const style = (i: number): CSSProperties => {
     return {
-      position: 'absolute',
+      position: "absolute",
       height: `${size}px`,
       width: `${size}px`,
       border: `thick solid ${color}`,
-      borderRadius: '50%',
-      opacity: '1',
-      top: '0',
-      left: '0',
-      animationFillMode: 'both',
+      borderRadius: "50%",
+      opacity: "1",
+      top: "0",
+      left: "0",
+      animationFillMode: "both",
       animation: `puff-1, puff-2`,
       animationDuration: `${2 / speedMultiplier}s`,
-      animationIterationCount: 'infinite',
+      animationIterationCount: "infinite",
       animationTimingFunction:
-        'cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)',
-      animationDelay: i === 1 ? '-1s' : '0s',
+        "cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)",
+      animationDelay: i === 1 ? "-1s" : "0s",
     };
   };
 

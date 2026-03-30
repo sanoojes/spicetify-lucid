@@ -9,8 +9,8 @@ export type GoogleFont = {
   kind: string;
 };
 
-const API_KEY = 'AIzaSyAwBDuGYjhn4LTTkLShD0LLRTs8oGsxVhw'; // public key ??
-const API_URL = 'https://www.googleapis.com/webfonts/v1/webfonts';
+const API_KEY = "AIzaSyAwBDuGYjhn4LTTkLShD0LLRTs8oGsxVhw"; // public key ??
+const API_URL = "https://www.googleapis.com/webfonts/v1/webfonts";
 
 const loadedFonts = new Set<string>();
 
@@ -24,13 +24,13 @@ export async function fetchGoogleFonts(): Promise<GoogleFont[]> {
   }
 
   if (!API_KEY) {
-    throw new Error('Google Fonts API key is not configured');
+    throw new Error("Google Fonts API key is not configured");
   }
 
   try {
     const response = await fetch(`${API_URL}?key=${API_KEY}&sort=popularity`);
     if (!response.ok) {
-      throw new Error('Failed to fetch Google Fonts');
+      throw new Error("Failed to fetch Google Fonts");
     }
     const data = await response.json();
     fontsCache = data.items;
@@ -40,22 +40,22 @@ export async function fetchGoogleFonts(): Promise<GoogleFont[]> {
     if (fontsCache) {
       return fontsCache;
     }
-    console.error('Error fetching Google Fonts:', error);
+    console.error("Error fetching Google Fonts:", error);
     throw error;
   }
 }
 
 export function getFontUrl(family: string, variants: string[]): string {
-  const fontFamily = family.replace(/\s+/g, '+');
+  const fontFamily = family.replace(/\s+/g, "+");
 
   const weights = new Set<string>();
   const italics = new Set<string>();
 
   for (const variant of variants) {
-    if (variant === 'regular') {
-      weights.add('400');
-    } else if (variant === 'italic') {
-      italics.add('400');
+    if (variant === "regular") {
+      weights.add("400");
+    } else if (variant === "italic") {
+      italics.add("400");
     } else if (/italic/.test(variant)) {
       const match = variant.match(/^(\d+)italic$/);
       if (match) italics.add(match[1]);
@@ -64,7 +64,7 @@ export function getFontUrl(family: string, variants: string[]): string {
     }
   }
 
-  let variantString = '';
+  let variantString = "";
 
   if (italics.size > 0 && weights.size > 0) {
     const entries: string[] = [];
@@ -76,37 +76,37 @@ export function getFontUrl(family: string, variants: string[]): string {
     });
 
     entries.sort((a, b) => {
-      const [aItalic, aWeight] = a.split(',').map(Number);
-      const [bItalic, bWeight] = b.split(',').map(Number);
+      const [aItalic, aWeight] = a.split(",").map(Number);
+      const [bItalic, bWeight] = b.split(",").map(Number);
       return aItalic - bItalic || aWeight - bWeight;
     });
 
-    variantString = `ital,wght@${entries.join(';')}`;
+    variantString = `ital,wght@${entries.join(";")}`;
   } else if (italics.size > 0) {
     const sorted = [...italics].map(Number).sort((a, b) => a - b);
-    variantString = `ital,wght@${sorted.map((w) => `1,${w}`).join(';')}`;
+    variantString = `ital,wght@${sorted.map((w) => `1,${w}`).join(";")}`;
   } else if (weights.size > 0) {
     const sorted = [...weights].map(Number).sort((a, b) => a - b);
-    variantString = `wght@${sorted.join(';')}`;
+    variantString = `wght@${sorted.join(";")}`;
   }
-  return `https://fonts.googleapis.com/css2?family=${fontFamily}${variantString ? `:${variantString}` : ''}&display=swap`;
+  return `https://fonts.googleapis.com/css2?family=${fontFamily}${variantString ? `:${variantString}` : ""}&display=swap`;
 }
 
-export async function loadFont(fontFamily: string, variant = 'regular'): Promise<void> {
+export async function loadFont(fontFamily: string, variant = "regular"): Promise<void> {
   if (loadedFonts.has(fontFamily)) {
     return;
   }
 
-  function getFontUrl(family: string, variant = 'regular'): string {
-    const fontFamily = family.replace(/\s+/g, '+');
-    const fontVariant = variant === 'regular' ? '400' : variant;
+  function getFontUrl(family: string, variant = "regular"): string {
+    const fontFamily = family.replace(/\s+/g, "+");
+    const fontVariant = variant === "regular" ? "400" : variant;
     return `https://fonts.googleapis.com/css2?family=${fontFamily}:wght@${fontVariant}&display=swap`;
   }
 
   return new Promise((resolve, reject) => {
-    const link = document.createElement('link');
+    const link = document.createElement("link");
     link.href = getFontUrl(fontFamily, variant);
-    link.rel = 'stylesheet';
+    link.rel = "stylesheet";
 
     link.onload = () => {
       loadedFonts.add(fontFamily);
@@ -122,7 +122,7 @@ export async function loadFont(fontFamily: string, variant = 'regular'): Promise
 }
 
 export function injectFontLink(id: string, href: string) {
-  if (!href || typeof href !== 'string') return;
+  if (!href || typeof href !== "string") return;
 
   const existingLink = document.getElementById(id) as HTMLLinkElement | null;
 
@@ -133,35 +133,35 @@ export function injectFontLink(id: string, href: string) {
     return;
   }
 
-  const newLink = document.createElement('link');
+  const newLink = document.createElement("link");
   newLink.id = id;
-  newLink.rel = 'stylesheet';
+  newLink.rel = "stylesheet";
   newLink.href = href;
-  newLink.crossOrigin = 'anonymous';
+  newLink.crossOrigin = "anonymous";
 
   document.head.appendChild(newLink);
 }
 
 export const FONT_CATEGORIES = [
-  'serif',
-  'sans-serif',
-  'display',
-  'handwriting',
-  'monospace',
+  "serif",
+  "sans-serif",
+  "display",
+  "handwriting",
+  "monospace",
 ] as const;
 
 export type FontCategory = (typeof FONT_CATEGORIES)[number];
 
 export const FONT_WEIGHTS = [
-  '100',
-  '200',
-  '300',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
+  "100",
+  "200",
+  "300",
+  "400",
+  "500",
+  "600",
+  "700",
+  "800",
+  "900",
 ] as const;
 
 export type FontWeight = (typeof FONT_WEIGHTS)[number];

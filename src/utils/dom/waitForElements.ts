@@ -4,7 +4,7 @@ type WaitForElementsOptions = {
 
 function waitForElements<T extends string | string[]>(
   selectors: T,
-  { timeout = 3000 }: WaitForElementsOptions = {}
+  { timeout = 3000 }: WaitForElementsOptions = {},
 ): Promise<T extends string ? Element : T extends string[] ? Element[] : never> {
   const selectorList = Array.isArray(selectors) ? selectors : [selectors];
   const startTime = performance.now();
@@ -22,7 +22,7 @@ function waitForElements<T extends string | string[]>(
       }
 
       if (performance.now() - startTime > timeout) {
-        reject(new Error(`Timeout: Could not find all elements: ${selectorList.join(', ')}`));
+        reject(new Error(`Timeout: Could not find all elements: ${selectorList.join(", ")}`));
         return;
       }
 
