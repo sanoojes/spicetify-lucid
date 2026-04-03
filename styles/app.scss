@@ -1118,3 +1118,16 @@ div[data-testid="settings-page"] {
 #sesh-stats-overlay .stat-row {
   border-bottom: var(--default-border);
 }
+
+button {
+  .main-playButton-PlayButton & {
+    &:hover {
+      --encore-icon-fill: var(--clr-primary);
+    }
+    .BmbbhQfGuARvXxY6MWWF {
+      transition:
+        0.3s ease background-color,
+        0.3s ease color;
+    }
+  }
+}
