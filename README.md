@@ -1,14 +1,13 @@
 # Lucid Theme for Spicetify
 
-**Lucid** is a sleek, modern, and visually engaging Spicetify theme designed to
-enhance your Spotify experience. It offers **dynamic visuals**, seamless
-animations, and **highly customizable** features so you can tailor the interface
-to match your style and preferences.
+**⚠️ This repository is no longer active. The project has moved to GitLab.**
 
-🔗 Explore the full documentation:
-[Lucid Docs](https://projects.sanooj.uk/spicetify/lucid/)
+All source code, updates, and issue tracking can now be found here:  
+👉 **[gitlab.com/sanoojes/lucid](https://gitlab.com/sanoojes/lucid)**
 
-## 📄 License
+---
 
-This project is licensed under the [MIT License](LICENSE) — feel free to modify
-and distribute it according to the terms.
+*Lucid is a sleek, dynamic, and highly customizable Spicetify theme.*
+
+* **Docs:** [Lucid Documentation](https://projects.sanooj.uk/spicetify/lucid/)
+* **License:** GNU AGPLv3
