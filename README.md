@@ -9,5 +9,5 @@ All source code, updates, and issue tracking can now be found here:
 
 *Lucid is a sleek, dynamic, and highly customizable Spicetify theme.*
 
-* **Docs:** [Lucid Documentation](https://projects.sanooj.uk/spicetify/lucid/)
+* **Docs:** [Lucid Documentation](https://spicetify-lucid.sanooj.uk/)
 * **License:** GNU AGPLv3
