@@ -640,6 +640,10 @@ body {
   .eFZahdafW8vQ7xY1kfBg {
     height: fit-content;
   }
+
+  .main-entityHeader-imageContainerWrapper > .main-entityHeader-headerText {
+    height: fit-content;
+  }
 }
 .page-card {
   .main-entityHeader-container {
