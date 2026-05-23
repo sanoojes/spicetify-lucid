@@ -1135,11 +1135,14 @@ button {
   }
 }
 
-
 .x81eiLoZ5zWkSS1y28Oj {
-    display: none;
+  display: none;
+}
+
+[data-testid="home-ads-container"] {
+  display: none;
 }
 
 .Root__cinema-view div[data-overlayscrollbars-initialize] {
-    backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
 }
