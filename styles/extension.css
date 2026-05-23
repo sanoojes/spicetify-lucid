@@ -475,6 +475,7 @@ body {
       min-width: calc(40% - var(--section-gap) / 2);
     }
 
+    .main-home-content section.ovJXBDQa8ZsE4nc_,
     .main-home-content section:has(div[class="c9BGAQRNNsdwX3UTMr6I"]),
     .main-home-content section:has(div[class*="Promotion"]) {
       min-width: 100% !important;
@@ -485,6 +486,10 @@ body {
     .SsbbQFeJun2Ts_EIktpr {
       min-width: 100% !important;
     }
+  }
+
+  .main-shelf-titleWrapper {
+    min-block-size: 2rem;
   }
 
   .search-searchCategory-contentArea.FFkvaAsSr5hqsxAxvnKT {
@@ -608,7 +613,6 @@ body {
 .page-compact-card .main-entityHeader-container,
 .page-card .main-entityHeader-container {
   position: relative;
-  min-height: 10rem;
   height: min(32vh, var(--fluid-height));
 
   .contentSpacing {
