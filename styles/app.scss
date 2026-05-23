@@ -44,6 +44,9 @@
     display: none;
   }
 }
+.main-actionButtons button[aria-label="Lucid Settings"] {
+  app-region: none;
+}
 
 /* .spotify__os--is-windows {
 } */
