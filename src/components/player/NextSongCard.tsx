@@ -17,28 +17,37 @@ const NextSongCard: React.FC = () => {
     position,
     isFloating,
   } = useStore(appStore, (state) => state.player.nextSongCard);
-  const nextSong = useStore(tempStore, (state) => state.player?.next?.[0].data);
+
+  const nextQueue = useStore(tempStore, (state) => state.player?.next);
+  const nextSong = nextQueue?.[0]?.data ?? null;
+  const nextSongUri = nextSong?.uri;
+
   const [songData, setSongData] = useState(() => Spicetify?.Player?.data?.nextItems?.[0] ?? null);
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setSongData(nextSong || null);
+  }, [nextSong]);
 
   useEffect(() => {
-    const next = nextSong ?? null;
+    if (!nextSongUri) {
+      setLoading(false);
+      return;
+    }
 
-    if (!next || songData?.uri === next?.uri) return;
     setLoading(true);
-    setSongData(next);
-
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 200);
 
     return () => clearTimeout(timeout);
-  }, [nextSong?.uri]);
+  }, [nextSongUri]);
 
   const imageSrc = useMemo(() => {
     const images = songData?.images ?? [];
     return images[3]?.url || images[2]?.url || images[1]?.url || images[0]?.url || null;
   }, [songData]);
+
+  if (!songData) return null;
 
   return (
     <div
@@ -56,16 +65,12 @@ const NextSongCard: React.FC = () => {
     >
       <CoverArt imageSrc={loading ? null : imageSrc} href={songData?.metadata?.album_uri} />
       <div className="main-nowPlayingWidget-trackInfo main-trackInfo-container">
-        {removeNextUp ? null : (
+        {!removeNextUp && (
           <p className="e-9890-text encore-text-marginal encore-internal-color-text-subdued next-up">
             Next Up...
           </p>
         )}
-        <TrackInfo
-          metadata={songData?.metadata}
-          artists={songData?.artists}
-          loading={loading || !songData}
-        />
+        <TrackInfo metadata={songData?.metadata} artists={songData?.artists} loading={loading} />
       </div>
     </div>
   );
