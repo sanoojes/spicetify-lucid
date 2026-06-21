@@ -9,7 +9,7 @@ export type GoogleFont = {
   kind: string;
 };
 
-const API_KEY = "AIzaSyAwBDuGYjhn4LTTkLShD0LLRTs8oGsxVhw"; // public key ??
+const API_KEY = "AIzaSyAhyAdmykLW16U0NVy5UU6kSxo_8sbO3P4"; // public key ??
 const API_URL = "https://www.googleapis.com/webfonts/v1/webfonts";
 
 const loadedFonts = new Set<string>();
