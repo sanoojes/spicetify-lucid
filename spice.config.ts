@@ -11,6 +11,7 @@ export default defineConfig({
   packageManager: "bun",
   outDir: "dist",
   esbuildOptions: {
+    platform: "browser",
     tsconfig: "tsconfig.app.json",
     alias: {
       "@": resolve(__dirname, "src"),
