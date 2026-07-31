@@ -854,6 +854,7 @@ div.main-trackList-trackListRow {
 /* artist modal dialog */
 ,
 .main-embedWidgetGenerator-container {
+  z-index: 9999 !important;
   background-color: rgba(var(--clr-surface-rgb), 0.7) !important;
   backdrop-filter: blur(32px) saturate(1.5) !important;
   border: var(--default-border) !important;

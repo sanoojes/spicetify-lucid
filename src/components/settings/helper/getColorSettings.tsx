@@ -2,7 +2,6 @@ import type { SectionProps } from "@/types/settingSchema.ts";
 import type appStore from "@/store/appStore.ts";
 import { DEFAULT_STATE } from "@/store/appStore.ts";
 import { showNotification } from "@/utils/showNotification.tsx";
-import React from "react";
 
 export const getColorSettings = (state: ReturnType<typeof appStore.getState>): SectionProps => {
   const { color } = state;
@@ -38,6 +37,39 @@ export const getColorSettings = (state: ReturnType<typeof appStore.getState>): S
               ["Custom", "custom"],
             ],
             onChange: (mode) => state.setColor({ mode }),
+          },
+          {
+            id: "scheme-variant",
+            type: "Dropdown",
+            label: "Color Scheme Style",
+            tippy: (
+              <div>
+                <p>
+                  <strong>Tonal Spot:</strong> Standard Material 3 design (softer, pastel).
+                </p>
+                <p>
+                  <strong>Fidelity:</strong> Stays highly accurate to the original input/artwork
+                  color.
+                </p>
+                <p>
+                  <strong>Vibrant:</strong> Boosts saturation for a punchier, colorful look.
+                </p>
+                <p>
+                  <strong>Monochrome:</strong> Grayscale appearance with zero color saturation.
+                </p>
+              </div>
+            ),
+            value: color.schemeVariant ?? "tonalSpot",
+            options: [
+              ["Tonal Spot (Default)", "tonalSpot"],
+              ["Fidelity (Accurate)", "fidelity"],
+              ["Vibrant", "vibrant"],
+              ["Expressive", "expressive"],
+              ["Neutral", "neutral"],
+              ["Monochrome", "monochrome"],
+              ["Content", "content"],
+            ],
+            onChange: (schemeVariant) => state.setColor({ schemeVariant }),
           },
           {
             id: "is-dark",

@@ -1,6 +1,6 @@
 import appStore from "@/store/appStore.ts";
 import tempStore from "@/store/tempStore.ts";
-import getMaterialColors from "@/utils/colors/getMaterialColors.ts";
+import getMaterialColors, { type SchemeVariant } from "@/utils/colors/getMaterialColors.ts";
 import getOrCreateStyle from "@/utils/dom/getOrCreateStyle.ts";
 
 const DEFAULT_ACCENT_COLOR = "#1ed760";
@@ -10,7 +10,7 @@ let lastCacheKey = "";
 const colorCache: Map<string, string> = new Map();
 
 export default function setColors() {
-  const { mode, isDark, isTinted, accentColor } = appStore.getState().color;
+  const { mode, isDark, isTinted, accentColor, schemeVariant } = appStore.getState().color;
 
   document.documentElement.setAttribute("theme", isDark ? "dark" : "light");
   document.body.setAttribute("theme", isDark ? "dark" : "light");
@@ -22,22 +22,30 @@ export default function setColors() {
     color = tempStore.getState().player?.current?.colors?.colorRaw?.hex ?? DEFAULT_ACCENT_COLOR;
   }
 
-  const cacheKey = `${color}-${isDark ? "dark" : "light"}-${isTinted ? "tint" : "no-tint"}`;
+  const cacheKey = `${color}-${isDark ? "dark" : "light"}-${isTinted ? "tint" : "no-tint"}-${schemeVariant}`;
+
   if (cacheKey === lastCacheKey) {
     return;
   }
 
-  const css = getCachedColorCSS(color, isDark, isTinted);
+  const css = getCachedColorCSS(color, isDark, isTinted, schemeVariant);
   lastCacheKey = cacheKey;
 
   const style = getOrCreateStyle("lucid-colors");
 
   style.textContent = css;
-  console.debug(`[Lucid] setColors -> Applied CSS for color: ${color}, mode: ${mode}`);
+  console.debug(
+    `[Lucid] setColors -> Applied CSS for color: ${color}, mode: ${mode}, scheme: ${schemeVariant}`,
+  );
 }
 
-function getCachedColorCSS(color: string, isDark: boolean, isTinted: boolean): string {
-  const cacheKey = `${color}-${isDark ? "dark" : "light"}-${isTinted ? "tint" : "no-tint"}`;
+function getCachedColorCSS(
+  color: string,
+  isDark: boolean,
+  isTinted: boolean,
+  schemeVariant: SchemeVariant,
+): string {
+  const cacheKey = `${color}-${isDark ? "dark" : "light"}-${isTinted ? "tint" : "no-tint"}-${schemeVariant}`;
 
   if (colorCache.has(cacheKey)) {
     console.debug(`[Lucid] Color Cache -> Hit: ${cacheKey}`);
@@ -45,7 +53,7 @@ function getCachedColorCSS(color: string, isDark: boolean, isTinted: boolean): s
   }
 
   console.debug(`[Lucid] Color Cache -> Miss: ${cacheKey}`);
-  const css = getMaterialColors(color, isDark, isTinted);
+  const css = getMaterialColors(color, isDark, isTinted, schemeVariant);
 
   if (colorCache.size >= MAX_CACHE_SIZE) {
     const oldestKey = colorCache.keys().next().value;
@@ -65,6 +73,11 @@ tempStore.subscribe((state) => {
   return state.player?.current?.colors?.colorRaw?.hex;
 }, setColors);
 
-export function cacheColorInBackground(color: string, isDark = false, isTinted = false) {
-  getCachedColorCSS(color, isDark, isTinted);
+export function cacheColorInBackground(
+  color: string,
+  isDark = false,
+  isTinted = false,
+  schemeVariant: SchemeVariant = "tonalSpot",
+) {
+  getCachedColorCSS(color, isDark, isTinted, schemeVariant);
 }

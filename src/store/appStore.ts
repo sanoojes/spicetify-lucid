@@ -36,6 +36,7 @@ export const DEFAULT_STATE: AppState = {
     isDark: true,
     isTinted: true,
     accentColor: "#6200ee",
+    schemeVariant: "tonalSpot",
   },
   bg: {
     mode: "static",

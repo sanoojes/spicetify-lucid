@@ -1,3 +1,5 @@
+import type { SchemeVariant } from "@/utils/colors/getMaterialColors";
+
 // deno-lint-ignore ban-types
 type Stringify<T extends string> = T | (string & {}); // just to trick the compiler
 
@@ -7,6 +9,7 @@ export type ColorState = {
   accentColor: Color;
   isTinted: boolean;
   isDark: boolean;
+  schemeVariant: Stringify<SchemeVariant>;
 };
 
 export type CSSFilter = {
