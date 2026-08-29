@@ -66,11 +66,15 @@ const Carousel = ({
   return (
     <div className="search-searchCategory-wrapper carousel-wrapper">
       <div
-        className={`search-searchCategory-contentArea a2NTH51fJWzWsds0OYv_ ${atStart ? "at-start U8wi3gXSb248Imbxy4gc" : ""} ${atEnd ? "at-end Yjx8QrpjqgjqQPj4KWCh" : ""}`}
+        className={`search-searchCategory-contentArea a2NTH51fJWzWsds0OYv_ ${
+          !atStart && !atEnd ? "is-center" : ""
+        } ${atStart ? "at-start U8wi3gXSb248Imbxy4gc" : ""} ${
+          atEnd ? "at-end Yjx8QrpjqgjqQPj4KWCh" : ""
+        }`}
       >
         <div
           className="search-searchCategory-categoryGrid"
-          style={{ userSelect: "none", scrollBehavior: "auto" }}
+          style={{ userSelect: "none", scrollBehavior: "auto", mask: "none" }}
           ref={scrollRef}
         >
           {categories.map((label, index) => (
