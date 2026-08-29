@@ -330,6 +330,7 @@ body {
     height: var(--npv-size, 420px) !important;
     border-radius: 0.75rem;
   }
+  .main-nowPlayingView-container,
   .NowPlayingView,
   #Desktop_PanelContainer_Id,
   .ffFwfKcPDbmAPLXzxzKq,

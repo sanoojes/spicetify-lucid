@@ -151,7 +151,7 @@ export const RightSidebarStateSchema = AutoHideBaseStateSchema.extend({
   compactSize: boundedNumber({
     name: "Compact Sidebar Size",
     min: 0,
-    max: 512,
+    max: 640,
   }),
 });
 
