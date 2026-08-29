@@ -1465,3 +1465,17 @@ input.lucid-input {
   backdrop-filter: blur(12px);
   pointer-events: none;
 }
+
+.no-bg-all {
+  &,
+  body,
+  #main,
+  .Root,
+  .Root__main-view {
+    background-color: transparent !important;
+  }
+
+  .lucid-bg {
+    display: none;
+  }
+}

@@ -28,6 +28,7 @@ export const getBackgroundSettings = (
               ["Static Image", "static"],
               ["Animated", "animated"],
               ["Solid Color", "solid"],
+              ["None", "none"],
             ],
             onChange: (mode) => state.setBg({ mode }),
           },
@@ -66,7 +67,7 @@ export const getBackgroundSettings = (
       {
         id: "background-image",
         groupName: "Image Settings",
-        visible: () => bgMode !== "solid",
+        visible: () => bgMode === "image" || bgMode === "animated",
         components: [
           {
             id: "img-mode",
@@ -96,7 +97,7 @@ export const getBackgroundSettings = (
       {
         id: "background-filter",
         groupName: "Filters",
-        visible: () => bgMode !== "solid",
+        visible: () => bgMode === "image" || bgMode === "animated",
         components: [
           {
             id: "blur",

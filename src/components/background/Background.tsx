@@ -2,6 +2,7 @@ import AnimatedBackgroundCanvas from "@/components/background/AnimatedBackground
 import StaticBackground from "@/components/background/StaticBackground.tsx";
 import appStore from "@/store/appStore.ts";
 import tempStore from "@/store/tempStore.ts";
+import { useEffect } from "react";
 import { useStore } from "zustand";
 
 const Background: React.FC = () => {
@@ -26,6 +27,16 @@ const Background: React.FC = () => {
     return null;
   })();
 
+  useEffect(() => {
+    const noneClass = "no-bg-all";
+
+    document.documentElement.classList.toggle(noneClass, mode === "none");
+
+    return () => {
+      document.documentElement.classList.remove(noneClass);
+    };
+  }, [mode]);
+
   return (
     <div className="bg-wrapper">
       {mode === "animated" ? (
@@ -34,8 +45,10 @@ const Background: React.FC = () => {
         </div>
       ) : mode === "solid" ? (
         <div className="bg solid" style={{ backgroundColor: color }}></div>
-      ) : (
+      ) : mode === "static" ? (
         <StaticBackground imageSrc={imageSrc} />
+      ) : (
+        ""
       )}
     </div>
   );

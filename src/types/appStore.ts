@@ -26,7 +26,7 @@ export type BodyClassState = {
   flexyHome: boolean;
 };
 
-type BackgroundMode = Stringify<"solid" | "static" | "animated">;
+type BackgroundMode = Stringify<"solid" | "static" | "animated" | "none">;
 type BackgroundImageMode = Stringify<"custom" | "player" | "page">;
 export type BackgroundState = {
   mode: BackgroundMode;
