@@ -239,3 +239,11 @@ main.T0fKO6B7LQSCE_VaSM1P > section {
     }
   }
 }
+
+@layer reset {
+  button:hover {
+    span {
+      color: var(--clr-primary);
+    }
+  }
+}

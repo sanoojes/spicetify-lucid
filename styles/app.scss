@@ -873,6 +873,8 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 
 .main-trackCreditsModal-mainSection {
   padding: 8px 12px 0 16px !important;
+  display: block;
+  overflow-x: scroll;
 }
 
 .main-trackCreditsModal-originalCredits {
@@ -880,6 +882,8 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 }
 
 .main-trackCreditsModal-header {
+  display: flex;
+  justify-content: space-between;
   padding: 8px 16px !important;
   align-items: center !important;
 }
