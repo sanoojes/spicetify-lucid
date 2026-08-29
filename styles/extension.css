@@ -267,17 +267,42 @@ body {
 .npv-compact {
   --npv-size: var(--rs-compact-size, 400px);
   .Root__main-view {
-    grid-row-end: now-playing-bar !important;
+    grid-column-end: right-sidebar !important;
   }
 
   .Root__right-sidebar {
     position: fixed;
     z-index: 9;
-    -webkit-backdrop-filter: var(--rs-compact-blur, blur(var(--npv-blur, 16px)));
-    backdrop-filter: var(--rs-compact-blur, blur(var(--npv-blur, 16px)));
     transition: var(--default-transition);
     transform-origin: bottom right;
     box-shadow: 0 0 4rem 2px var(--clr-shadow);
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: inherit;
+      -webkit-backdrop-filter: var(--rs-compact-blur, blur(var(--npv-blur, 16px)));
+      backdrop-filter: var(--rs-compact-blur, blur(var(--npv-blur, 16px)));
+    }
+  }
+
+  .main-nowPlayingView-headerContainer {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    pointer-events: none;
+
+    &.BEeVmHj340c0PYHe {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
   }
 
   &.npv-right .Root__right-sidebar {
@@ -297,10 +322,14 @@ body {
 
   &.npv-bottom.player--hovering .Root__right-sidebar,
   &.npv-bottom .Root__right-sidebar {
-    bottom: calc(1.25rem + var(--player-height, 5rem));
+    bottom: calc((var(--panel-gap, 8px) * 2) + var(--player-height, 5rem));
   }
 
-  .Root__right-sidebar:has(#Desktop_PanelContainer_Id),
+  .Root__right-sidebar:has(#Desktop_PanelContainer_Id) {
+    width: fit-content;
+    height: var(--npv-size, 420px) !important;
+    border-radius: 0.75rem;
+  }
   .NowPlayingView,
   #Desktop_PanelContainer_Id,
   .ffFwfKcPDbmAPLXzxzKq,
@@ -336,6 +365,7 @@ body {
     display: none;
   }
 
+  .main-nowPlayingView-coverArtVisualEnhancement,
   .DyIlapjoCthUuSOzmJGD,
   .ylBRlfNqGnzVa4kjUQGP {
     padding-left: 0;
@@ -361,6 +391,7 @@ body {
     opacity: 1;
   }
 
+  .main-nowPlayingView-panel,
   div[data-overlayscrollbars-initialize],
   div[data-overlayscrollbars-viewport~="scrollbarHidden"] {
     padding: 0 !important;
@@ -976,6 +1007,10 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
 }
 
 /* Carousel */
+.search-searchCategory-categoryGrid {
+  scrollbar-width: none !important;
+}
+
 .carousel-wrapper {
   position: relative;
   margin-bottom: 8px;

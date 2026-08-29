@@ -694,6 +694,21 @@ div.main-trackList-trackListRow {
   }
 }
 
+.Root__right-sidebar-overlay {
+  border-radius: 16px;
+  background-color: rgba(var(--clr-surface-rgb), 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.Root__right-sidebar-overlayWrapper,
+.Root__right-sidebar-peek {
+  background-color: transparent;
+}
+
+.Root__right-sidebar-fauxMainViewEnd > *,
+.qnaFIKUJ9oUIkN97 > * {
+  background-color: transparent;
+}
 .tB3JVNYttFlVC_oYVfjI {
   /* Fixes related music videos card background in right sidebar */
   background-color: var(--section-background-base) !important;
@@ -714,6 +729,7 @@ div.main-trackList-trackListRow {
   background: transparent !important;
 }
 
+.main-nowPlayingView-headerContainer,
 .W3E0IT3_STcazjTeyOJa
 
 /* Header */ {
@@ -738,6 +754,7 @@ div.main-trackList-trackListRow {
   }
 }
 
+.BEeVmHj340c0PYHe,
 .mdMUqcSHFw1lZIcYEblu
 
 /* Header - box shadow */ {
@@ -749,6 +766,7 @@ div.main-trackList-trackListRow {
   }
 }
 
+.main-nowPlayingView-panel,
 .cZCuJDjrGA2QMXja_Sua
 
 /* Content Wrapper */ {
@@ -875,7 +893,7 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
 .main-trackCreditsModal-mainSection {
   padding: 8px 12px 0 16px !important;
   display: block;
-  overflow-x: scroll;
+  overflow: auto;
 }
 
 .main-trackCreditsModal-originalCredits {

@@ -37,6 +37,14 @@ export default function setRightSidebar(rightSidebar = appStore.getState().right
   if (mode === "compact") {
     document.body.style.setProperty("--rs-compact-blur", serializeFilters(compactBackdropFilter));
     document.body.style.setProperty("--rs-compact-size", `${compactSize}px`);
+
+    try {
+      const lKey = `${Spicetify.Platform.username}:ui.right_sidebar_content`;
+      const val = JSON.parse(localStorage.getItem(lKey) || "");
+      if (val === "disabled") {
+        localStorage.setItem(lKey, JSON.stringify("now_playing_view"));
+      }
+    } catch {}
   }
 
   if (hoverTarget) {
