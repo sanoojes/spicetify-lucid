@@ -14,7 +14,7 @@ export const addPageStyles = async (url = Spicetify?.Platform?.History?.location
 
   if (url.pathname === "/search") {
     const intervalId = setInterval(
-      () => updateCardBgAlpha(".Vn9yz8P5MjIvDT8c0U6w, .HR4FaJd7xDymgB64NpRG"),
+      () => updateCardBgAlpha(".iaaQKMqcyZQBT9bn, .Vn9yz8P5MjIvDT8c0U6w, .HR4FaJd7xDymgB64NpRG"),
       300,
     );
     setTimeout(() => clearInterval(intervalId), 6000);

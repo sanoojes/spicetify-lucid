@@ -344,7 +344,7 @@
     background: none;
   }
 
-  .znOINyqAy7ivIGbQyrbt,
+  #search-dropdown,  .znOINyqAy7ivIGbQyrbt,
   .GimJ6fo6WOYPyWNVpSr1
 
   /* Search Hover / Recent Search Card */ {
@@ -371,6 +371,13 @@
   .main-avatar-avatar {
     margin: 0px !important;
     border-radius: var(--br);
+  }
+  ._LPzAQO5QO8QkoNs {
+    padding: 6px 12px;
+
+    svg {
+      padding: 4px;
+    }
   }
 }
 
@@ -582,6 +589,7 @@ div.main-trackList-trackListRow {
 .main-topBar-background,
 .search-searchCategory-SearchCategory,
 .main-home-filterChipsSection,
+.Ltz8hFoxXpck1XAk.main-trackList-trackListHeader,
 .main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
   background-color: var(--background-highlight) !important;
   background-image: var(--blur-grain) !important;
@@ -600,12 +608,17 @@ div.main-trackList-trackListRow {
 
 /* ========== Search card ========== */
 .main-gridContainer-gridContainer {
+  .skNXPkuu4IqzcOdJ {
+    margin: 0;
+  }
+
   .IGCDq9qa08JVVY3mcy7Y {
     --accent-color: var(--clr-primary);
     /* fallback */
     padding: 4px;
   }
 
+  .iaaQKMqcyZQBT9bn,
   .HR4FaJd7xDymgB64NpRG,
   .Vn9yz8P5MjIvDT8c0U6w {
     border: var(--default-border);
@@ -626,6 +639,7 @@ div.main-trackList-trackListRow {
       background: linear-gradient(120deg, transparent, var(--clr-surface));
     }
 
+    .main-image-image,
     .oIkT3YEjIYuZFH4gmAeZ,
     .WDC2Yzs811n7JCYtYQzc {
       box-shadow: 0px 0px 3rem 8px rgba(var(--accent-color), 0.5);
@@ -633,6 +647,7 @@ div.main-trackList-trackListRow {
       transition: transform 225ms ease-in-out;
     }
 
+    &:hover .main-image-image,
     &:hover .oIkT3YEjIYuZFH4gmAeZ,
     &:hover .WDC2Yzs811n7JCYtYQzc {
       transform: scale(1.1) rotate(15deg) translate(15%, 0%);
@@ -1092,6 +1107,19 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
     mask-image: linear-gradient(rgb(0, 0, 0) 28vh, rgba(0, 0, 0, 0) 100%);
   }
 
+  .artist-artistDiscography-topBar {
+    top: 0;
+    height: 48px;
+    padding: 12px 16px;
+    backdrop-filter: none;
+    transition:
+      backdrop-filter 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &.artist-artistDiscography-topBarScrolled {
+      backdrop-filter: var(--header-filters);
+    }
+  }
   .mxGhI8Lr7MoGOnFrbsUa,
   .BHHXR8xc6m009ohY6aKU {
     top: 0;
@@ -1121,6 +1149,10 @@ dialog[aria-describedby="clear-cache-dialog-heading"] {
     padding: 0.75rem 1rem;
     border-radius: var(--m-br);
     margin-bottom: 8px;
+  }
+
+  .artist-artistDiscography-tracklist {
+    padding-bottom: 2rem;
   }
 }
 

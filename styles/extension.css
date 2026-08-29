@@ -668,12 +668,14 @@ body {
     }
   }
 
+  .main-entityHeader-imageContainerWrapper,
   .eFZahdafW8vQ7xY1kfBg {
     height: fit-content;
   }
 
   .main-entityHeader-imageContainerWrapper > .main-entityHeader-headerText {
     height: fit-content;
+    margin: auto 0;
   }
 }
 .page-card {
