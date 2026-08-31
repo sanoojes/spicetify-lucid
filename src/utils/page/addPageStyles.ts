@@ -12,9 +12,12 @@ export const addPageStyles = async (url = Spicetify?.Platform?.History?.location
 
   const style = document.body.style;
 
-  if (url.pathname === "/search") {
+  if (url.pathname === "/search" || url.pathname === "/home") {
     const intervalId = setInterval(
-      () => updateCardBgAlpha(".iaaQKMqcyZQBT9bn, .Vn9yz8P5MjIvDT8c0U6w, .HR4FaJd7xDymgB64NpRG"),
+      () =>
+        updateCardBgAlpha(
+          `.iaaQKMqcyZQBT9bn, .Vn9yz8P5MjIvDT8c0U6w, .HR4FaJd7xDymgB64NpRG, .laOEpXn67bgflATz, div[data-uri="spotify:episode:*"]`,
+        ),
       300,
     );
     setTimeout(() => clearInterval(intervalId), 6000);

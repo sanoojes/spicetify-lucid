@@ -344,7 +344,9 @@
     background: none;
   }
 
+  .zddkQq3wlxEOg6aa,
   #search-dropdown > div[data-overlayscrollbars],
+  #search-suggestions-loading-dropdown > div[data-overlayscrollbars],
   .znOINyqAy7ivIGbQyrbt,
   .GimJ6fo6WOYPyWNVpSr1
 
@@ -605,6 +607,43 @@ div.main-trackList-trackListRow {
 
 .wuQsKLTukGW5aeEAHxiu {
   gap: var(--home-card-gap);
+}
+
+/* ========== Episode cards ========== */
+.laOEpXn67bgflATz/* EP main */ {
+  --icon-color: color-mix(in oklab, rgb(var(--accent-color)) 70%, white 100%);
+
+  background-color: transparent !important;
+
+  &:hover::after {
+    background-color: transparent !important;
+    background-image: radial-gradient(
+      circle at center right,
+      rgba(var(--accent-color), 0.5),
+      rgba(var(--clr-surface-rgb), 0.8) 100%
+    ) !important;
+  }
+
+  .NuWPokW743ggEzko {
+    span:last-child {
+      color: var(--accent-color) !important;
+    }
+  }
+}
+
+.XxkIgnusUQw8ZRBk/* EP bg */ {
+  backdrop-filter: blur(1rem) saturate(2);
+  background-color: transparent !important;
+  background-image: radial-gradient(
+    circle at center right,
+    rgba(var(--accent-color), 0.4),
+    rgba(var(--clr-surface-rgb), 0.7) 100%
+  ) !important;
+  border: var(--default-border);
+  transition: background-image 0.3s ease;
+}
+.JoGWpig38pszZzLf/* EP data-uri */ {
+  background: transparent !important;
 }
 
 /* ========== Search card ========== */
@@ -888,6 +927,8 @@ div.main-trackList-trackListRow {
 
 /* artist modal dialog */
 ,
+.GenericModal__overlay > div[role="dialog"],
+.GenericModal__overlay > div[aria-modal="true"],
 .main-embedWidgetGenerator-container {
   z-index: 9999 !important;
   background-color: rgba(var(--clr-surface-rgb), 0.7) !important;
