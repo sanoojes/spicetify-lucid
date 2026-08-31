@@ -29,7 +29,7 @@ export const openModal = () => {
   //   });
   // });
 
-  showModal({ title: "Lucid Settings", content: <Settings /> });
+  showModal({ id: "settings", title: "Lucid Settings", content: <Settings /> });
 };
 
 async function addSettings(position = appStore.getState().settingModal.accessPoint) {

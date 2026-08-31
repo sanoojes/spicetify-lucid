@@ -4,19 +4,29 @@ import React, { type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 
 type ModalProps = {
+  id: string;
   title: string;
   content: ReactNode;
 };
 
-export function showModal({ title, content }: ModalProps) {
-  const rootElem = getOrCreateElement("div", "modal-root", document.body);
-  const root = createRoot(rootElem);
+const activeModals = new Set<string>();
+
+export function showModal({ id, title, content }: ModalProps) {
+  if (activeModals.has(id)) {
+    return;
+  }
+  activeModals.add(id);
+
+  const modalRoot = getOrCreateElement("div", "modal-root", document.body);
+  const container = document.createElement("div");
+  modalRoot.appendChild(container);
+
+  const root = createRoot(container);
 
   const handleClose = () => {
+    activeModals.delete(title);
     root.unmount();
-    if (rootElem.parentNode) {
-      rootElem.parentNode.removeChild(rootElem);
-    }
+    container.remove();
   };
 
   root.render(
