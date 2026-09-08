@@ -140,6 +140,7 @@ body {
 
     &.show {
       left: var(--panel-gap);
+      z-index: calc(var(--hover-target-z-index, 4) + 1);
     }
   }
 
@@ -162,6 +163,7 @@ body {
   .main-home-filterChipsContainer {
     top: 0;
     border-radius: 0;
+    transition: top 0.3s ease-in-out;
   }
 
   .Root__globalNav {
@@ -175,8 +177,18 @@ body {
     width: calc(100vw - (var(--gap, 16px)));
     transition: top 0.3s ease-in-out;
     z-index: var(--above-main-z-index, 5);
+    background-color: transparent !important;
+  }
+
+  .Root__globalNav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: var(--background-highlight);
+    -webkit-backdrop-filter: var(--header-filters);
     backdrop-filter: var(--header-filters);
-    background-color: var(--background-highlight) !important;
   }
 }
 
