@@ -48,8 +48,19 @@
   app-region: none;
 }
 
+.main-actionButtons button[aria-label="Lucid Settings"]:not(:hover):not(:focus-visible) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 /* .spotify__os--is-windows {
 } */
+
+.spotify__os--is-macos .global-nav-auto-hide .main-home-filterChipsContainer {
+  padding-left: 78px;
+}
 
 /* ========== Global ========== */
 .Button-buttonSecondary-medium-useBrowserDefaultFocusStyle,
@@ -214,6 +225,24 @@
   border-radius: 16px;
 }
 
+.Root__nav-bar {
+  --lib-bar-darkness: 0.9;
+  -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(var(--lib-bar-darkness));
+  backdrop-filter: blur(32px) saturate(1.5) brightness(var(--lib-bar-darkness));
+}
+
+button[aria-label="Open Your Library"] span:has(path[d^="M20 22a2 2 0"]) {
+  display: none;
+}
+
+.library-auto-hide #Desktop_LeftSidebar_Id,
+.library-auto-hide .Root__nav-bar {
+  --lib-bar-tint: 0.1;
+  background-color: rgba(var(--clr-surface-rgb), var(--lib-bar-tint)) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(var(--lib-bar-darkness, 0.9));
+  backdrop-filter: blur(32px) saturate(1.5) brightness(var(--lib-bar-darkness, 0.9));
+}
+
 .RHoNK4qVATbstzJZm5G8._iJX4yzDZzSHy_g9vp3G:after
 
 /* form context menu border */ {
@@ -225,6 +254,7 @@
 .DquSH3YjnaIIXMZiOvwA,
 .main-contextMenu-menu,
 #context-menu > form,
+#context-menu > [role="menu"],
 .jHt3xA6ovwVKkMJKqOhO {
   scrollbar-width: thin;
   background: var(--background-base);
@@ -603,6 +633,36 @@ div.main-trackList-trackListRow {
   &:after {
     display: none;
   }
+}
+
+body.global-nav-floating .main-home-filterChipsSection:not(#\#):not(#\#) {
+  opacity: 1 !important;
+}
+
+.global-nav-floating .main-home-filterChipsContainer,
+.global-nav-floating .main-home-filterChipsSection {
+  border-radius: var(--l-br);
+}
+
+.Root__globalNav:not(#\#):not(#\#) {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.main-home-filterChipsContainer:not(#\#):not(#\#),
+.main-home-filterChipsSection:not(#\#):not(#\#) {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.global-nav-floating .view-homeShortcutsGrid-shortcuts {
+  margin-top: calc(var(--global-nav-height) - var(--panel-gap));
+}
+.global-nav-floating.global-nav-auto-hide .view-homeShortcutsGrid-shortcuts {
+  margin-top: 0;
+  transition: margin-top 0.3s ease-in-out;
+}
+.global-nav-floating.global-nav-auto-hide.global-nav--hovering .view-homeShortcutsGrid-shortcuts {
+  margin-top: calc(var(--global-nav-height) - var(--panel-gap));
 }
 
 .wuQsKLTukGW5aeEAHxiu {

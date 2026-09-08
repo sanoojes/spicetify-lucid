@@ -24,7 +24,7 @@ export function showModal({ id, title, content }: ModalProps) {
   const root = createRoot(container);
 
   const handleClose = () => {
-    activeModals.delete(title);
+    activeModals.delete(id);
     root.unmount();
     container.remove();
   };
