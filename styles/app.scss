@@ -231,10 +231,6 @@
   backdrop-filter: blur(32px) saturate(1.5) brightness(var(--lib-bar-darkness));
 }
 
-button[aria-label="Open Your Library"] span:has(path[d^="M20 22a2 2 0"]) {
-  display: none;
-}
-
 .library-auto-hide #Desktop_LeftSidebar_Id,
 .library-auto-hide .Root__nav-bar {
   --lib-bar-tint: 0.1;
@@ -635,23 +631,13 @@ div.main-trackList-trackListRow {
   }
 }
 
-body.global-nav-floating .main-home-filterChipsSection:not(#\#):not(#\#) {
+body.global-nav-floating .main-home-filterChipsSection {
   opacity: 1 !important;
 }
 
 .global-nav-floating .main-home-filterChipsContainer,
 .global-nav-floating .main-home-filterChipsSection {
   border-radius: var(--l-br);
-}
-
-.Root__globalNav:not(#\#):not(#\#) {
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-.main-home-filterChipsContainer:not(#\#):not(#\#),
-.main-home-filterChipsSection:not(#\#):not(#\#) {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
 }
 
 .global-nav-floating .view-homeShortcutsGrid-shortcuts {
