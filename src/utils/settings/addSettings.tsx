@@ -23,7 +23,7 @@ export const openModal = () => {
 
   // waitForGlobal(() => Spicetify?.PopupModal).then((modal) => {
   //   modal.display({
-  //     title: 'Lucid Settings',
+  //     title: "Lucid Settings",
   //     content: <Settings />,
   //     isLarge: true,
   //   });

@@ -330,13 +330,13 @@
     box-shadow: none !important;
   }
 
-  .main-globalNav-navLink {
+  .main-globalNav-navLink:not(.main-actionButtons) {
     min-width: 52px;
   }
 
   .GimJ6fo6WOYPyWNVpSr1,
   .main-topBar-searchBar,
-  .main-globalNav-navLink,
+  .main-globalNav-navLink:not(.main-actionButtons):not(.main-globalNav-historyButtons),
   .main-globalNav-navLinkActive {
     transition: var(--default-transition);
     border: var(--default-border);
@@ -951,6 +951,18 @@ body.global-nav-floating .main-home-filterChipsSection {
 /* ========== Modals ========== */
 .GenericModal__overlay {
   background-color: rgba(var(--clr-shadow-rgb), 0.5);
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main-embedWidgetGenerator-container {
+    width: 100%;
+    max-width: min(60vw, 48rem);
+  }
 }
 
 .floating.main-embedWidgetGenerator-container {

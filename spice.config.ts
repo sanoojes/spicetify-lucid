@@ -17,6 +17,7 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
       "@icons": resolve(__dirname, "assets/icons/"),
     },
+    target: "chrome108",
     plugins: [svgrPlugin()],
   },
 });
