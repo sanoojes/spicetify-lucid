@@ -20,9 +20,9 @@
     "description": "Legacy version of Lucid V2, compatible with Spotify versions v1.2.45 to v1.2.60. No longer maintained.",
     "preview": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/main/assets/images/base.png",
     "readme": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v2/README.md",
-    "usercss": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v2/src/user.css",
-    "schemes": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v2/src/color.ini",
-    "include": ["https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v2/src/theme.js"],
+    "usercss": "https://gitlab.com/sanoojes/spicetify-lucid/raw/v2/src/user.css",
+    "schemes": "https://gitlab.com/sanoojes/spicetify-lucid/raw/v2/src/color.ini",
+    "include": ["https://gitlab.com/sanoojes/spicetify-lucid/raw/v2/src/theme.js"],
     "authors": [
       {
         "name": "Sachu",
@@ -36,9 +36,9 @@
     "description": "Original legacy version of Lucid, designed for Spotify versions v1.2.45 to v1.2.55. Unmaintained.",
     "preview": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/main/assets/images/base.png",
     "readme": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v1/README.md",
-    "usercss": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v1/src/user.css",
-    "schemes": "https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v1/src/color.ini",
-    "include": ["https://glcdn.githack.com/sanoojes/spicetify-lucid/raw/v1/src/theme.js"],
+    "usercss": "https://gitlab.com/sanoojes/spicetify-lucid/raw/v1/src/user.css",
+    "schemes": "https://gitlab.com/sanoojes/spicetify-lucid/raw/v1/src/color.ini",
+    "include": ["https://gitlab.com/sanoojes/spicetify-lucid/raw/v1/src/theme.js"],
     "authors": [
       {
         "name": "Sachu",
