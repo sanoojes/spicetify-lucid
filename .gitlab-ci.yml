@@ -10,12 +10,25 @@ pages:
     paths:
       - node_modules/
   script:
+    - apt-get update && apt-get install -y git
+
     - bun install --frozen-lockfile
     - bun run build
-    - mkdir -p public/spice
+    - mkdir -p public/spice/v1 public/spice/v2 public/assets/images
     - cp -a docs/.vitepress/dist/. public/
     - cp -a dist/. public/spice/
     - cp color.ini public/spice/color.ini
+    - cp -a assets/images/. public/assets/images/
+    - cp README.md public/README.md
+    - git fetch origin v1:refs/remotes/origin/v1 v2:refs/remotes/origin/v2 --depth=1
+
+    - |
+      for v in v1 v2; do
+        git show origin/$v:src/user.css > public/spice/$v/user.css
+        git show origin/$v:src/theme.js > public/spice/$v/theme.js
+        git show origin/$v:src/color.ini > public/spice/$v/color.ini
+        git show origin/$v:README.md > public/spice/$v/README.md
+      done
   artifacts:
     paths:
       - public
