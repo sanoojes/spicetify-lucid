@@ -449,3 +449,8 @@ div.cover-art-icon {
   background-color: rgba(0, 0, 0, 0) !important;
   background-image: none !important;
 }
+
+/* Now playing view border radius mismatch */
+.xyTYq7imng71iO6y2eGQ {
+  border-radius: 16px !important;
+}
