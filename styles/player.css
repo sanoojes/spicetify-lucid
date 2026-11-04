@@ -430,3 +430,22 @@ div.cover-art-icon {
     bottom: var(--panel-gap);
   }
 }
+
+/* Home top colour bar */
+.kMaYBahSBLOnErF7DLR2,
+/* Home scrolled colour bar */
+.dtglbjFWIMhmwHwayh7P.xCEkyVpabf3oVGmFQVej {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Liked songs behind title colour bar */
+.uP1rcUSIWCFaOZaoH0ZG,
+/* Playlist behind title colour bar */
+.hbNOZbHD3bPL3OcHQWNn,
+/* Playlist below title gradient */
+.r8bczAWCEgb9_L0iyIcc,
+/* Playlist below title colour bar */
+.IfBZ5VdI_2nwDMl4H6Yh {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: none !important;
+}
