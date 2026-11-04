@@ -454,3 +454,15 @@ div.cover-art-icon {
 .xyTYq7imng71iO6y2eGQ {
   border-radius: 16px !important;
 }
+
+/* Remove background from div surrounding now playing bar */
+.XvuTwlgQRqJ5NnVLN9ZH {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Add background to now playing bar div itself */
+.main-nowPlayingBar-nowPlayingBar {
+  background-color: color-mix(in srgb,
+      var(--background-base) 50%,
+      var(--spice-sidebar)) !important;
+}
