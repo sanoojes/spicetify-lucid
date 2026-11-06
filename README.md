@@ -14,5 +14,5 @@ This project is licensed under the [AGPLv3 License](LICENSE) — feel free to mo
 and distribute it according to the terms.
 
 > **Development & Contributions**
-> The main development for this project happens on [GitLab](https://gitlab.com/sanoojes/spicetify-lucid).
-> If you encounter any bugs or have feature requests, please [report an issue](https://gitlab.com/sanoojes/spicetify-lucid/-/work_items).
+> The main development for this project happens on [Github](https://github.com/sanoojes/spicetify-lucid).
+> If you encounter any bugs or have feature requests, please [report an issue](https://github.com/sanoojes/spicetify-lucid/issues).
