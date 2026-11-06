@@ -18,6 +18,7 @@
   padding: 0;
   width: 100%;
 }
+
 .Root__now-playing-bar .progress-bar {
   --progress-bar-height: var(--slider-height, 4px) !important;
 }
@@ -32,6 +33,7 @@
   transform: translate3d(-50%, 0, 0);
   padding: 0;
 }
+
 .floating .main-nowPlayingBar-container {
   padding: 0 var(--panel-gap);
 }
@@ -44,19 +46,23 @@
   border: var(--default-border);
   border-radius: var(--player-border-radius, var(--m-br));
 }
+
 .next-playing-on-right {
   .next-playing-card {
     margin-left: 4px;
   }
 }
+
 .next-playing-on-left {
   .next-playing-card {
     order: 0;
   }
+
   .main-nowPlayingBar-nowPlayingBar {
     order: 1;
   }
 }
+
 .player-controls__buttons {
   margin-bottom: 4px;
 }
@@ -111,8 +117,10 @@
     border-radius: var(--player-image-radius, 8px);
   }
 }
+
 .player-compact .Root__now-playing-bar {
   --cover-art-size: calc(var(--player-height) - 16px);
+
   .cover-art {
     position: relative;
   }
@@ -159,6 +167,7 @@
   .main-nowPlayingBar-right {
     max-width: fit-content;
   }
+
   .progress-bar {
     min-width: 4cqw;
   }
@@ -213,6 +222,7 @@
 div.cover-art {
   background-color: rgba(var(--clr-on-surface-rgb), 0.1);
 }
+
 div.cover-art-icon {
   inset: 0 !important;
   position: absolute;
@@ -284,12 +294,15 @@ div.cover-art-icon {
   .main-trackInfo-artists {
     display: block;
   }
+
   .main-coverSlotCollapsed-container {
     margin: 0;
   }
+
   .main-coverSlotCollapsed-container button {
     background: transparent;
   }
+
   .main-nowPlayingWidget-coverArt,
   .cover-art,
   .HD9s7U5E1RLSWKpXmrqx,
@@ -302,6 +315,7 @@ div.cover-art-icon {
       calc(var(--height) - (var(--y-padding, 8px) + var(--x-padding, 8px)))
     );
   }
+
   .placeholder-title,
   .placeholder-artist {
     width: 10rem;
@@ -334,12 +348,14 @@ div.cover-art-icon {
   height: var(--main-view-height);
   background-image: linear-gradient(to bottom, transparent 75%, rgba(var(--clr-surface-rgb), 0.25));
 }
+
 .player-floating {
   .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: calc(var(--main-view-height, 800px) - (var(--player-height, 5rem)));
   }
 }
+
 .global-nav-floating {
   .main-entityHeader-container.DFuKwT5bvhKZoYr2gfZe,
   .main-entityHeader-container.main-entityHeader-withBackgroundImage {
@@ -382,6 +398,7 @@ div.cover-art-icon {
   .main-yourLibraryX-libraryRootlist {
     padding-bottom: var(--player-height, 5rem) !important;
   }
+
   .marketplace-add-snippet-btn {
     bottom: var(--player-height, 5rem) !important;
   }
@@ -400,7 +417,9 @@ div.cover-art-icon {
     grid-row-end: now-playing-bar !important;
   }
 
-  .QdB2YtfEq0ks5O4QbtwX /* now playing card in root */ {
+  .QdB2YtfEq0ks5O4QbtwX
+
+  /* now playing card in root */ {
     grid-row-end: now-playing-bar !important;
   }
 
@@ -429,4 +448,39 @@ div.cover-art-icon {
   .floating.Root__now-playing-bar.show {
     bottom: var(--panel-gap);
   }
+}
+
+/* Home top colour bar */
+.kMaYBahSBLOnErF7DLR2,
+/* Home scrolled colour bar */
+.dtglbjFWIMhmwHwayh7P.xCEkyVpabf3oVGmFQVej {
+  background-image: none !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Liked songs behind title colour bar */
+.uP1rcUSIWCFaOZaoH0ZG,
+/* Playlist behind title colour bar */
+.hbNOZbHD3bPL3OcHQWNn,
+/* Playlist below title gradient */
+.r8bczAWCEgb9_L0iyIcc,
+/* Playlist below title colour bar */
+.IfBZ5VdI_2nwDMl4H6Yh {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: none !important;
+}
+
+/* Now playing view border radius mismatch */
+.xyTYq7imng71iO6y2eGQ {
+  border-radius: 16px !important;
+}
+
+/* Remove background from div surrounding now playing bar */
+.XvuTwlgQRqJ5NnVLN9ZH {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Add background to now playing bar div itself */
+.main-nowPlayingBar-nowPlayingBar {
+  background-color: color-mix(in srgb, var(--background-base) 50%, var(--spice-sidebar)) !important;
 }
